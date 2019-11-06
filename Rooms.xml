@@ -1,0 +1,514 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<Rooms>
+	<Room>
+		<id>R00</id>
+		<visited>false</visited>
+		<description>You find yourself on the 1st floor of the library.
+Several study rooms line the entire floor, which
+vary in size.
+1st Floor Rooms: R01, R02, R03, R04, R05, R06, R07, R08,
+R33
+2nd Floor Rooms: R09</description>
+		<R01>R01</R01>
+		<R02>R02</R02>
+		<R03>R03</R03>
+		<R04>R04</R04>
+		<R05>R05</R05>
+		<R06>R06</R06>
+		<R07>R07</R07>
+		<R08>R08</R08>
+		<R33>R33</R33>
+		<R09>R09</R09>
+	</Room>
+	
+	<Room>
+		<id>R01</id>
+		<visited>false</visited>
+		<description>You find yourself in a small study room.
+A white-board with math scribbles hangs on the wall.
+A large desk is in the middle of the room.
+One door leads to another study room and the other 
+from where you came.
+Rooms: R00, R02</description>
+		<R00>R00</R00>
+		<R02>R02</R02>
+	</Room>
+	
+	<Room>
+		<id>R02</id>
+		<visited>false</visited>
+		<description>You find yourself in a small study room.
+The light above is constantly flickering.
+The room is a mess and chairs lay scattered 
+everywhere.
+One door leads to another study room, one door to
+the main room, and the other from where you came.
+Rooms: R00, R01, R03</description>
+		<R00>R00</R00>
+		<R01>R01</R01>
+		<R03>R03</R03>
+	</Room>
+
+	<Room>
+		<id>R03</id>
+		<visited>false</visited>
+		<description>You find yourself in a small study room.
+The odor of Panda Express is in the air.
+A large desk is in the middle of the room.
+A small trash can sits in one corner overflowing
+with trash.
+One door leads to another study room, one door to
+the main room, and the other from where you came.
+Rooms: R00, R02, R04</description>
+		<R00>R00</R00>
+		<R02>R02</R02>
+		<R04>R04</R04>
+	</Room>
+
+	<Room>
+		<id>R04</id>
+		<visited>false</visited>
+		<description>You find yourself in a study room.
+A white-board hangs on one side of the wall.
+A large desk is in the middle of the room.
+Old writing and smudges fill the sleek table top.
+One door leads to another study room, one door to
+the main room, and the other from where you came.
+Rooms: R00, R03, R05</description>
+		<R00>R00</R00>
+		<R03>R03</R03>
+		<R05>R05</R05>
+	</Room>
+
+	<Room>
+		<id>R05</id>
+		<visited>false</visited>
+		<description>You find yourself in a slightly bigger study room.
+A small desk with a desktop computer sits on one
+end of the room.
+A large desk is in the middle of the room.
+One door leads to another study room, one door to
+the main room, and the other from where you came.
+Rooms: R00, R04, R06</description>
+		<R00>R00</R00>
+		<R04>R04</R04>
+		<R06>R06</R06>
+	</Room>
+
+	<Room>
+		<id>R06</id>
+		<visited>false</visited>
+		<description>You find yourself in a study room.
+A small white-board hangs near the window.
+A small desktop with a computer sits in one corner of
+the room.
+One door leads to another study room, one door to
+the main room, and the other from where you came.
+Rooms: R00, R05, R33</description>
+		<R00>R00</R00>
+		<R05>R05</R05>
+		<R33>R33</R33>
+	</Room>
+
+	<Room>
+		<id>R33</id>
+		<visited>false</visited>
+		<description>You find yourself in a big study room.
+A projector screen fills an entire wall at the 
+end of the room.
+There is no desk, but several chairs.
+One door leads to another study room and the other
+from where you came.
+Rooms: R00, R06</description>
+		<R00>R00</R00>
+		<R06>R06</R06>
+	</Room>
+
+	<Room>
+		<id>R07</id>
+		<visited>false</visited>
+		<description>You find yourself in a instructon room.
+Rows of computers face a massive white board at the
+front of the room.
+one door leads to another study room and the other
+from where you came.
+Rooms: R00, R08</description>
+		<R00>R00</R00>
+		<R02>R08</R02>
+	</Room>
+
+	<Room>
+		<id>R08</id>
+		<visited>false</visited>
+		<description>You find yourself in a instructon room.
+Rows of computers face a massive white board at the
+front of the room.
+one door leads to another study room and the other
+from where you came.
+Rooms: R00, R07 </description>
+		<R00>R00</R00>
+		<R02>R07</R02>
+	</Room>
+
+///////////////////////////////////////////////////////////
+
+	<Room>
+		<id>R09</id>
+		<visited>false</visited>
+		<description>You find yourself on the 2nd floor of the library.
+Several study rooms line the entire floor, which
+vary in size.
+1st Floor Rooms: R00, R36
+2nd Floor Rooms: R10, R11, R12, R13, R14, R15, R16, 
+R17, R18, R19, R20, R21, R22, R23, R24, R25, R26,
+R27, R28, R29, R30, R31, R32, R34 </description>
+		<R00>R00</R00>
+		<R36>R36</R36>
+		<R10>R10</R10>
+		<R11>R11</R11>
+		<R12>R12</R12>
+		<R13>R13</R13>
+		<R14>R14</R14>
+		<R15>R15</R15>
+		<R16>R16</R16>
+		<R17>R17</R17>
+		<R18>R18</R18>
+		<R19>R19</R19>
+		<R20>R20</R20>
+		<R21>R21</R21>
+		<R22>R22</R22>
+		<R23>R23</R23>
+		<R24>R24</R24>
+		<R25>R25</R25>
+		<R26>R26</R26>
+		<R27>R27</R27>
+		<R28>R28</R28>
+		<R29>R29</R29>
+		<R30>R30</R30>
+		<R31>R31</R31>
+		<R32>R32</R32>
+		<R34>R34</R34>
+
+	</Room>
+
+	<Room>
+		<id>R10</id>
+		<visited>false</visited>
+		<description>You find yourself in a small study room.
+A large desk is in the middle of the room.
+The window towards the back of the room points at 
+L parking lot.
+One door leads to another study room and the other
+from where you came.
+Rooms: R09, R11</description>
+		<R09>R09</R09>
+		<R11>R11</R11>
+	</Room>
+
+	<Room>
+		<id>R11</id>
+		<visited>false</visited>
+		<description>You find yourself in a small study room.
+There is a faint buzzing sound in the air.
+A large desk is in the middle of the room.
+One door leads to another study room, one door to
+the main room, and the other from where you came.
+Rooms: R09, R10, R12</description>
+		<R10>R10</R10>
+		<R12>R12</R12>
+		<R09>R09</R09>
+	</Room>
+
+	<Room>
+		<id>R12</id>
+		<visited>false</visited>
+		<description>You find yourself in a small study room.
+A white-board with math scribbles hangs on the wall.
+A large desk is in the middle of the room.
+One door leads to another study room, one door to
+the main room, and the other from where you came.
+Rooms: R09, R11, R13</description>
+		<R09>R09</R09>
+		<R11>R11</R11>
+		<R13>R13</R13>
+	</Room>
+
+	<Room>
+		<id>R13</id>
+		<visited>false</visited>
+		<description>You find yourself in a small study room.
+The angle of the sun through the window shines too
+brightly that you can barely see what's inside the room.
+One door leads to another study room, one door to
+the main room, and the other from where you came.
+Rooms: R09, R12, R14</description>
+		<R09>R09</R09>
+		<R12>R12</R12>
+		<R14>R14</R14>
+	</Room>
+
+	<Room>
+		<id>R14</id>
+		<visited>false</visited>
+		<description>You find yourself in a small study room.
+A moblie white-board takes up most the space inside
+the room.
+One door leads to another study room, one door to
+the main room, and the other from where you came.
+Rooms: R09, R13, R15</description>
+		<R09>R09</R09>
+		<R13>R13</R13>
+		<R15>R15</R15>
+	</Room>
+
+	<Room>
+		<id>R15</id>
+		<visited>false</visited>
+		<description>You find yourself in a small study room.
+A large desk is in the middle of the room with no
+chairs.
+One door leads to another study room, one door to
+the main room, and the other from where you came.
+Rooms: R09, R14, R16</description>
+		<R09>R09</R09>
+		<R14>R14</R14>
+		<R16>R16</R16>
+	</Room>
+
+	<Room>
+		<id>R16</id>
+		<visited>false</visited>
+		<description>You find yourself in a small study room.
+Colorful graffiti fills one wall.
+A slight worn down whtie-board hangs on the other
+side of the room.
+One door leads to another study room, one door to
+the main room, and the other from where you came..
+Rooms: R16, R15, R17</description>
+		<R16>R16</R16>
+		<R15>R15</R15>
+		<R17>R17</R17>
+	</Room>
+
+	<Room>
+		<id>R17</id>
+		<visited>false</visited>
+		<description>You find yourself in a small study room.
+Several chairs surround a large desk.
+Underneath the table lies a mysterious liquid.
+One door leads to another study room and the other
+from where you came.
+Rooms: R09, R16</description>
+		<R09>R09</R09>
+		<R16>R16</R16>
+	</Room>
+
+	<Room>
+		<id>R18</id>
+		<visited>false</visited>
+		<description>You find yourself in a small study room.
+A white-board with math scribbles hangs on the wall.
+A large desk is in the middle of the room.
+One door leads to another study room, one door to
+the main room, and the other from where you came.
+Rooms: R09, R34, R19</description>
+		<R09>R09</R09>
+		<R34>R34</R34>
+		<R19>R19</R19>
+	</Room>
+
+	<Room>
+		<id>R19</id>
+		<visited>false</visited>
+		<description>You find yourself in a small study room.
+A large desk is in the middle of the room with
+several books spiraled across the table.
+One door leads to another study room, one door to
+the main room, and the other from where you came.
+Rooms: R09, R18, R20</description>
+		<R18>R18</R18>
+		<R20>R20</R20>
+		<R09>R09</R09>
+	</Room>
+
+	<Room>
+		<id>R20</id>
+		<visited>false</visited>
+		<description>You find yourself in a small study room.
+One door leads to another study room, one door to
+the main room, and the other from where you came.
+Rooms: R09, R19, R21</description>
+		<R09>R09</R09>
+		<R19>R19</R19>
+		<R21>R21</R21>
+	</Room>
+
+	<Room>
+		<id>R21</id>
+		<visited>false</visited>
+		<description>You find yourself in a small study room.
+one door leads to another study room and the other
+from where you came.
+Rooms: R09, R20</description>
+		<R09>R09</R09>
+		<R20>R20</R20>
+	</Room>
+	
+	<Room>
+		<id>R22</id>
+		<visited>false</visited>
+		<description>You find yourself in a small study room.
+One door leads to another study room and the other
+from where you came.
+Rooms: R09, R23</description>
+		<R09>R09</R09>
+		<R23>R23</R23>
+	</Room>
+	
+	<Room>
+		<id>R23</id>
+		<visited>false</visited>
+		<description>You find yourself in a small study room.
+One door leads to another study room, one door to
+the main room, and the other from where you came.
+Rooms: R09, R22, R24</description>
+		<R09>R09</R09>
+		<R22>R22</R22>
+		<R24>R24</R24>
+	</Room>
+	
+	<Room>
+		<id>R24</id>
+		<visited>false</visited>
+		<description>You find yourself in a small study room.
+One door leads to another study room, one door to
+the main room, and the other from where you came.
+Rooms: R09, R23, R25</description>
+		<R09>R09</R09>
+		<R23>R23</R23>
+		<R25>R25</R25>
+	</Room>
+	
+	<Room>
+		<id>R25</id>
+		<visited>false</visited>
+		<description>You find yourself in a small study room.
+One door leads to another study room, one door to
+the main room, and the other from where you came.
+Rooms: R09, R24, R26</description>
+		<R09>R09</R09>
+		<R24>R24</R24>
+		<R26>R26</R26>
+	</Room>
+	
+	<Room>
+		<id>R26</id>
+		<visited>false</visited>
+		<description>You find yourself in a small study room.
+One door leads to another study room, one door to
+the main room, and the other from where you came.
+Rooms: R09, R25, R27</description>
+		<R09>R09</R09>
+		<R25>R25</R25>
+		<R27>R27</R27>
+	</Room>
+	
+	<Room>
+		<id>R27</id>
+		<visited>false</visited>
+		<description>You find yourself in a small study room.
+One door leads to another study room and the other
+from where you came.
+Rooms: R09, R26</description>
+		<R09>R09</R09>
+		<R26>R26</R26>
+	</Room>
+	
+	<Room>
+		<id>R28</id>
+		<visited>false</visited>
+		<description>You find yourself in a small study room.
+one door leads to another study room and the other
+from where you came.
+Rooms: R09, R29</description>
+		<R09>R09</R09>
+		<R29>R29</R29>
+	</Room>
+	
+	<Room>
+		<id>R29</id>
+		<visited>false</visited>
+		<description>You find yourself in a small study room.
+One door leads to another study room, one door to
+the main room, and the other from where you came.
+Rooms: R09, R28, R30</description>
+		<R09>R09</R09>
+		<R28>R28</R28>
+		<R30>R30</R30>
+	</Room>
+	
+	<Room>
+		<id>R30</id>
+		<visited>false</visited>
+		<description>You find yourself in a small study room.
+one door leads to another study room and the other
+from where you came.
+Rooms: R09, R29</description>
+		<R09>R09</R09>
+		<R29>R29</R29>
+	</Room>
+	
+	<Room>
+		<id>R31</id>
+		<visited>false</visited>
+		<description>You find yourself in a small study room.
+one door leads to another study room and the other
+from where you came.
+Rooms: R09, 32</description>
+		<R09>R09</R09>
+		<R32>R32</R32>
+	</Room>
+	
+	<Room>
+		<id>R32</id>
+		<visited>false</visited>
+		<description>You find yourself in a small study room.
+one door leads to another study room and the other
+from where you came.
+Rooms: R09, R31</description>
+		<R09>R09</R09>
+		<R31>R31</R31>
+	</Room>
+	
+	<Room>
+		<id>R34</id>
+		<visited>false</visited>
+		<description>You find yourself in a small study room.
+one door leads to another study room and the other
+from where you came.
+Rooms: R09, R18</description>
+		<R09>R09</R09>
+		<R18>R18</R18>
+	</Room>
+	
+	<Room>
+		<id>R35</id>
+		<visited>false</visited>
+		<description>You find yourself in a study room.
+The room is filled with several chairs.
+one door leads to another study room and the other
+from where you came.
+Rooms: R36</description>
+		<R36>R36</R36>
+	</Room>
+	
+	<Room>
+		<id>R36</id>
+		<visited>false</visited>
+		<description>You find yourself on the 3rd floor of the library.
+There is only one study room on this floor.
+Rooms: R09, R35</description>
+		<R09>R09</R09>
+		<R35>R35</R35>
+	</Room>
+</Rooms>
