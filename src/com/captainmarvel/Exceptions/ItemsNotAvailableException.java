@@ -1,6 +1,6 @@
 package com.captainmarvel.Exceptions;
 
-public class ItemsNotAvailable extends RuntimeException
+public class ItemsNotAvailableException extends RuntimeException
 {
 
     public ItemsNotAvailable(String itemName)
