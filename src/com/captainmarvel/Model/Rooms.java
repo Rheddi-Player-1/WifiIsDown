@@ -13,9 +13,10 @@ import java.util.Scanner;
 
 public class Rooms 
 {
-	private static String roomID;
+	private static int roomID;
 	private static String roomName;
 	private static String roomDescription;
+	private static int roomPuzzleID;
 	private String textNodeName;
 	private String textNodeValue;
 	private String value;
@@ -34,7 +35,7 @@ public class Rooms
 	}
 	
 	//Setter method for variable roomID
-	public static void setRoomID(String roomID) 
+	public static void setRoomID(int roomID) 
 	{
 		roomID = roomID;
 	}
@@ -62,7 +63,16 @@ public class Rooms
 	{
 		roomDescription = roomDescription;
 	}
+	
+	public String getRoomPuzzleID()
+	{
+		return roomPuzzleID;
+	}
 
+	public static void setRoomPuzzleID()(int roomPuzzleID)
+	{
+		roomPuzzleID = roomPuzzleID;
+	}
 	
 	//Getter method
 	public String getValue() 
