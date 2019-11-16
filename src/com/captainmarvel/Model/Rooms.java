@@ -114,6 +114,11 @@ public class Rooms
 		if(roomID.equalsIgnoreCase(items))
 		{
 			inventory.put(items.getName(), value);
+			System.out.println("Item added to your inventory.");
+		}
+		else
+		{
+			System.out.println("Item not in your inventory.");
 		}
 	}
 	
@@ -122,6 +127,7 @@ public class Rooms
 		if(inventory.containsKey(value))
 		{
 			inventory.remove(value);
+			System.out.println("Item removed from your inventory.");
 		}
 	}
 	//Method reads Rooms XML file
