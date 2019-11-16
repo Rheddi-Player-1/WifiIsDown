@@ -6,6 +6,7 @@ import org.w3c.dom.Node;
 import org.w3c.dom.Element;
 import java.io.File;
 import java.io.File;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -17,11 +18,11 @@ public class Rooms
 	private static String roomName;
 	private static String roomDescription;
 	private static int roomPuzzleID;
+	private static ArrayList<String> inventory;
 	private String textNodeName;
 	private String textNodeValue;
 	private String value;
-	private static ArrayList<Item> inventory;
-
+	
 	//constructor with no parameters
 	Rooms()
 	{
@@ -29,7 +30,7 @@ public class Rooms
 	}
 
 	//Getter method for variable roomID
-	public String getRoomID() 
+	public int getRoomID() 
 	{
 		return roomID;
 	}
@@ -64,12 +65,12 @@ public class Rooms
 		roomDescription = roomDescription;
 	}
 	
-	public String getRoomPuzzleID()
+	public int getRoomPuzzleID()
 	{
 		return roomPuzzleID;
 	}
 
-	public static void setRoomPuzzleID()(int roomPuzzleID)
+	public static void setRoomPuzzleID(int roomPuzzleID)
 	{
 		roomPuzzleID = roomPuzzleID;
 	}
@@ -107,13 +108,13 @@ public class Rooms
 		this.textNodeValue = textNodeValue;
 	}	
 	
-	public void storeItem(<String, Item> allItems, String value)
-	{
-		Item items = allItems.getAllItems().containsKey(value);
-		
-		if(roomID.equalsIgnoreCase(items))
+	public void storeItem(String value, Item items)
+	{	
+		int location = items.getInitialItemLocation();
+		if(roomID == location)
 		{
-			inventory.put(items.getName(), value);
+			String name = items.getItemName();
+			inventory.add(value);
 			System.out.println("Item added to your inventory.");
 		}
 		else
@@ -124,7 +125,7 @@ public class Rooms
 	
 	public void removeItem(String value)
 	{
-		if(inventory.containsKey(value))
+		if(inventory.contains(value))
 		{
 			inventory.remove(value);
 			System.out.println("Item removed from your inventory.");
@@ -157,7 +158,8 @@ public class Rooms
 							System.out.println(roomElement.getElementsByTagName("description").item(0).getTextContent());
 							
 							roomName = roomElement.getElementsByTagName("name").item(0).getTextContent();
-							roomID = roomElement.getElementsByTagName("id").item(0).getTextContent();
+							String id = roomElement.getElementsByTagName("id").item(0).getTextContent();
+							roomID = Integer.parseInt(id);
 						}
 					}
 				}
