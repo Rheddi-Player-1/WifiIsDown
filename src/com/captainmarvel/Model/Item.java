@@ -1,4 +1,4 @@
-package final_prj;
+package com.captainmarvel.Model;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -18,8 +18,8 @@ public abstract class Item
 	private int itemSize;
 	private boolean isPickable;
 	private HashMap <String, Item> allItems;
-	private ArrayList<Item> inventory = new ArrayList<Item>();	
-	
+	private ArrayList<Item> backpack = new ArrayList<Item>();	
+	private Rooms room;
 	
 	public String getItemID() {
 		return itemID;
@@ -66,14 +66,29 @@ public abstract class Item
 		this.allItems = allItems;
 	}
 	
-	public String inspectItem()
+	public Item inspectItem()
 	{
 		return itemDescription;
 	}
 	
-	public String pickUpItem()
+	public Item pickUpItem()
 	{
-		return null;
+		backpack.
+		
+	}
+	
+	public Item dropItem()
+	{
+		
+	}
+	
+	public void useItem()
+	{
+		
+	}
+	
+	public Item equipItem()
+	{
 		
 	}
 	
