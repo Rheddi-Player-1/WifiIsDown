@@ -111,7 +111,7 @@ public class Rooms
 		}
 		else
 		{
-			throw new ItemsNotAvailable();
+			throw new ItemsNotAvailableException(itemName);
 		}
 	}
 	
