@@ -12,6 +12,7 @@ import org.w3c.dom.NodeList;
 
 public class Puzzle 
 {
+	private static int id;
 	private static String name;
 	private static String solve;
 	private static String answer;
@@ -19,7 +20,7 @@ public class Puzzle
 	private static String hint;
 	private static String room;
 
-	public Puzzle(String name, String solve, String answer, String examine, String hint, String room) 
+	public Puzzle(int id, String name, String solve, String answer, String examine, String hint, String room) 
 	{
 		this.name = name;
 		this.solve = solve;
@@ -28,14 +29,22 @@ public class Puzzle
 		this.hint = hint;
 		this.room = room;
 	}
-
+	
+	public int getId() {
+		return id;
+	}
+	
+	public static void setId(int id) {
+		id = id;
+	}
+	
 	public String getName() {
 		return name;
 	}
 
 
-	public void setName(String name) {
-		this.name = name;
+	public static setName(String name) {
+		name = name;
 	}
 
 
@@ -44,40 +53,40 @@ public class Puzzle
 	}
 
 
-	public void setSolve(String solve) {
-		this.solve = solve;
+	public static void setSolve(String solve) {
+		solve = solve;
 	}
 
 	public String getAnswer() {
 		return answer;
 	}
 
-	public void setAnswer(String answer) {
-		this.answer = answer;
+	public static void setAnswer(String answer) {
+		answer = answer;
 	}
 
 	public String getExamine() {
 		return examine;
 	}
 
-	public void setExamine(String examine) {
-		this.examine = examine;
+	public static void setExamine(String examine) {
+		examine = examine;
 	}
 
 	public String getHint() {
 		return hint;
 	}
 
-	public void setHint(String hint) {
-		this.hint = hint;
+	public static void setHint(String hint) {
+		hint = hint;
 	}
 
 	public String getRoom() {
 		return room;
 	}
 
-	public void setRoom(String room) {
-		this.room = room;
+	public static void setRoom(String room) {
+		room = room;
 	}
 
 	//Method Reads Puzzle XML file
@@ -103,6 +112,7 @@ public class Puzzle
 					{
 						if(textNodes.item(0).getTextContent().equalsIgnoreCase("DBP"))
 						{	
+							id = puzzleElement.getElementsByTagName("id").item(0).getTextContent();
 							name = puzzleElement.getElementsByTagName("name").item(0).getTextContent();
 							solve = puzzleElement.getElementsByTagName("solve").item(0).getTextContent();
 							examine = puzzleElement.getElementsByTagName("examine").item(0).getTextContent();
@@ -110,7 +120,7 @@ public class Puzzle
 							hint = puzzleElement.getElementsByTagName("hint").item(0).getTextContent();
 							room = puzzleElement.getElementsByTagName("room").item(0).getTextContent();
 							
-							puzzle.put(name, new Puzzle(name, solve, examine, answer, hint, room));
+							puzzle.put(name, new Puzzle(id, name, solve, examine, answer, hint, room));
 						}
 					}
 				}
