@@ -1,0 +1,504 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<Rooms>
+	<Room>
+		<id>R00</id>
+		<visited>false</visited>
+		<description>You find yourself on the 1st floor of the library.
+Several study rooms line the entire floor, which
+vary in size.
+1st Floor Rooms: R01, R02, R03, R04, R05, R06, R07, R08,
+R33
+2nd Floor Rooms: R09</description>
+		<connections>R01:R02:R03:R04:R05:R06:R07:R08:R33:R09</connections>
+		<puzzleID>NONE</puzzleID>
+		<vendingItem>SI00</vendingItem>
+	</Room>
+	
+	<Room>
+		<id>R01</id>
+		<visited>false</visited>
+		<description>You find yourself in a small study room.
+A white-board with math scribbles hangs on the wall.
+A large desk is in the middle of the room.
+One door leads to another study room and the other 
+from where you came.
+Rooms: R00, R02</description>
+		<connections>R00:R02</connections>
+		<puzzleID>P1</puzzleID>
+		<vendingItem>NONE</vendingItem>
+	</Room>
+	
+	<Room>
+		<id>R02</id>
+		<visited>false</visited>
+		<description>You find yourself in a small study room.
+The light above is constantly flickering.
+The room is a mess and chairs lay scattered 
+everywhere.
+One door leads to another study room, one door to
+the main room, and the other from where you came.
+Rooms: R00, R01, R03</description>
+		<connections>R00:R01:R03</connections>
+		<puzzleID>NONE</puzzleID>
+		<vendingItem>NONE</vendingItem>
+	</Room>
+
+	<Room>
+		<id>R03</id>
+		<visited>false</visited>
+		<description>You find yourself in a small study room.
+The odor of Panda Express is in the air.
+A large desk is in the middle of the room.
+A small trash can sits in one corner overflowing
+with trash.
+One door leads to another study room, one door to
+the main room, and the other from where you came.
+Rooms: R00, R02, R04</description>
+		<connections>R00:R02:R04</connections>
+		<puzzleID>NONE</puzzleID>
+		<vendingItem>NONE</vendingItem>
+	</Room>
+
+	<Room>
+		<id>R04</id>
+		<visited>false</visited>
+		<description>You find yourself in a study room.
+A white-board hangs on one side of the wall.
+A large desk is in the middle of the room.
+Old writing and smudges fill the sleek table top.
+One door leads to another study room, one door to
+the main room, and the other from where you came.
+Rooms: R00, R03, R05</description>
+		<connections>R00:R03:R05</connections>
+		<puzzleID>NONE</puzzleID>
+		<vendingItem>NONE</vendingItem>
+	</Room>
+
+	<Room>
+		<id>R05</id>
+		<visited>false</visited>
+		<description>You find yourself in a slightly bigger study room.
+A small desk with a desktop computer sits on one
+end of the room.
+A large desk is in the middle of the room.
+One door leads to another study room, one door to
+the main room, and the other from where you came.
+Rooms: R00, R04, R06</description>
+		<connections>R00:R04:R06</connections>
+		<puzzleID>P2</puzzleID>
+		<vendingItem>NONE</vendingItem>
+	</Room>
+
+	<Room>
+		<id>R06</id>
+		<visited>false</visited>
+		<description>You find yourself in a study room.
+A small white-board hangs near the window.
+A small desktop with a computer sits in one corner of
+the room.
+One door leads to another study room, one door to
+the main room, and the other from where you came.
+Rooms: R00, R05, R33</description>
+		<connections>R00:R05:R33</connections>
+		<puzzleID>NONE</puzzleID>
+		<vendingItem>NONE</vendingItem>
+	</Room>
+
+	<Room>
+		<id>R33</id>
+		<visited>false</visited>
+		<description>You find yourself in a big study room.
+A projector screen fills an entire wall at the 
+end of the room.
+There is no desk, but several chairs.
+One door leads to another study room and the other
+from where you came.
+Rooms: R00, R06</description>
+		<connections>R00:R06</connections>
+		<puzzleID>NONE</puzzleID>
+		<vendingItem>NONE</vendingItem>
+	</Room>
+
+	<Room>
+		<id>R07</id>
+		<visited>false</visited>
+		<description>You find yourself in a instructon room.
+Rows of computers face a massive white board at the
+front of the room.
+one door leads to another study room and the other
+from where you came.
+Rooms: R00, R08</description>
+		<connections>R00:R08</connections>
+		<puzzleID>P3</puzzleID>
+		<vendingItem>NONE</vendingItem>
+	</Room>
+
+	<Room>
+		<id>R08</id>
+		<visited>false</visited>
+		<description>You find yourself in a instructon room.
+Rows of computers face a massive white board at the
+front of the room.
+one door leads to another study room and the other
+from where you came.
+Rooms: R00, R07 </description>
+		<connections>R00:R07</connections>
+		<puzzleID>P4</puzzleID>
+		<vendingItem>NONE</vendingItem>
+	</Room>
+
+///////////////////////////////////////////////////////////
+
+	<Room>
+		<id>R09</id>
+		<visited>false</visited>
+		<description>You find yourself on the 2nd floor of the library.
+Several study rooms line the entire floor, which
+vary in size.
+1st Floor Rooms: R00, R36
+2nd Floor Rooms: R10, R11, R12, R13, R14, R15, R16, 
+R17, R18, R19, R20, R21, R22, R23, R24, R25, R26,
+R27, R28, R29, R30, R31, R32, R34 </description>
+		<connections>R10:R11:R12:R13:R14:R15:R16:R17:R18:R19:R20:R21:R22:R23:R24:R25:R26:R27:R28:R29:R30:R31:R32:R34</connections>
+		<puzzleID>NONE</puzzleID>
+		<vendingItem>SI01</vendingItem>
+	</Room>
+
+	<Room>
+		<id>R10</id>
+		<visited>false</visited>
+		<description>You find yourself in a small study room.
+A large desk is in the middle of the room.
+The window towards the back of the room points at 
+L parking lot.
+One door leads to another study room and the other
+from where you came.
+Rooms: R09, R11</description>
+		<connections>R09:R11</connections>
+		<puzzleID>NONE</puzzleID>
+		<vendingItem>NONE</vendingItem>
+	</Room>
+
+	<Room>
+		<id>R11</id>
+		<visited>false</visited>
+		<description>You find yourself in a small study room.
+There is a faint buzzing sound in the air.
+A large desk is in the middle of the room.
+One door leads to another study room, one door to
+the main room, and the other from where you came.
+Rooms: R09, R10, R12</description>
+		<connections>R09:R10:R12</connections>
+		<puzzleID>NONE</puzzleID>
+		<vendingItem>NONE</vendingItem>
+	</Room>
+
+	<Room>
+		<id>R12</id>
+		<visited>false</visited>
+		<description>You find yourself in a small study room.
+A white-board with math scribbles hangs on the wall.
+A large desk is in the middle of the room.
+One door leads to another study room, one door to
+the main room, and the other from where you came.
+Rooms: R09, R11, R13</description>
+		<connections>R09:R11:R13</connections>
+		<puzzleID>P5</puzzleID>
+		<vendingItem>NONE</vendingItem>
+	</Room>
+
+	<Room>
+		<id>R13</id>
+		<visited>false</visited>
+		<description>You find yourself in a small study room.
+The angle of the sun through the window shines too
+brightly that you can barely see what's inside the room.
+One door leads to another study room, one door to
+the main room, and the other from where you came.
+Rooms: R09, R12, R14</description>
+		<connections>R09:R12:R14</connections>
+		<puzzleID>NONE</puzzleID>
+		<vendingItem>NONE</vendingItem>
+	</Room>
+
+	<Room>
+		<id>R14</id>
+		<visited>false</visited>
+		<description>You find yourself in a small study room.
+A moblie white-board takes up most the space inside
+the room.
+One door leads to another study room, one door to
+the main room, and the other from where you came.
+Rooms: R09, R13, R15</description>
+		<connections>R09:R13:R15</connections>
+		<puzzleID>P6</puzzleID>
+		<vendingItem>NONE</vendingItem>
+	</Room>
+
+	<Room>
+		<id>R15</id>
+		<visited>false</visited>
+		<description>You find yourself in a small study room.
+A large desk is in the middle of the room with no
+chairs.
+One door leads to another study room, one door to
+the main room, and the other from where you came.
+Rooms: R09, R14, R16</description>
+		<connections>R09:R14:R16</connections>
+		<puzzleID>NONE</puzzleID>
+		<vendingItem>NONE</vendingItem>
+	</Room>
+
+	<Room>
+		<id>R16</id>
+		<visited>false</visited>
+		<description>You find yourself in a small study room.
+Colorful graffiti fills one wall.
+A slight worn down whtie-board hangs on the other
+side of the room.
+One door leads to another study room, one door to
+the main room, and the other from where you came..
+Rooms: R16, R15, R17</description>
+		<connections>R16:R15:R17</connections>
+		<puzzleID>P7</puzzleID>
+		<vendingItem>NONE</vendingItem>
+	</Room>
+
+	<Room>
+		<id>R17</id>
+		<visited>false</visited>
+		<description>You find yourself in a small study room.
+Several chairs surround a large desk.
+Underneath the table lies a mysterious liquid.
+One door leads to another study room and the other
+from where you came.
+Rooms: R09, R16</description>
+		<connections>R09:R16</connections>
+		<puzzleID>P8</puzzleID>
+		<vendingItem>NONE</vendingItem>
+	</Room>
+
+	<Room>
+		<id>R18</id>
+		<visited>false</visited>
+		<description>You find yourself in a small study room.
+A white-board with math scribbles hangs on the wall.
+A large desk is in the middle of the room.
+One door leads to another study room, one door to
+the main room, and the other from where you came.
+Rooms: R09, R34, R19</description>
+		<connections>R09:R34:R19</connections>
+		<puzzleID>NONE</puzzleID>
+		<vendingItem>NONE</vendingItem>
+	</Room>
+
+	<Room>
+		<id>R19</id>
+		<visited>false</visited>
+		<description>You find yourself in a small study room.
+A large desk is in the middle of the room with
+several books spiraled across the table.
+One door leads to another study room, one door to
+the main room, and the other from where you came.
+Rooms: R09, R18, R20</description>
+		<connections>R09:R18:R20</connections>
+		<puzzleID>NONE</puzzleID>
+		<vendingItem>NONE</vendingItem>
+	</Room>
+
+	<Room>
+		<id>R20</id>
+		<visited>false</visited>
+		<description>You find yourself in a small study room.
+One door leads to another study room, one door to
+the main room, and the other from where you came.
+Rooms: R09, R19, R21</description>
+		<connections>R09:R19:R21</connections>
+		<puzzleID>NONE</puzzleID>
+		<vendingItem>NONE</vendingItem>
+	</Room>
+
+	<Room>
+		<id>R21</id>
+		<visited>false</visited>
+		<description>You find yourself in a small study room.
+one door leads to another study room and the other
+from where you came.
+Rooms: R09, R20</description>
+		<connections>R09:R20</connections>
+		<puzzleID>NONE</puzzleID>
+		<vendingItem>NONE</vendingItem>
+	</Room>
+	
+	<Room>
+		<id>R22</id>
+		<visited>false</visited>
+		<description>You find yourself in a small study room.
+One door leads to another study room and the other
+from where you came.
+Rooms: R09, R23</description>
+		<connections>R09:R23</connections>
+		<puzzleID>NONE</puzzleID>
+		<vendingItem>NONE</vendingItem>
+	</Room>
+	
+	<Room>
+		<id>R23</id>
+		<visited>false</visited>
+		<description>You find yourself in a small study room.
+One door leads to another study room, one door to
+the main room, and the other from where you came.
+Rooms: R09, R22, R24</description>
+		<connections>R09:R22:R24</connections>
+		<puzzleID>NONE</puzzleID>
+		<vendingItem>NONE</vendingItem>
+	</Room>
+	
+	<Room>
+		<id>R24</id>
+		<visited>false</visited>
+		<description>You find yourself in a small study room.
+One door leads to another study room, one door to
+the main room, and the other from where you came.
+Rooms: R09, R23, R25</description>
+		<connections>R09:R23:R25</connections>
+		<puzzleID>NONE</puzzleID>
+		<vendingItem>NONE</vendingItem>
+	</Room>
+	
+	<Room>
+		<id>R25</id>
+		<visited>false</visited>
+		<description>You find yourself in a small study room.
+One door leads to another study room, one door to
+the main room, and the other from where you came.
+Rooms: R09, R24, R26</description>
+		<connections>R09:R24:R26</connections>
+		<puzzleID>NONE</puzzleID>
+		<vendingItem>NONE</vendingItem>
+	</Room>
+	
+	<Room>
+		<id>R26</id>
+		<visited>false</visited>
+		<description>You find yourself in a small study room.
+One door leads to another study room, one door to
+the main room, and the other from where you came.
+Rooms: R09, R25, R27</description>
+		<connections>R09:R25:R27</connections>
+		<puzzleID>NONE</puzzleID>
+		<vendingItem>NONE</vendingItem>
+	</Room>
+	
+	<Room>
+		<id>R27</id>
+		<visited>false</visited>
+		<description>You find yourself in a small study room.
+One door leads to another study room and the other
+from where you came.
+Rooms: R09, R26</description>
+		<connections>R09:R26</connections>
+		<puzzleID>NONE</puzzleID>
+		<vendingItem>NONE</vendingItem>
+	</Room>
+	
+	<Room>
+		<id>R28</id>
+		<visited>false</visited>
+		<description>You find yourself in a small study room.
+one door leads to another study room and the other
+from where you came.
+Rooms: R09, R29</description>
+		<connections>R09:R29</connections>
+		<puzzleID>P9</puzzleID>
+		<vendingItem>NONE</vendingItem>
+	</Room>
+	
+	<Room>
+		<id>R29</id>
+		<visited>false</visited>
+		<description>You find yourself in a small study room.
+One door leads to another study room, one door to
+the main room, and the other from where you came.
+Rooms: R09, R28, R30</description>
+		<connections>R09:R28:R30</connections>
+		<puzzleID>NONE</puzzleID>
+		<vendingItem>NONE</vendingItem>
+	</Room>
+	
+	<Room>
+		<id>R30</id>
+		<visited>false</visited>
+		<description>You find yourself in a small study room.
+one door leads to another study room and the other
+from where you came.
+Rooms: R09, R29</description>
+		<connections>R09:R29</connections>
+		<puzzleID>NONE</puzzleID>
+		<vendingItem>NONE</vendingItem>
+	</Room>
+	
+	<Room>
+		<id>R31</id>
+		<visited>false</visited>
+		<description>You find yourself in a small study room.
+one door leads to another study room and the other
+from where you came.
+Rooms: R09, R32</description>
+		<connections>R09:R32</connections>
+		<puzzleID>NONE</puzzleID>
+		<vendingItem>NONE</vendingItem>
+	</Room>
+	
+	<Room>
+		<id>R32</id>
+		<visited>false</visited>
+		<description>You find yourself in a small study room.
+one door leads to another study room and the other
+from where you came.
+Rooms: R09, R31</description>
+		<connections>R09:R31</connections>
+		<puzzleID>NONE</puzzleID>
+		<vendingItem>NONE</vendingItem>
+	</Room>
+	
+	<Room>
+		<id>R34</id>
+		<visited>false</visited>
+		<description>You find yourself in a small study room.
+one door leads to another study room and the other
+from where you came.
+Rooms: R09, R18</description>
+		<connections>R09:R18</connections>
+		<puzzleID>NONE</puzzleID>
+		<vendingItem>NONE</vendingItem>
+	</Room>
+	
+/////////////////////////////////////////////////////////////////////////
+	<Room>
+		<id>R35</id>
+		<visited>false</visited>
+		<description>You find yourself in a study room.
+The room is filled with several chairs.
+one door leads to another study room and the other
+from where you came.
+Rooms: R36</description>
+		<connections>R36</connections>
+		<puzzleID>NONE</puzzleID>
+		<vendingItem>NONE</vendingItem>
+	</Room>
+	
+	<Room>
+		<id>R36</id>
+		<visited>false</visited>
+		<description>You find yourself on the 3rd floor of the library.
+There is only one study room on this floor.
+2nd Floor Rooms: R09
+3rd Floor Rooms: R35</description>
+		<connections>R09:R35</connections>
+		<puzzleID>P10</puzzleID>
+		<vendingItem>SI02</vendingItem>
+	</Room>
+</Rooms>
+	
+	
