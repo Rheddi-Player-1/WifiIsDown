@@ -6,21 +6,18 @@ import org.w3c.dom.Node;
 import org.w3c.dom.Element;
 import java.io.File;
 import java.io.File;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Scanner;
+import java.util.*;
 
 public class Rooms 
 {
-	private static int roomID;
-	private static String roomName;
-	private static String roomDescription;
-	private static int roomPuzzleID;
+	private String roomID;
+	private String roomDescription;
+	private String roomVisited;
+	private String roomPuzzleID;
+	private String[] roomConnections;
+	private String vendingItem;
 	private static ArrayList<String> inventory;
-	private String textNodeName;
-	private String textNodeValue;
+	private static Scanner input = new Scanner(System.in);
 	private String value;
 	
 	//constructor with no parameters
@@ -28,98 +25,91 @@ public class Rooms
 	{
 		
 	}
-
-	//Getter method for variable roomID
-	public int getRoomID() 
+	
+	public Rooms(String roomID, String roomDescription, String roomVisited, String roomPuzzleID, String[] roomConnections) 
 	{
+		super();
+		this.roomID = roomID;
+		this.roomDescription = roomDescription;
+		this.roomVisited = roomVisited;
+		this.roomPuzzleID = roomPuzzleID;
+		this.roomConnections = roomConnections;
+	}
+	
+	public String getRoomID() {
 		return roomID;
 	}
-	
-	//Setter method for variable roomID
-	public static void setRoomID(int roomID) 
-	{
-		roomID = roomID;
+
+	public void setRoomID(String roomID) {
+		this.roomID = roomID;
 	}
-	
-	//Getter method for variable roomName
-	public String getRoomName() 
-	{
-		return roomName;
-	}
-	
-	//Setter method for variable roomName
-	public static void setRoomName(String roomName) 
-	{
-		roomName = roomName;
-	}
-	
-	//Getter method for variable roomDescription
-	public String getRoomDescription() 
-	{
+
+	public String getRoomDescription() {
 		return roomDescription;
 	}
-	
-	//Setter method for variable roomDescription
-	public static void setRoomDescription(String roomDescription) 
-	{
-		roomDescription = roomDescription;
+
+	public void setRoomDescription(String roomDescription) {
+		this.roomDescription = roomDescription;
 	}
-	
-	public int getRoomPuzzleID()
-	{
+
+	public String getRoomVisited() {
+		return roomVisited;
+	}
+
+	public void setRoomVisited(String roomVisited) {
+		this.roomVisited = roomVisited;
+	}
+
+	public String getRoomPuzzleID() {
 		return roomPuzzleID;
 	}
 
-	public static void setRoomPuzzleID(int roomPuzzleID)
-	{
+	public static void setRoomPuzzleID(String roomPuzzleID) {
 		roomPuzzleID = roomPuzzleID;
 	}
-	
-	//Getter method
-	public String getValue() 
-	{
+
+	public String[] getRoomConnections() {
+		return roomConnections;
+	}
+
+	public void setRoomConnections(String[] roomConnections) {
+		this.roomConnections = roomConnections;
+	}
+
+	public String getVendingItem() {
+		return vendingItem;
+	}
+
+	public static void setVendingItem(String vendingItem) {
+		vendingItem = vendingItem;
+	}
+
+	public static ArrayList<String> getInventory() {
+		return inventory;
+	}
+
+	public static void setInventory(ArrayList<String> inventory) {
+		Rooms.inventory = inventory;
+	}
+
+	public String getValue() {
 		return value;
 	}
-	
-	//Setter method
-	public void setValue(String value) 
-	{
+
+	public void setValue(String value) {
 		this.value = value;
 	}
-	
 
-	public String getTextNodeName() 
-	{
-		return textNodeName;
-	}
-
-	public void setTextNodeName(String textNodeName) 
-	{
-		this.textNodeName = textNodeName;
-	}
-
-	public String getTextNodeValue() 
-	{
-		return textNodeValue;
-	}
-
-	public void setTextNodeValue(String textNodeValue) 
-	{
-		this.textNodeValue = textNodeValue;
-	}	
-	
-	public void storeItem(String value, Item items)
+	public void storeItem(String value)
 	{	
-		int location = items.getInitialItemLocation();
-		if(roomID == location)
+		if(!getVendingItem().equalsIgnoreCase("NONE"))
 		{
-			String name = items.getItemName();
 			inventory.add(value);
 			System.out.println("Item added to your inventory.");
 		}
 		else
 		{
-			System.out.println("Item not in your inventory.");
+			throw new ItemsNotAvailable();
 		}
 	}
 	
@@ -131,8 +121,16 @@ public class Rooms
 			System.out.println("Item removed from your inventory.");
 		}
 	}
-	//Method reads Rooms XML file
-	public void readRoomsXML(String textNodeName, String textNodeValue)
+	public void puzzleIn()
+	{
+		if(!getRoomPuzzleID().equalsIgnoreCase("NONE"))
+		{
+			
+		}
+	}
+	
+	//Method Reads Rooms XML file
+	public static void readRoomsXML(HashMap<String, Rooms> rooms)
 	{
 		File xml = new File("Rooms.xml");
 		DocumentBuilderFactory f = DocumentBuilderFactory.newInstance();
@@ -141,71 +139,30 @@ public class Rooms
 			b = f.newDocumentBuilder();
 			Document d = b.parse(xml);
 			d.getDocumentElement();
-			NodeList roomNodes = d.getElementsByTagName("Room");
-			for(int i = 0; i < roomNodes.getLength(); i++)
+			
+			NodeList roomsNodes = d.getElementsByTagName("Room");
+			for(int i = 0; i < roomsNodes.getLength(); i++)
 			{
-				Node roomNode = roomNodes.item(i);
-				if(roomNode.getNodeType() == Node.ELEMENT_NODE)
+				Node node = roomsNodes.item(i);
+				
+				if(node.getNodeType() == Node.ELEMENT_NODE)
 				{
-					Element roomElement = (Element) roomNode;
-					NodeList textNodes = roomElement.getElementsByTagName(textNodeName);
+					Element e = (Element) node;
 					
-					if(textNodes.getLength() > 0)
-					{
-						if(textNodes.item(0).getTextContent().equalsIgnoreCase(textNodeValue))
-						{	
-							System.out.println(roomElement.getElementsByTagName("name").item(0).getTextContent());
-							System.out.println(roomElement.getElementsByTagName("description").item(0).getTextContent());
-							
-							roomName = roomElement.getElementsByTagName("name").item(0).getTextContent();
-							String id = roomElement.getElementsByTagName("id").item(0).getTextContent();
-							roomID = Integer.parseInt(id);
-						}
-					}
+					String id = e.getElementsByTagName("id").item(0).getTextContent();
+					String visited = e.getElementsByTagName("visited").item(0).getTextContent();
+					String description = e.getElementsByTagName("description").item(0).getTextContent();
+					String vendingItem = e.getElementsByTagName("connections").item(0).getTextContent();
+					setVendingItem(vendingItem);
+					String puzzleID = e.getElementsByTagName("puzzleID").item(0).getTextContent();
+					setRoomPuzzleID(puzzleID);
+					String connections = e.getElementsByTagName("connections").item(0).getTextContent();
+					String[] connectionsArray = connections.split(":");
+					
+					rooms.put(id, new Rooms(id, description, visited, puzzleID, connectionsArray));
 				}
 			}
 		} 
-		catch (Exception e) 
-		{
-			System.out.println("\nWrong Input. Try Again.\n");
-		}
-	}
-	
-	//Method to change rooms
-	public void changeRoom(String textNodeName, String textNodeValue)
-	{
-		File xml = new File("Rooms.xml");
-		DocumentBuilderFactory f = DocumentBuilderFactory.newInstance();
-		DocumentBuilder b;
-		try 
-		{
-			b = f.newDocumentBuilder();
-			Document d = b.parse(xml);
-			d.getDocumentElement();
-			
-			NodeList roomNodes = d.getElementsByTagName("Room");
-			for(int i = 0; i < roomNodes.getLength(); i++)
-			{
-				Node roomNode = roomNodes.item(i);
-				if(roomNode.getNodeType() == Node.ELEMENT_NODE)
-				{
-					Element roomElement = (Element) roomNode;
-					NodeList textNodes = roomElement.getElementsByTagName(textNodeName);
-					
-					if(textNodes.getLength() > 0)
-					{
-						if(textNodes.item(0).getTextContent().equalsIgnoreCase(textNodeValue))
-						{	
-							//The statement print out the tag name information
-							String n =roomElement.getElementsByTagName(getTemp().toLowerCase()).item(0).getTextContent();
-							//print directions by attribute and value
-							System.out.print("\n");
-							readRoomsXML("id", n);
-						}
-					}
-				}
-			}
-		}
 		catch (Exception e) 
 		{
 			System.out.println("\nWrong Input. Try Again.\n");
