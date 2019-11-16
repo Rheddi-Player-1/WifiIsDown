@@ -15,11 +15,11 @@ public class Rooms
 {
 	private static String roomID;
 	private static String roomName;
-	private String roomDescription;
+	private static String roomDescription;
 	private String textNodeName;
 	private String textNodeValue;
-	private String temp;
-	Items ii = new Items();
+	private String value;
+	private static ArrayList<Item> inventory;
 
 	//constructor with no parameters
 	Rooms()
@@ -58,41 +58,62 @@ public class Rooms
 	}
 	
 	//Setter method for variable roomDescription
-	public void setRoomDescription(String roomDescription) 
+	public static void setRoomDescription(String roomDescription) 
 	{
-		this.roomDescription = roomDescription;
+		roomDescription = roomDescription;
 	}
 
 	
 	//Getter method
-	public String getTemp() 
+	public String getValue() 
 	{
-		return temp;
+		return value;
 	}
 	
 	//Setter method
-	public void setTemp(String temp) 
+	public void setValue(String value) 
 	{
-		this.temp = temp;
+		this.value = value;
 	}
 	
 
-	public String getTextNodeName() {
+	public String getTextNodeName() 
+	{
 		return textNodeName;
 	}
 
-	public void setTextNodeName(String textNodeName) {
+	public void setTextNodeName(String textNodeName) 
+	{
 		this.textNodeName = textNodeName;
 	}
 
-	public String getTextNodeValue() {
+	public String getTextNodeValue() 
+	{
 		return textNodeValue;
 	}
 
-	public void setTextNodeValue(String textNodeValue) {
+	public void setTextNodeValue(String textNodeValue) 
+	{
 		this.textNodeValue = textNodeValue;
 	}	
-
+	
+	public void storeItem(<String, Item> allItems, String value)
+	{
+		Item items = allItems.getAllItems().containsKey(value);
+		
+		if(roomID.equalsIgnoreCase(items))
+		{
+			inventory.put(items.getName(), value);
+		}
+	}
+	
+	public void removeItem(String value)
+	{
+		if(inventory.containsKey(value))
+		{
+			inventory.remove(value);
+		}
+	}
 	//Method reads Rooms XML file
 	public void readRoomsXML(String textNodeName, String textNodeValue)
 	{
