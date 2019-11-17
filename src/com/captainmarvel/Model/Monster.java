@@ -1,5 +1,13 @@
 package com.captainmarvel.Model;
 
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
+
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import java.io.File;
 import java.util.HashMap;
 import com.captainmarvel.Exceptions.*;
 
@@ -140,9 +148,62 @@ public class Monster
 
     public static void generateMonsters()
     {
-        /*
-        Waiting for Item class...
-         */
+        try
+        {
+            File itemInfo = new File("XMLs/Monsters.xml");
+            DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
+            DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
+            Document doc = dBuilder.parse(itemInfo);
+
+            doc.getDocumentElement().normalize();
+
+            Element root = doc.getDocumentElement();
+
+            NodeList nList = doc.getElementsByTagName("monster");
+
+            for(int i = 0; i < nList.getLength(); i++)
+            {
+                Node nNode = nList.item(i);
+
+                String monsterCode = "";
+                String monsterName = "";
+                String monsterDescription = "";
+                String monsterAttackPhase = "";
+                int maxEncounter = "";
+                int minEncounter = "";
+                int health = 0;
+                int attack  = 0;
+                Item heldItem = null;
+                if (nNode.getNodeType() == Node.ELEMENT_NODE)
+                {
+                    Element eElement = (Element) nNode;
+
+                    monsterCode = eElement.getAttribute("monsterCode");
+                    monsterName = eElement.getElementsByTagName("monsterName").item(0).getTextContent().toUpperCase();
+                    monsterDescription = eElement.getElementsByTagName("monsterDescription").item(0).getTextContent().toUpperCase();
+                    monsterAttackPhase = eElement.getElementsByTagName("monsterAttackPhrase").item(0).getTextContent().toUpperCase();
+                    maxEncounter = Integer.parseInt(eElement.getElementsByTagName("monsterMaxEncounterValue").item(0).getTextContent());
+                    minEncounter = Integer.parseInt(eElement.getElementsByTagName("monsterMinEncounterValue").item(0).getTextContent());
+                    health = Integer.parseInt(eElement.getElementsByTagName("monsterHealth").item(0).getTextContent());
+                    attack = Integer.parseInt(eElement.getElementsByTagName("monsterAttack").item(0).getTextContent());
+                    String tempItemCode = eElement.getElementsByTagName("monsterHeldItem").item(0).getTextContent().toUpperCase();
+
+                    if(!tempItemCode.equalsIgnoreCase("null"))
+                        heldItem = Item.allItems.get(tempItemCode);
+                    else
+                        heldItem = null;
+
+                }
+
+                Monster newMon = new Monster(monsterCode, monsterName, monsterDescription, monsterAttackPhase, health, attack, minEncounter, maxEncounter, heldItem);
+                allMonsters.put(newMon.getMonsterID(), newMon);
+            }
+        }
+        catch(Exception e)
+        {
+            System.out.println("Error! Please try again.\n");
+            e.printStackTrace();
+        }
     }
 
 }
