@@ -4,6 +4,7 @@ import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.DocumentBuilder;
 import org.w3c.dom.Document;
 import org.w3c.dom.NodeList;
+
 import org.w3c.dom.Node;
 import org.w3c.dom.Element;
 import java.io.File;
@@ -16,22 +17,19 @@ public class Rooms
 	private String roomDescription;
 	private String roomVisited;
 	private String roomPuzzleID;
+	private String roomBoard;
 	private String[] roomConnections;
 	public static HashMap<String, String> roomIn;
 	public static HashMap<String, String> roomItem;
-	public static HashMap<String, Rooms> rooms = new HashMap<String, Rooms>();
-	private String value;
+	public static HashMap<String, Rooms> rooms = new HashMap<>();
 	
 	//constructor with no parameters
-	Rooms()
+	public Rooms() 
 	{
 		
 	}
-	
-	public Rooms(String roomID, String roomDescription, String roomVisited, String roomPuzzleID, String[] roomConnections) 
+	public Rooms(String roomDescription, String roomVisited, String roomPuzzleID, String roomBoard, String[] roomConnections) 
 	{
-		super();
-		this.roomID = roomID;
 		this.roomDescription = roomDescription;
 		this.roomVisited = roomVisited;
 		this.roomPuzzleID = roomPuzzleID;
@@ -86,14 +84,6 @@ public class Rooms
 		this.roomItem = roomItem;
 	}
 
-	public String getValue() {
-		return value.toLowerCase();
-	}
-
-	public void setValue(String value) {
-		this.value = value;
-	}
-	
 	public void visitedRoom(String value)
 	{
 		if(getRoomID().equalsIgnoreCase(value))
@@ -128,10 +118,11 @@ public class Rooms
 			System.out.println("Fail to remove item from room.");
 		}
 	}
-	public void look()
-	{
-		getRoomDescription();
+	
+	public void look() {
+		getRoomDescription().toString();
 	}
+	
 	public void changeRooms(String value)
 	{
 		for(String a : roomConnections)
@@ -142,9 +133,14 @@ public class Rooms
 			}
 		}
 	}
-	
-	//Method Reads Rooms XML file
-	public static void readRoomsXML()
+	/*
+	public String toString() 
+	{
+	     return roomDescription;
+	 }
+	*/
+	 //Method Reads Rooms XML file
+	public static HashMap<String, Rooms> readRoomsXML()
 	{
 		File xml = new File("Rooms.xml");
 		DocumentBuilderFactory f = DocumentBuilderFactory.newInstance();
@@ -153,6 +149,7 @@ public class Rooms
 			b = f.newDocumentBuilder();
 			Document d = b.parse(xml);
 			d.getDocumentElement();
+			d.getDocumentElement().normalize();
 			
 			NodeList roomsNodes = d.getElementsByTagName("Room");
 			for(int i = 0; i < roomsNodes.getLength(); i++)
@@ -168,16 +165,19 @@ public class Rooms
 					String description = e.getElementsByTagName("description").item(0).getTextContent();
 					String vendingItem = e.getElementsByTagName("connections").item(0).getTextContent();
 					String puzzleID = e.getElementsByTagName("puzzleID").item(0).getTextContent();
+					String roomBoard = e.getElementsByTagName("board").item(0).getTextContent();
 					String connections = e.getElementsByTagName("connections").item(0).getTextContent();
 					String[] connectionsArray = connections.split(":");
 					
-					rooms.put(id, new Rooms(id, description, visited, puzzleID, connectionsArray));
+					rooms.put(id, new Rooms(description, visited, puzzleID, roomBoard, connectionsArray));
 				}
+				return rooms;
 			}
 		} 
 		catch (Exception e) 
 		{
 			System.out.println("\nWrong Input. Try Again.\n");
 		}
+		return rooms;
 	}
 }
