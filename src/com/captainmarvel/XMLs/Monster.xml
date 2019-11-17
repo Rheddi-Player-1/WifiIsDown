@@ -17,7 +17,7 @@
 			<monsterAttack>5</monsterAttack>
 			<monsterDescription>You encountered an enraged Wifi Router! Normally you see them unconscious, but this one is alive!</monsterDescription>
 			<monsterAttackPhrase>"TAKE THIS PACKET!"</monsterAttackPhrase>
-			<monsterMinEncounterValue>1</monsterMinEncounterValue>
+			<monsterMinEncounterValue>0</monsterMinEncounterValue>
 			<monsterMaxEncounterValue>10</monsterMaxEncounterValue>
 			<monsterHeldItem>KI06</monsterHeldItem>
 		</monster>
@@ -51,17 +51,17 @@
 			<monsterMaxEncounterValue>26</monsterMaxEncounterValue>
 			<monsterHeldItem>KI06</monsterHeldItem>
 		</monster>
-		<monster monsterCode = "M05">
+		<monster monsterCode = "M07">
 			<monsterName>Angry Librarian</monsterName>
 			<monsterHealth>12</monsterHealth>
 			<monsterAttack>32</monsterAttack>
 			<monsterDescription>An angry librarian joined the fray!</monsterDescription>
 			<monsterAttackPhrase>"QUIET!!"</monsterAttackPhrase>
-			<monsterMinEncounterValue>2</monsterMinEncounterValue>
+			<monsterMinEncounterValue>3</monsterMinEncounterValue>
 			<monsterMaxEncounterValue>5</monsterMaxEncounterValue>
 			<monsterHeldItem>CI05</monsterHeldItem>
 		</monster>
-		<monster monsterCode = "M06">
+		<monster monsterCode = "M05">
 			<monsterName>Midterm Exam</monsterName>
 			<monsterHealth>45</monsterHealth>
 			<monsterAttack>30</monsterAttack>
@@ -71,7 +71,7 @@
 			<monsterMaxEncounterValue>38</monsterMaxEncounterValue>
 			<monsterHeldItem>null</monsterHeldItem>
 		</monster>
-		<monster monsterCode = "M07">
+		<monster monsterCode = "M06">
 			<monsterName>Final Exam</monsterName>
 			<monsterHealth>60</monsterHealth>
 			<monsterAttack>50</monsterAttack>
