@@ -15,51 +15,57 @@ import org.w3c.dom.NodeList;
 public class Puzzle 
 {
 	private String id;
-	private String name;
+	private String type;
+	private String prize;
 	private String solve;
 	private String answer;
 	private String examine;
 	private String hint;
-	private String room;
-	public static HashMap<String, Puzzle> puzzle = new HashMap<String, Puzzle>();
+	public static HashMap<String, Puzzle> puzzle = new HashMap<>();
 
 	public Puzzle()
 	{
 		
 	}
 	
-	public Puzzle(String id, String name, String solve, String answer, String examine, String hint, String room) 
+	public Puzzle(String id, String type, String prize, String solve, String answer, String examine, String hint) 
 	{
-		this.name = name;
+		this.id = id;
+		this.type = type;
+		this.prize = prize;
 		this.solve = solve;
 		this.answer = answer;
 		this.examine = examine;
 		this.hint = hint;
-		this.room = room;
 	}
 	
 	public String getId() {
 		return id;
 	}
-	
+
 	public void setId(String id) {
 		this.id = id;
 	}
-	
-	public String getName() {
-		return name;
+
+	public String getType() {
+		return type;
 	}
 
-
-	public void setName(String name) {
-		this.name = name;
+	public void setType(String type) {
+		this.type = type;
 	}
 
+	public String getPrize() {
+		return prize;
+	}
+
+	public void setPrize(String prize) {
+		this.prize = prize;
+	}
 
 	public String getSolve() {
 		return solve;
 	}
-
 
 	public void setSolve(String solve) {
 		this.solve = solve;
@@ -89,13 +95,6 @@ public class Puzzle
 		this.hint = hint;
 	}
 
-	public String getRoom() {
-		return room;
-	}
-
-	public void setRoom(String room) {
-		this.room = room;
-	}
 	//Method Reads Puzzle XML file
 	public static void readPuzzleXML()
 	{
@@ -117,14 +116,14 @@ public class Puzzle
 					Element e = (Element) node;
 					
 					String id = e.getElementsByTagName("id").item(0).getTextContent();
-					String name = e.getElementsByTagName("name").item(0).getTextContent();
+					String type = e.getElementsByTagName("type").item(0).getTextContent();
+					String prize = e.getElementsByTagName("prize").item(0).getTextContent();
 					String solve = e.getElementsByTagName("solve").item(0).getTextContent();
-					String examine = e.getElementsByTagName("examine").item(0).getTextContent();
 					String answer = e.getElementsByTagName("answer").item(0).getTextContent();
+					String examine = e.getElementsByTagName("examine").item(0).getTextContent();
 					String hint = e.getElementsByTagName("hint").item(0).getTextContent();
-					String room = e.getElementsByTagName("room").item(0).getTextContent();
 					
-					puzzle.put(name, new Puzzle(id, name, solve, answer, examine, hint, room));
+					puzzle.put(id, new Puzzle(id, type, prize, solve, answer, examine, hint));
 				}
 			}
 		} 
@@ -134,3 +133,4 @@ public class Puzzle
 		}
 	}
 }
+
