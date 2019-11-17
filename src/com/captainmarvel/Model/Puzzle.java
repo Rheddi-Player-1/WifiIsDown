@@ -1,3 +1,5 @@
+package com.captainmarvel.Model;
+
 import java.io.File;
 import java.util.HashMap;
 import java.util.Scanner;
