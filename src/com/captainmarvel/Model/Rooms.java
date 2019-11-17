@@ -19,8 +19,7 @@ public class Rooms
 	private String roomPuzzleID;
 	private String roomBoard;
 	private String[] roomConnections;
-	public static HashMap<String, String> roomIn;
-	public static HashMap<String, String> roomItem;
+	private ArrayList<Item> roomItems = new ArrayList<Item>();
 	public static HashMap<String, Rooms> rooms = new HashMap<>();
 	
 	//constructor with no parameters
@@ -76,14 +75,14 @@ public class Rooms
 		this.roomConnections = roomConnections;
 	}
 
-	public static HashMap<String, String> getRoomItem() {
-		return roomItem;
+	public ArrayList<Item> getRoomItems() {
+		return roomItems;
 	}
-
-	public void setRoomItem(HashMap<String,String> roomItem) {
-		this.roomItem = roomItem;
+	
+	public void setRoomItems(ArrayList<Item> roomItems) {
+		this.roomItems = roomItems;
 	}
-
+	
 	public void visitedRoom(String value)
 	{
 		if(getRoomID().equalsIgnoreCase(value))
@@ -96,7 +95,7 @@ public class Rooms
 	{	
 		if(item.inventory.contains(value))
 		{
-			roomItem.put(getRoomID(), value);
+			//add to roomItems ArrayList
 			System.out.println("Item successfully added to room.");
 		}
 		else
@@ -107,16 +106,8 @@ public class Rooms
 	
 	public void removeFromRoom(String value, Item item)
 	{
-		
-		if(roomItem.containsKey(getRoomID()))
-		{
-			roomItem.remove(value);
-			System.out.println("Item successfully removed from room.");
-		}
-		else
-		{
-			System.out.println("Fail to remove item from room.");
-		}
+		//remove from roomItems ArrayList
+		System.out.println("Item successfully removed from room.");
 	}
 	
 	public void look() {
