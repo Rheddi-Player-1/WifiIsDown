@@ -19,6 +19,7 @@ public class Rooms
 	private String[] roomConnections;
 	private String vendingItem;
 	private static ArrayList<String> inventory;
+	public static HashMap<String, Rooms> rooms = new HashMap<String, Rooms>();
 	private static Scanner input = new Scanner(System.in);
 	private String value;
 	
@@ -111,7 +112,7 @@ public class Rooms
 		}
 		else
 		{
-			throw new ItemsNotAvailableException(itemName);
+			//throw new ItemsNotAvailable(itemName);
 		}
 	}
 	
@@ -123,16 +124,26 @@ public class Rooms
 			System.out.println("Item removed from your inventory.");
 		}
 	}
-	public void puzzleIn()
+	public void puzzleIn(Puzzle puzzle)
 	{
 		if(!getRoomPuzzleID().equalsIgnoreCase("NONE"))
 		{
-			
+			puzzle.getSolve();
+		}
+	}
+	public void changeRooms(String value)
+	{
+		for(String a : roomConnections)
+		{
+			if(a.equalsIgnoreCase(value))
+			{
+				System.out.println(getRoomDescription());
+			}
 		}
 	}
 	
 	//Method Reads Rooms XML file
-	public static void readRoomsXML(HashMap<String, Rooms> rooms)
+	public static void readRoomsXML()
 	{
 		File xml = new File("Rooms.xml");
 		DocumentBuilderFactory f = DocumentBuilderFactory.newInstance();
