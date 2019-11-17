@@ -51,7 +51,7 @@
 			<monsterMaxEncounterValue>26</monsterMaxEncounterValue>
 			<monsterHeldItem>KI06</monsterHeldItem>
 		</monster>
-		<monster monsterCode = "M07">
+		<monster monsterCode = "M08">
 			<monsterName>Angry Librarian</monsterName>
 			<monsterHealth>12</monsterHealth>
 			<monsterAttack>32</monsterAttack>
@@ -81,7 +81,7 @@
 			<monsterMaxEncounterValue>42</monsterMaxEncounterValue>
 			<monsterHeldItem>null</monsterHeldItem>
 		</monster>
-		<monster monsterCode = "M08">
+		<monster monsterCode = "M07">
 			<monsterName>Eldritch Scribble</monsterName>
 			<monsterHealth>2147483647</monsterHealth>
 			<monsterAttack>2147483647</monsterAttack>

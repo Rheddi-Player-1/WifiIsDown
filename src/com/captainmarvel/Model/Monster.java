@@ -169,8 +169,8 @@ public class Monster
                 String monsterName = "";
                 String monsterDescription = "";
                 String monsterAttackPhase = "";
-                int maxEncounter = "";
-                int minEncounter = "";
+                int maxEncounter = 0;
+                int minEncounter = 0;
                 int health = 0;
                 int attack  = 0;
                 Item heldItem = null;
@@ -180,8 +180,8 @@ public class Monster
 
                     monsterCode = eElement.getAttribute("monsterCode");
                     monsterName = eElement.getElementsByTagName("monsterName").item(0).getTextContent().toUpperCase();
-                    monsterDescription = eElement.getElementsByTagName("monsterDescription").item(0).getTextContent().toUpperCase();
-                    monsterAttackPhase = eElement.getElementsByTagName("monsterAttackPhrase").item(0).getTextContent().toUpperCase();
+                    monsterDescription = eElement.getElementsByTagName("monsterDescription").item(0).getTextContent();
+                    monsterAttackPhase = eElement.getElementsByTagName("monsterAttackPhrase").item(0).getTextContent();
                     maxEncounter = Integer.parseInt(eElement.getElementsByTagName("monsterMaxEncounterValue").item(0).getTextContent());
                     minEncounter = Integer.parseInt(eElement.getElementsByTagName("monsterMinEncounterValue").item(0).getTextContent());
                     health = Integer.parseInt(eElement.getElementsByTagName("monsterHealth").item(0).getTextContent());
