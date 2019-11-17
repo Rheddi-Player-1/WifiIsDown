@@ -17,10 +17,9 @@ public class Rooms
 	private String roomVisited;
 	private String roomPuzzleID;
 	private String[] roomConnections;
-	private String vendingItem;
-	private static ArrayList<String> inventory;
+	public static HashMap<String, String> roomIn;
+	public static HashMap<String, String> roomItem;
 	public static HashMap<String, Rooms> rooms = new HashMap<String, Rooms>();
-	private static Scanner input = new Scanner(System.in);
 	private String value;
 	
 	//constructor with no parameters
@@ -67,8 +66,8 @@ public class Rooms
 		return roomPuzzleID;
 	}
 
-	public static void setRoomPuzzleID(String roomPuzzleID) {
-		roomPuzzleID = roomPuzzleID;
+	public void setRoomPuzzleID(String roomPuzzleID) {
+		this.roomPuzzleID = roomPuzzleID;
 	}
 
 	public String[] getRoomConnections() {
@@ -79,57 +78,59 @@ public class Rooms
 		this.roomConnections = roomConnections;
 	}
 
-	public String getVendingItem() {
-		return vendingItem;
+	public static HashMap<String, String> getRoomItem() {
+		return roomItem;
 	}
 
-	public static void setVendingItem(String vendingItem) {
-		vendingItem = vendingItem;
-	}
-
-	public static ArrayList<String> getInventory() {
-		return inventory;
-	}
-
-	public static void setInventory(ArrayList<String> inventory) {
-		Rooms.inventory = inventory;
+	public void setRoomItem(HashMap<String,String> roomItem) {
+		this.roomItem = roomItem;
 	}
 
 	public String getValue() {
-		return value;
+		return value.toLowerCase();
 	}
 
 	public void setValue(String value) {
 		this.value = value;
 	}
-
-	public void storeItem(String value)
-	{	
-		if(!getVendingItem().equalsIgnoreCase("NONE"))
+	
+	public void visitedRoom(String value)
+	{
+		if(getRoomID().equalsIgnoreCase(value))
 		{
-			inventory.add(value);
-			System.out.println("Item added to your inventory.");
-		}
-		else
-		{
-			//throw new ItemsNotAvailable(itemName);
+			setRoomVisited("false");
 		}
 	}
 	
-	public void removeItem(String value)
-	{
-		if(inventory.contains(value))
+	public void addToRoom(String value, Item item)
+	{	
+		if(item.inventory.contains(value))
 		{
-			inventory.remove(value);
-			System.out.println("Item removed from your inventory.");
+			roomItem.put(getRoomID(), value);
+			System.out.println("Item successfully added to room.");
+		}
+		else
+		{
+			System.out.println("Fail to add item to room.");
 		}
 	}
-	public void puzzleIn(Puzzle puzzle)
+	
+	public void removeFromRoom(String value, Item item)
 	{
-		if(!getRoomPuzzleID().equalsIgnoreCase("NONE"))
+		
+		if(roomItem.containsKey(getRoomID()))
 		{
-			puzzle.getSolve();
+			roomItem.remove(value);
+			System.out.println("Item successfully removed from room.");
 		}
+		else
+		{
+			System.out.println("Fail to remove item from room.");
+		}
+	}
+	public void look()
+	{
+		getRoomDescription();
 	}
 	public void changeRooms(String value)
 	{
@@ -166,9 +167,7 @@ public class Rooms
 					String visited = e.getElementsByTagName("visited").item(0).getTextContent();
 					String description = e.getElementsByTagName("description").item(0).getTextContent();
 					String vendingItem = e.getElementsByTagName("connections").item(0).getTextContent();
-					setVendingItem(vendingItem);
 					String puzzleID = e.getElementsByTagName("puzzleID").item(0).getTextContent();
-					setRoomPuzzleID(puzzleID);
 					String connections = e.getElementsByTagName("connections").item(0).getTextContent();
 					String[] connectionsArray = connections.split(":");
 					
