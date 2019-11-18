@@ -2,6 +2,10 @@ package com.captainmarvel.Model;
 
 public class WordPuzzle extends Puzzle
 {
+	public ItemPuzzle(String type, String answer, String prize)
+	{
+		super();
+	}
 	public void SolveWordPuzzle(String solution, Item item)
 	{
 		if(getType().equalsIgnoreCase("WP"))
