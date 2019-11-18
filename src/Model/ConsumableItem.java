@@ -1,4 +1,4 @@
-package com.captainmarvel.Model;
+package Model;
 
 public class ConsumableItem extends Item
 {

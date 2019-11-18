@@ -1,4 +1,4 @@
-package com.captainmarvel.Model;
+package Model;
 
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.DocumentBuilder;

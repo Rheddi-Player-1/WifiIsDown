@@ -1,6 +1,6 @@
-package com.captainmarvel.Model;
+package Model;
 
-import com.captainmarvel.Exceptions.*;
+import Exceptions.*;
 
 public class Player
 {
@@ -8,10 +8,10 @@ public class Player
     private int playerMaxStress;
     private int playerCurrentStress;
     private int playerAttack;
-    private Weapon playerEquipedItem;
+    private WeaponItem playerEquipedItem;
     private StorageItem playerStorageItem;
     private Item playerHeldItem;
-    private Room currentRoom;
+    private Rooms currentRooms;
 
     //New Game Constructor
     public Player(String playerName)
@@ -22,13 +22,13 @@ public class Player
         playerCurrentStress = 0;
         playerEquipedItem = null;
         playerStorageItem = null;
-        playerEquipedItem = null;
-        currentRoom = //Room.allRooms.get(R00);
+        playerHeldItem = null;
+        currentRooms = //Rooms.allRoomss.get(R00);
     }
 
     //Load Game Constructor
-    public Player(String playerName, int playerMaxStress, int playerCurrentStress, int playerAttack, Weapon playerEquipedItem,
-                  StorageItem playerStorageItem, Item playerHeldItem, Room currentRoom)
+    public Player(String playerName, int playerMaxStress, int playerCurrentStress, int playerAttack, WeaponItem playerEquipedItem,
+                  StorageItem playerStorageItem, Item playerHeldItem, Rooms currentRooms)
     {
         this.playerName = playerName;
         this.playerMaxStress = playerMaxStress;
@@ -36,8 +36,8 @@ public class Player
         this.playerCurrentStress = playerCurrentStress;
         this.playerEquipedItem = playerEquipedItem;
         this.playerStorageItem = playerStorageItem;
-        this.playerEquipedItem = playerEquipedItem;
-        this.currentRoom = currentRoom;
+        this.playerHeldItem = playerHeldItem;
+        this.currentRooms = currentRooms;
     }
 
     public String getPlayerName()
@@ -80,12 +80,12 @@ public class Player
         this.playerAttack = playerAttack;
     }
 
-    public Weapon getPlayerEquipedItem()
+    public WeaponItem getPlayerEquipedItem()
     {
         return playerEquipedItem;
     }
 
-    public void setPlayerEquipedItem(Weapon playerEquipedItem)
+    public void setPlayerEquipedItem(WeaponItem playerEquipedItem)
     {
         this.playerEquipedItem = playerEquipedItem;
     }
@@ -110,14 +110,14 @@ public class Player
         this.playerHeldItem = playerHeldItem;
     }
 
-    public Room getCurrentRoom()
+    public Rooms getCurrentRooms()
     {
-        return currentRoom;
+        return currentRooms;
     }
 
-    public void setCurrentRoom(Room currentRoom)
+    public void setCurrentRooms(Rooms currentRooms)
     {
-        this.currentRoom = currentRoom;
+        this.currentRooms = currentRooms;
     }
 
     public int attack()

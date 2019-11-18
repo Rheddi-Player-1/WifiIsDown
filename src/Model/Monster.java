@@ -1,4 +1,4 @@
-package com.captainmarvel.Model;
+package Model;
 
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -150,7 +150,7 @@ public class Monster
     {
         try
         {
-            File itemInfo = new File("XMLs/Monsters.xml");
+            File itemInfo = new File("src/XMLs/Monsters.xml");
             DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
             DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
             Document doc = dBuilder.parse(itemInfo);
