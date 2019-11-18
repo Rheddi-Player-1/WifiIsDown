@@ -1,25 +1,15 @@
 package Model;
 
+package final_prj;
+
 public class WeaponItem extends Item
 {
-	private int itemSize;
 	private double attackBonus;
 
 	public WeaponItem(String itemID, String itemName, String itemDescription, int itemSize, double attackBonus)
 	{
-		super(itemID, itemName, itemDescription);
-		this.itemSize = itemSize;
+		super(itemID, itemName, itemDescription, itemSize);
 		this.attackBonus = attackBonus;
-	}
-
-	public int getItemSize()
-	{
-		return itemSize;
-	}
-
-	public void setItemSize(int itemSize)
-	{
-		this.itemSize = itemSize;
 	}
 
 	public double getAttackBonus()
@@ -44,3 +34,4 @@ public class WeaponItem extends Item
 		this.damagePoints = damagePoints;
 	}
 }
+

@@ -2,23 +2,13 @@ package Model;
 
 public class ConsumableItem extends Item
 {
-    private int itemSize;
     private double itemRecovery;
     private int healingPoints;
 
     public ConsumableItem(String itemID, String itemName, String itemDescription, int itemSize, double itemRecovery)
     {
-        super(itemID, itemName, itemDescription);
-        this.itemSize = itemSize;
+        super(itemID, itemName, itemDescription, itemSize);
         this.itemRecovery = itemRecovery;
-    }
-
-    public int getItemSize() {
-        return itemSize;
-    }
-
-    public void setItemSize(int itemSize) {
-        this.itemSize = itemSize;
     }
 
     public double getItemRecovery() {
@@ -38,5 +28,4 @@ public class ConsumableItem extends Item
     {
         this.healingPoints = healingPoints;
     }
-
 }

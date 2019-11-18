@@ -17,16 +17,18 @@ public class Item
 	private String itemID;
 	private String itemName;
 	private String itemDescription;
+	private int itemSize;
 	private HashMap <String, Item> allItems;
 	private ArrayList<Item> inventory = new ArrayList<Item>();
 	private Rooms room;
 
 	// Creating constructors for different types of items.
-	public Item(String itemID, String itemName, String itemDescription)
+	public Item(String itemID, String itemName, String itemDescription, int itemSize)
 	{
 		this.itemID = itemID;
 		this.itemName = itemName;
 		this.itemDescription = itemDescription;
+		this.itemSize = itemSize;
 	}
 
 	//Getters and Setters
@@ -35,6 +37,8 @@ public class Item
 	public String getItemName() { return itemName; }
 
 	public String getItemDescription(){	return itemDescription; }
+
+	public int getItemSize() { return itemSize; }
 
 	public HashMap<String, Item> getAllItems() { return allItems; }
 

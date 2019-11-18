@@ -2,7 +2,6 @@ package Model;
 
 public class VendingItem extends Item
 {
-	private int itemSize;
 	private int itemCapacity;
 	private boolean isPickable;
 	private Item heldItem;
@@ -10,21 +9,10 @@ public class VendingItem extends Item
 	public VendingItem(String itemID, String itemName, String itemDescription, int itemSize, int itemCapacity,
 					   boolean isPickable, Item heldItem)
 	{
-		super(itemID, itemName, itemDescription);
-		this.itemSize = itemSize;
+		super(itemID, itemName, itemDescription, itemSize);
 		this.itemCapacity = itemCapacity;
 		this.isPickable = isPickable;
 		this.heldItem = heldItem;
-	}
-
-	public int getItemSize()
-	{
-		return itemSize;
-	}
-
-	public void setItemSize(int itemSize)
-	{
-		this.itemSize = itemSize;
 	}
 
 	public int getItemCapacity()
@@ -58,3 +46,4 @@ public class VendingItem extends Item
 	}
 
 }
+

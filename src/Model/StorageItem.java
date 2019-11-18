@@ -2,11 +2,12 @@ package Model;
 
 public class StorageItem extends Item
 {
+    private static final int itemSize = 0;
     private int itemCapacity;
 
     public StorageItem(String itemID, String itemName, String itemDescription, int itemCapacity)
     {
-        super(itemID, itemName, itemDescription);
+        super(itemID, itemName, itemDescription, itemSize);
         this.itemCapacity = itemCapacity;
     }
 
@@ -21,3 +22,4 @@ public class StorageItem extends Item
     }
 
 }
+
