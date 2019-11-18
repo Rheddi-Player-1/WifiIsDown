@@ -1,5 +1,6 @@
 package Controller;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 import Model.*;
 import View.*;
@@ -11,6 +12,7 @@ public class Controller
     private Console view;
     private Scanner input;
     private Monster mainEnemy;
+    private ArrayList<Item> carriedItems = new ArrayList<Item>();
 
     public Controller()
     {
@@ -19,8 +21,8 @@ public class Controller
         input = new Scanner(System.in);
         mainEnemy = null;
 
-        Item.readItems();
-        Rooms.readRoomXML();
+        Item.readItemXML();
+        Rooms.readRoomsXML();
         Puzzle.readPuzzleXML();
         Monster.generateMonsters();
     }
@@ -248,6 +250,8 @@ public class Controller
         else if(userDecision.contains("USE ITEM"))
         {
             //controller method for items
+            user = new Player();
+            carriedItems = user
             
         }
         else if(userDecision.contains("IGNORE"))

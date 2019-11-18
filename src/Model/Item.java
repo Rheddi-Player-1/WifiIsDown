@@ -46,32 +46,8 @@ public class Item
 
 	public String inspectItem(){ return itemDescription; }
 
-	public Item pickUpItem()
-	{
-		Item item = room.getRoomItem();
-		inventory.add(room.getRoomItem());
-		room.removeFromRoom(getItemID(), item);
-	}
-
-	public Item dropItem()
-	{
-		return null;
-
-	}
-
-	public void useItem()
-	{
-
-	}
-
-	public Item equipItem()
-	{
-		return null;
-
-	}
-
 	//Read all the items to a hashmap
-	public static void generateItems()
+	public static void readItemXML()
 	{
 		File itemInfo = new File("XMLs/Items.xml");
 		DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
