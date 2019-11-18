@@ -69,7 +69,7 @@ public class Item
 	//Read all the items to a hashmap
 	public static void generateItems()
 	{
-		File itemInfo = new File("src/com/captainmarvel/XMLs/Items.xml");
+		File itemInfo = new File("XMLs/Items.xml");
 		DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
 		DocumentBuilder dBuilder;
 		try
