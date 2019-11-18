@@ -6,7 +6,6 @@ public class VendingItem extends Item
 	private int itemCapacity;
 	private boolean isPickable;
 	private Item heldItem;
-	private int healingPoints;
 
 	public VendingItem(String itemID, String itemName, String itemDescription, int itemSize, int itemCapacity,
 					   boolean isPickable, Item heldItem)
@@ -58,13 +57,4 @@ public class VendingItem extends Item
 		this.heldItem = heldItem;
 	}
 
-	public int getHealingPoints()
-	{
-		return healingPoints;
-	}
-
-	public void setHealingPoints(int healingPoints)
-	{
-		this.healingPoints = healingPoints;
-	}
 }
