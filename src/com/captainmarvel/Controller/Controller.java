@@ -40,12 +40,14 @@ public class Controller
 	}			
 	
     //Method that navigates game
-	public void game(String value)
+	public void game()
 	{		
 		while (true) 
 		{ 	
-			value = value.toLowerCase();
-			String[] command = value.split(" ");
+			System.out.print("\n->");
+			String a = input.nextLine();
+			a = a.toLowerCase();
+			String[] command = a.split(" ");
 			String in = command[0];
 			
 			switch(command[0])
