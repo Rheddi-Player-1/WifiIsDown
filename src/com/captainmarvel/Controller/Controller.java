@@ -140,12 +140,6 @@ public class Controller
 			case "save":
 				if (command.length >= 2) 
 				{
-					String temp = "";
-					for (int i = 1; i < command.length; i++) 
-					{
-						temp += command[i] + " ";
-					}
-					temp = temp.trim();
 					//ADD METHOD
 				}
 				break;
