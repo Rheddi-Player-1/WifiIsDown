@@ -1,4 +1,4 @@
-package com.captainmarvel.Exceptions;
+package Exceptions;
 
 public class MonsterDeathException extends RuntimeException
 {

@@ -1,4 +1,4 @@
-package com.captainmarvel.View;
+package View;
 
 public class Console
 {

@@ -1,4 +1,4 @@
-package com.captainmarvel.Model;
+package Model;
 
 import com.captainmarvel.Exceptions.*;
 
