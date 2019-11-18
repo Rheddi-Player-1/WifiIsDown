@@ -19,5 +19,5 @@ public class StrorageItem extends Item
     {
         this.itemCapacity = itemCapacity;
     }
-    
+
 }

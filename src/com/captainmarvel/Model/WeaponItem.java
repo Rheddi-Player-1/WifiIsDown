@@ -3,9 +3,9 @@ package com.captainmarvel.Model;
 public class WeaponItem extends Item
 {
 	private int itemSize;
-	private int attackBonus;
+	private double attackBonus;
 
-	public WeaponItem(String itemID, String itemName, String itemDescription, int itemSize, int attackBonus)
+	public WeaponItem(String itemID, String itemName, String itemDescription, int itemSize, double attackBonus)
 	{
 		super(itemID, itemName, itemDescription);
 		this.itemSize = itemSize;
@@ -22,7 +22,7 @@ public class WeaponItem extends Item
 		this.itemSize = itemSize;
 	}
 
-	public int getAttackBonus()
+	public double getAttackBonus()
 	{
 		return attackBonus;
 	}
