@@ -23,7 +23,146 @@ public class Controller
         Monster.generateMonsters();
     }
 
-
+    //Methods print commands for game
+	public void helpCommand()
+	{
+		System.out.println("\n****Commands****\n"
+				+ "\nGo + Direction (Ex. North, South, East, OR West)"
+				+ "\nDrop + Item Name"
+				+ "\nGet + Item Name"
+				+ "\nExamine (Examines Puzzle)"
+				+ "\nSolve (Solve Puzzle)"
+				+ "\nHint (Hint for Puzzle)"
+				+ "\nAttack (Attack Monster)"
+				+ "\nSave (Save Game)"
+				+ "\nQuit (Quit Game)"
+				+ "\nHep (Help Commands)");
+	}			
+	
+    //Method that navigates game
+	public void game(String value)
+	{		
+		while (true) 
+		{ 	
+			value = value.toLowerCase();
+			String[] command = value.split(" ");
+			String in = command[0];
+			
+			switch(command[0])
+			{
+			case "get":
+				if (command.length >= 2) 
+				{
+					String temp = "";
+					for (int i = 1; i < command.length; i++) 
+					{
+						temp += command[i] + " ";
+					}
+					temp = temp.trim();
+					//ADD METHOD
+				} 
+				break;
+			case "drop":
+				if (command.length >= 2) 
+				{
+					String temp = "";
+					for (int i = 1; i < command.length; i++) 
+					{
+						temp += command[i] + " ";
+					}
+					temp = temp.trim();
+					//ADD METHOD
+				} 
+				break;
+			case "go":
+				if (command.length >= 2) 
+				{
+					String temp = "";
+					for (int i = 1; i < command.length; i++) 
+					{
+						temp += command[i] + " ";
+					}
+					temp = temp.trim();
+					//ADD METHOD
+				} 
+				break;
+			case "inventory":
+				//ADD METHOD
+				break;
+			case "examine":
+				if (command.length >= 2) 
+				{
+					String temp = "";
+					for (int i = 1; i < command.length; i++) 
+					{
+						temp += command[i] + " ";
+					}
+					temp = temp.trim();
+					//ADD METHOD
+				} 
+				break;
+			case "hint":
+				if (command.length >= 2) 
+				{
+					String temp = "";
+					for (int i = 1; i < command.length; i++) 
+					{
+						temp += command[i] + " ";
+					}
+					temp = temp.trim();
+					//ADD METHOD
+				} 
+				break;
+			case "solve":
+				if (command.length >= 2) 
+				{
+					String temp = "";
+					for (int i = 1; i < command.length; i++) 
+					{
+						temp += command[i] + " ";
+					}
+					temp = temp.trim();
+					//ADD METHOD
+				} 
+				break;
+			case "attack":
+				if (command.length >= 2) 
+				{
+					String temp = "";
+					for (int i = 1; i < command.length; i++) 
+					{
+						temp += command[i] + " ";
+					}
+					temp = temp.trim();
+					//ADD METHOD
+				}
+				break;
+			case "save":
+				if (command.length >= 2) 
+				{
+					String temp = "";
+					for (int i = 1; i < command.length; i++) 
+					{
+						temp += command[i] + " ";
+					}
+					temp = temp.trim();
+					//ADD METHOD
+				}
+				break;
+			case "quit":
+				System.out.println("Game Has Ended!");
+				System.exit(0);
+				break;
+			case "help":
+				helpCommand();
+				break;
+			default:
+				System.out.println("Sorry, wrong input.");
+				break;
+			}
+		}
+	}
+    
     public void preBattlePhase()
     {
         int randomMonster = 0;
