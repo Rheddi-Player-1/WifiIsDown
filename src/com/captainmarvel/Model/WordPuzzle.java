@@ -2,7 +2,7 @@ package com.captainmarvel.Model;
 
 public class WordPuzzle extends Puzzle
 {
-	public void SolveWordPuzzle(String solution)
+	public void SolveWordPuzzle(String solution, Item item)
 	{
 		if(getType().equalsIgnoreCase("WP"))
 		{
@@ -17,7 +17,7 @@ public class WordPuzzle extends Puzzle
 					
 					if(!getPrize().equalsIgnoreCase("NONE"))
 					{
-						//add prize to inventory statement
+						item.inventory.add(item);
 						System.out.println("Item prize " + getPrize() + " was added to your inventory!");
 					}
 					attempt = 3;
