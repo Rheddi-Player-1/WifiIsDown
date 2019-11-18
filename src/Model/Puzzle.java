@@ -2,6 +2,7 @@ package Model;
 
 import java.io.File;
 import java.util.HashMap;
+import java.util.Scanner;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -20,9 +21,10 @@ public class Puzzle
 	private String answer;
 	private String examine;
 	private String hint;
+	private String itemUse;
 	public static HashMap<String, Puzzle> puzzle = new HashMap<>();
 	
-	public Puzzle(String id, String type, String prize, String solve, String answer, String examine, String hint) 
+	public Puzzle(String id, String type, String prize, String solve, String answer, String examine, String hint, String itemUse) 
 	{
 		this.id = id;
 		this.type = type;
@@ -88,6 +90,19 @@ public class Puzzle
 	public void setHint(String hint) {
 		this.hint = hint;
 	}
+	
+	public String puzzleDescription()
+	{
+		return solve;
+	}
+	
+	public String getItemUse() {
+		return itemUse;
+	}
+
+	public void setItemUse(String itemUse) {
+		this.itemUse = itemUse;
+	}
 
 	//Method Reads Puzzle XML file
 	public static void readPuzzleXML()
@@ -116,8 +131,9 @@ public class Puzzle
 					String answer = e.getElementsByTagName("answer").item(0).getTextContent();
 					String examine = e.getElementsByTagName("examine").item(0).getTextContent();
 					String hint = e.getElementsByTagName("hint").item(0).getTextContent();
+					String itemUse = e.getElementsByTagName("itemUse").item(0).getTextContent();
 					
-					puzzle.put(id, new Puzzle(id, type, prize, solve, answer, examine, hint));
+					puzzle.put(id, new Puzzle(id, type, prize, solve, answer, examine, hint, itemUse));
 				}
 			}
 		} 
