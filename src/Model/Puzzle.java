@@ -21,11 +21,6 @@ public class Puzzle
 	private String examine;
 	private String hint;
 	public static HashMap<String, Puzzle> puzzle = new HashMap<>();
-
-	public Puzzle()
-	{
-		
-	}
 	
 	public Puzzle(String id, String type, String prize, String solve, String answer, String examine, String hint) 
 	{
