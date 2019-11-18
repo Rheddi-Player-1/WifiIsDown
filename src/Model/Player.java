@@ -2,6 +2,8 @@ package Model;
 
 import Exceptions.*;
 
+import java.util.ArrayList;
+
 public class Player
 {
     private String playerName;
@@ -12,6 +14,8 @@ public class Player
     private StorageItem playerStorageItem;
     private Item playerHeldItem;
     private Rooms currentRooms;
+    private int availableStorage;
+    private ArrayList<Item> carriedItems;
 
     //New Game Constructor
     public Player(String playerName)
@@ -23,12 +27,14 @@ public class Player
         playerEquipedItem = null;
         playerStorageItem = null;
         playerHeldItem = null;
-        currentRooms = //Rooms.allRoomss.get(R00);
+        currentRooms = ;
+        availableStorage = 0;
+        carriedItems = new ArrayList<>();
     }
 
     //Load Game Constructor
     public Player(String playerName, int playerMaxStress, int playerCurrentStress, int playerAttack, WeaponItem playerEquipedItem,
-                  StorageItem playerStorageItem, Item playerHeldItem, Rooms currentRooms)
+                  StorageItem playerStorageItem, Item playerHeldItem, Rooms currentRooms, ArrayList<Item> carriedItems)
     {
         this.playerName = playerName;
         this.playerMaxStress = playerMaxStress;
@@ -38,6 +44,7 @@ public class Player
         this.playerStorageItem = playerStorageItem;
         this.playerHeldItem = playerHeldItem;
         this.currentRooms = currentRooms;
+        this.carriedItems = carriedItems;
     }
 
     public String getPlayerName()
@@ -98,6 +105,7 @@ public class Player
     public void setPlayerStorageItem(StorageItem playerStorageItem)
     {
         this.playerStorageItem = playerStorageItem;
+        availableStorage = playerStorageItem.getItemCapacity();
     }
 
     public Item getPlayerHeldItem()
@@ -120,6 +128,16 @@ public class Player
         this.currentRooms = currentRooms;
     }
 
+    public ArrayList<Item> getCarriedItems()
+    {
+        return carriedItems;
+    }
+
+    public void setCarriedItems(ArrayList<Item> carriedItems)
+    {
+        this.carriedItems = carriedItems;
+    }
+
     public int attack()
     {
         return getPlayerAttack();
@@ -132,5 +150,39 @@ public class Player
             throw new PlayerDeathException();
     }
 
+    public void addItem(Item item)
+    {
+        if(item.getItemSize() <= availableStorage)
+        {
+            carriedItems.add(item);
+            availableStorage -= item.getItemSize();
+        }
+        else
+            throw new OverEncumbered();
+    }
+
+    public Item removeItem(String itemName)
+    {
+        Item removed = null;
+        boolean isHere = false;
+        int i = 0;
+        while(i < carriedItems.size() || isHere)
+        {
+            if(carriedItems.get(i).getItemName().equalsIgnoreCase(itemName))
+            {
+                removed = carriedItems.get(i);
+                carriedItems.remove(i);
+                availableStorage += removed.getItemSize();
+                isHere = true;
+            }
+            else
+                i++;
+        }
+
+        if(!isHere)
+            throw new ItemDoesNotExist(itemName);
+
+        return removed;
+    }
 
 }
