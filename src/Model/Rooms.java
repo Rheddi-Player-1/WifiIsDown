@@ -17,6 +17,8 @@ public class Rooms
 	private String roomVisited;
 	private String roomPuzzleID;
 	private String roomBoard;
+	private boolean roomLocked;
+	private String roomLockedDes;
 	private String[] roomConnections;
 	private ArrayList<Item> roomItems = new ArrayList<Item>();
 	public static HashMap<String, Rooms> rooms = new HashMap<>();
@@ -26,11 +28,14 @@ public class Rooms
 	{
 		
 	}
-	public Rooms(String roomDescription, String roomVisited, String roomPuzzleID, String roomBoard, String[] roomConnections) 
+	public Rooms(String roomDescription, String roomVisited, String roomPuzzleID, String roomBoard, boolean roomLocked, String roomLockedDes, String[] roomConnections) 
 	{
 		this.roomDescription = roomDescription;
 		this.roomVisited = roomVisited;
 		this.roomPuzzleID = roomPuzzleID;
+		this.roomBoard = roomBoard;
+		this.roomLocked = roomLocked;
+		this.roomLockedDes = roomLockedDes;
 		this.roomConnections = roomConnections;
 	}
 	
@@ -82,6 +87,25 @@ public class Rooms
 		this.roomItems = roomItems;
 	}
 	
+	public String getRoomBoard() {
+		return roomBoard;
+	}
+	public void setRoomBoard(String roomBoard) {
+		this.roomBoard = roomBoard;
+	}
+	public boolean getRoomLocked() {
+		return roomLocked;
+	}
+	public void setRoomLocked(boolean roomLocked) {
+		this.roomLocked = roomLocked;
+	}
+	public String getRoomLockedDes() {
+		return roomLockedDes;
+	}
+	public void setRoomLockedDes(String roomLockedDes) {
+		this.roomLockedDes = roomLockedDes;
+	}
+	
 	public void visitedRoom(String value)
 	{
 		if(getRoomID().equalsIgnoreCase(value))
@@ -94,7 +118,7 @@ public class Rooms
 	{	
 		if(item.inventory.contains(value))
 		{
-			//add to roomItems ArrayList
+			roomItems.add(item);
 			System.out.println("Item successfully added to room.");
 		}
 		else
@@ -105,7 +129,7 @@ public class Rooms
 	
 	public void removeFromRoom(String value, Item item)
 	{
-		//remove from roomItems ArrayList
+		roomItems.remove(item);
 		System.out.println("Item successfully removed from room.");
 	}
 	
@@ -156,10 +180,13 @@ public class Rooms
 					String vendingItem = e.getElementsByTagName("connections").item(0).getTextContent();
 					String puzzleID = e.getElementsByTagName("puzzleID").item(0).getTextContent();
 					String roomBoard = e.getElementsByTagName("board").item(0).getTextContent();
+					String locked = e.getElementsByTagName("locked").item(0).getTextContent();
+					boolean roomLocked = Boolean.valueOf(locked);
+					String roomLockedDes = e.getElementsByTagName("lockedDes").item(0).getTextContent();
 					String connections = e.getElementsByTagName("connections").item(0).getTextContent();
 					String[] connectionsArray = connections.split(":");
 					
-					rooms.put(id, new Rooms(description, visited, puzzleID, roomBoard, connectionsArray));
+					rooms.put(id, new Rooms(description, visited, puzzleID, roomBoard, roomLocked, roomLockedDes, connectionsArray));
 				}
 				return rooms;
 			}

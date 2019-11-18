@@ -12,73 +12,35 @@ import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
-public abstract class Item
+public class Item
 {
 	private String itemID;
 	private String itemName;
 	private String itemDescription;
-	private int itemLocation;
-	private int itemSize;
-	private boolean isPickable;
-	private Item heldItem;
 	private HashMap <String, Item> allItems;
 	private ArrayList<Item> inventory = new ArrayList<Item>();
 	private Rooms room;
 
-
-	public String getItemID()
+	// Creating constructors for different types of items.
+	public Item(String itemID, String itemName, String itemDescription)
 	{
-		return itemID;
+		this.itemID = itemID;
+		this.itemName = itemName;
+		this.itemDescription = itemDescription;
 	}
 
-	public String getItemName()
-	{
-		return itemName;
-	}
+	//Getters and Setters
+	public String getItemID() {	return itemID; }
 
-	public String getItemDescription()
-	{
-		return itemDescription;
-	}
+	public String getItemName() { return itemName; }
 
-	public int getInitialItemLocation()
-	{
-		return itemLocation;
-	}
+	public String getItemDescription(){	return itemDescription; }
 
-	public int getItemSize()
-	{
-		return itemSize;
-	}
+	public HashMap<String, Item> getAllItems() { return allItems; }
 
-	public void setItemSize(int itemSize)
-	{
-		this.itemSize = itemSize;
-	}
+	public void setAllItems(HashMap<String, Item> allItems) { this.allItems = allItems; }
 
-	public boolean isPickable()
-	{
-		return isPickable;
-	}
-
-	public void setPickable(boolean isPickable)
-	{
-		this.isPickable = isPickable;
-	}
-
-	public HashMap<String, Item> getAllItems()
-	{
-		return allItems;
-	}
-	public void setAllItems(HashMap<String, Item> allItems)
-	{
-		this.allItems = allItems;
-	}
-
-	public String inspectItem()
-	{
-		return itemDescription;
-	}
+	public String inspectItem(){ return itemDescription; }
 
 	public Item pickUpItem()
 	{
@@ -107,11 +69,13 @@ public abstract class Item
 	//Read all the items to a hashmap
 	public static void generateItems()
 	{
-		File itemInfo = new File("src/com/captainmarvel/XMLs/Items.xml");
+		File itemInfo = new File("XMLs/Items.xml");
 		DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
 		DocumentBuilder dBuilder;
 		try
 		{
+			//Creating object for vending item
+
 			dBuilder = dbFactory.newDocumentBuilder();
 			Document doc = dBuilder.parse(itemInfo);
 			doc.getDocumentElement().normalize();
@@ -134,8 +98,9 @@ public abstract class Item
 
 					if (!tempHeldItems.isEmpty())
 					{
-						heldItem =
+						heldItem = null;
 					}
+					VendingItem vItem = new VendingItem(code, name, description, size, capacity, ispickable, heldItem);
 				}
 			}
 
@@ -153,6 +118,9 @@ public abstract class Item
 					String description = consumableItem.getElementsByTagName("itemDescription").item(0).getTextContent();
 					int size = Integer.parseInt(consumableItem.getElementsByTagName("itemSize").item(0).getTextContent());
 					double recovery = Integer.parseInt(consumableItem.getElementsByTagName("itemRecovery").item(0).getTextContent());
+
+					ConsumableItem cItem = new ConsumableItem(code, name, description, size, recovery);
+
 				}
 			}
 
@@ -169,6 +137,9 @@ public abstract class Item
 					String description = weaponItem.getElementsByTagName("itemDescription").item(0).getTextContent();
 					int size = Integer.parseInt(weaponItem.getElementsByTagName("itemSize").item(0).getTextContent());
 					double attackBonus = Integer.parseInt(weaponItem.getElementsByTagName("attackBonus").item(0).getTextContent());
+
+					WeaponItem wItem = new WeaponItem(code, name, description, size, attackBonus);
+
 				}
 			}
 
@@ -184,6 +155,9 @@ public abstract class Item
 					String name = keyItem.getElementsByTagName("itemName").item(0).getTextContent();
 					String description = keyItem.getElementsByTagName("itemDescription").item(0).getTextContent();
 					int size = Integer.parseInt(keyItem.getElementsByTagName("itemSize").item(0).getTextContent());
+
+					KeyItem kItem = new KeyItem(code, name, description, size);
+
 				}
 			}
 
@@ -198,7 +172,10 @@ public abstract class Item
 					String code = storageItem.getAttribute("itemCode");
 					String name = storageItem.getElementsByTagName("itemName").item(0).getTextContent();
 					String description = storageItem.getElementsByTagName("itemDescription").item(0).getTextContent();
-					int capacity = Integer.parseInt(storageItem.getElementsByTagName("itemSize").item(0).getTextContent());
+					int capacity = Integer.parseInt(storageItem.getElementsByTagName("itemCapacity").item(0).getTextContent());
+
+					StorageItem sItem = new StorageItem(code, name, description, capacity);
+
 				}
 			}
 
@@ -210,14 +187,4 @@ public abstract class Item
 		}
 	}
 }
-
-
-
-
-
-
-
-
-
-
 
