@@ -120,22 +120,20 @@ public class Rooms
 		if(item.inventory.contains(value))
 		{
 			roomItems.add(item);
-			System.out.println("Item successfully added to room.");
 		}
 		else
 		{
-			System.out.println("Fail to add item to room.");
+			throw new NotInRoomException();
 		}
 	}
 	
 	public void removeFromRoom(String value, Item item)
 	{
 		roomItems.remove(item);
-		System.out.println("Item successfully removed from room.");
 	}
 	
-	public void look() {
-		System.out.println(rooms.get(roomID));
+	public Rooms look() {
+		return rooms.get(roomID);
 	}
 	
 	public void changeRooms(String value)
@@ -146,13 +144,13 @@ public class Rooms
 			{
 				if(a.equalsIgnoreCase(value))
 				{
-					System.out.println(getRoomDescription());
+					getRoomDescription();
 				}
 			}
 		}
 		else
 		{
-			System.out.println("Sorry, room is locked.");
+			throw new LockedRoomException();
 		}
 	}
 
@@ -204,4 +202,3 @@ public class Rooms
 		}
 	}
 }
-
