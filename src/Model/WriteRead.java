@@ -12,9 +12,8 @@ import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
 
 import Exceptions.FileDoesNotExist;
-import org.w3c.dom.Attr;
-import org.w3c.dom.Document;
-import org.w3c.dom.Element;
+import org.w3c.dom.*;
+
 import java.time.format.DateTimeFormatter;
 import java.time.LocalDateTime;
 
@@ -50,6 +49,10 @@ public class WriteRead
             Element playerEquippedItem = doc.createElement("playerEquippedItem");
             playerEquippedItem.appendChild(doc.createTextNode(user.getPlayerEquipedItem().getItemID()));
             playerInfoRoot.appendChild(playerEquippedItem);
+
+            Element playerStorageItem = doc.createElement("playerStorageItem");
+            playerStorageItem.appendChild(doc.createTextNode(user.getPlayerStorageItem().getItemID()));
+            playerInfoRoot.appendChild(playerStorageItem);
 
             Element playerCurrentRoom = doc.createElement("playerCurrentRoom");
             playerCurrentRoom.appendChild(doc.createTextNode(user.getCurrentRooms().getRoomID()));
@@ -127,6 +130,54 @@ public class WriteRead
 
         try
         {
+            File itemInfo = new File("XMLs/" + fileName + ".xml");
+            DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
+            DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
+            Document doc = dBuilder.parse(itemInfo);
+
+            doc.getDocumentElement().normalize();
+
+            Element root = doc.getDocumentElement();
+
+            NodeList playerNode = doc.getElementsByTagName("player");
+            NodeList roomNode = doc.getElementsByTagName("room");
+
+
+            String playerName = "";
+            int playerAttack = 0;
+            int playerCurrentStress = 0;
+            WeaponItem playerEquipedItem = null;
+            StorageItem playerStorageItem = null;
+            Item playerHeldItem = null;
+            Rooms currentRooms = null;
+            ArrayList<Item> carriedItems = new ArrayList<>();
+            String weaponId = "";
+            String storageId = "";
+            String heldId = "";
+            String roomID = "";
+            String carriedIDs = "";
+
+            for(int i = 0; i < playerNode.getLength(); i++)
+            {
+                Node playNode = playerNode.item(i);
+
+                if (playNode.getNodeType() == Node.ELEMENT_NODE)
+                {
+                    Element eElement = (Element) playerNode;
+
+                    playerName = eElement.getElementsByTagName("playerName").item(0).getTextContent();
+                    playerCurrentStress = Integer.parseInt(eElement.getElementsByTagName("playerCurrentStress").item(0).getTextContent());
+                    playerAttack = Integer.parseInt(eElement.getElementsByTagName("monsterAttackPhrase").item(0).getTextContent());
+                    weaponId = eElement.getElementsByTagName("playerEquippedItem").item(0).getTextContent();
+                    storageId = eElement.getElementsByTagName("playerStorageItem").item(0).getTextContent();
+                    heldId = eElement.getElementsByTagName("playerHeldItem").item(0).getTextContent();
+                    roomID = eElement.getElementsByTagName("playerCurrentRoom").item(0).getTextContent();
+                    carriedIDs= eElement.getElementsByTagName("playerCarriedItems").item(0).getTextContent().toUpperCase();
+
+
+
+                }
+            }
 
             return savedPlayer;
         }
