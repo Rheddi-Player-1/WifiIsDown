@@ -1,4 +1,4 @@
-package final_prj;
+package Model;
 
 public class HealingItem extends Item
 {
