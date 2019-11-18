@@ -22,12 +22,12 @@ public class Rooms
 	private String roomLockedDes;
 	private String[] roomConnections;
 	private ArrayList<Item> roomItems = new ArrayList<Item>();
-	public static HashMap<String, Rooms> rooms = new HashMap<>();
+	public static HashMap<String, Rooms> rooms = new HashMap<String, Rooms>();
 	
 	//constructor with no parameters
 	public Rooms() 
 	{
-		
+		Rooms.readRoomsXML();
 	}
 	public Rooms(String roomDescription, String roomVisited, String roomPuzzleID, String roomBoard, boolean roomLocked, String roomLockedDes, String[] roomConnections) 
 	{
@@ -162,7 +162,7 @@ public class Rooms
 	 }
 
 	 //Method Reads Rooms XML file
-	public static HashMap<String, Rooms> readRoomsXML()
+	public static void readRoomsXML()
 	{
 		File xml = new File("Rooms.xml");
 		DocumentBuilderFactory f = DocumentBuilderFactory.newInstance();
@@ -177,7 +177,7 @@ public class Rooms
 			for(int i = 0; i < roomsNodes.getLength(); i++)
 			{
 				Node node = roomsNodes.item(i);
-				
+
 				if(node.getNodeType() == Node.ELEMENT_NODE)
 				{
 					Element e = (Element) node;
@@ -196,13 +196,12 @@ public class Rooms
 					
 					rooms.put(id, new Rooms(description, visited, puzzleID, roomBoard, roomLocked, roomLockedDes, connectionsArray));
 				}
-				return rooms;
 			}
 		} 
 		catch (Exception e) 
 		{
 			System.out.println("\nWrong Input. Try Again.\n");
 		}
-		return rooms;
 	}
 }
+
