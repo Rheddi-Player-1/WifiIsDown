@@ -2,8 +2,8 @@ package Model;
 
 public class ItemPuzzle extends Puzzle
 {
-	public ItemPuzzle(String id, String type, String prize, String solve, String answer, String examine, String hint) {
-		super(id, type, prize, solve, answer, examine, hint);
+	public ItemPuzzle(String id, String type, String prize, String solve, String answer, String examine, String hint, String itemUse) {
+		super(id, type, prize, solve, answer, examine, hint, itemUse);
 	}
 
 	public String SolveItemPuzzle(String solution, Item item)
@@ -15,7 +15,7 @@ public class ItemPuzzle extends Puzzle
 			do{
 				attempt++;
 			
-				if(item.inventory.contains(getAnswer()) && getAnswer().equalsIgnoreCase(solution))
+				if(item.inventory.contains(getItemUse()) && getAnswer().equalsIgnoreCase(solution))
 				{
 					
 					attempt = 3;
