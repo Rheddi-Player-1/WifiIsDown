@@ -18,7 +18,7 @@ public class Item
 	private String itemName;
 	private String itemDescription;
 	private int itemSize;
-	private HashMap <String, Item> allItems;
+	public static HashMap <String, Item> allItems;
 	private ArrayList<Item> inventory = new ArrayList<Item>();
 	private Rooms room;
 

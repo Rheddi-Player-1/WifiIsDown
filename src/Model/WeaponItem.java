@@ -1,7 +1,5 @@
 package Model;
 
-package final_prj;
-
 public class WeaponItem extends Item
 {
 	private double attackBonus;

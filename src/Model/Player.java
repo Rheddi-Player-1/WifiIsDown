@@ -10,15 +10,15 @@ public class Player
     private int playerMaxStress;
     private int playerCurrentStress;
     private int playerAttack;
-    private WeaponItem playerEquipedItem;
-    private StorageItem playerStorageItem;
+    private Item playerEquipedItem;
+    private Item playerStorageItem;
     private Item playerHeldItem;
     private Rooms currentRooms;
     private int availableStorage;
     private ArrayList<Item> carriedItems;
 
     //New Game Constructor
-    public Player(String playerName)
+    public Player(String playerName, Rooms startingRoom)
     {
         this.playerName = playerName;
         playerMaxStress = 20;
@@ -27,14 +27,14 @@ public class Player
         playerEquipedItem = null;
         playerStorageItem = null;
         playerHeldItem = null;
-        currentRooms = ;
+        currentRooms = startingRoom;
         availableStorage = 0;
         carriedItems = new ArrayList<>();
     }
 
     //Load Game Constructor
-    public Player(String playerName, int playerCurrentStress, int playerAttack, WeaponItem playerEquipedItem,
-                  StorageItem playerStorageItem, Item playerHeldItem, Rooms currentRooms, ArrayList<Item> carriedItems)
+    public Player(String playerName, int playerCurrentStress, int playerAttack, Item playerEquipedItem,
+                  Item playerStorageItem, Item playerHeldItem, Rooms currentRooms, ArrayList<Item> carriedItems, int availableStorage)
     {
         this.playerName = playerName;
         playerMaxStress = 20;
@@ -45,6 +45,7 @@ public class Player
         this.playerHeldItem = playerHeldItem;
         this.currentRooms = currentRooms;
         this.carriedItems = carriedItems;
+        this.availableStorage = availableStorage;
     }
 
     public String getPlayerName()
@@ -87,7 +88,7 @@ public class Player
         this.playerAttack = playerAttack;
     }
 
-    public WeaponItem getPlayerEquipedItem()
+    public Item getPlayerEquipedItem()
     {
         return playerEquipedItem;
     }
@@ -97,7 +98,7 @@ public class Player
         this.playerEquipedItem = playerEquipedItem;
     }
 
-    public StorageItem getPlayerStorageItem()
+    public Item getPlayerStorageItem()
     {
         return playerStorageItem;
     }
@@ -143,6 +144,26 @@ public class Player
         return getPlayerAttack();
     }
 
+    public void setPlayerEquipedItem(Item playerEquipedItem)
+    {
+        this.playerEquipedItem = playerEquipedItem;
+    }
+
+    public void setPlayerStorageItem(Item playerStorageItem)
+    {
+        this.playerStorageItem = playerStorageItem;
+    }
+
+    public int getAvailableStorage()
+    {
+        return availableStorage;
+    }
+
+    public void setAvailableStorage(int availableStorage)
+    {
+        this.availableStorage = availableStorage;
+    }
+
     public void receiveDamage(int damage)
     {
         playerCurrentStress += damage;
@@ -185,7 +206,7 @@ public class Player
         return removed;
     }
 
-    public WeaponItem equip(WeaponItem item)
+    public Item equip(Item item)
     {
         if(playerEquipedItem == null)
         {
@@ -194,7 +215,7 @@ public class Player
         }
         else
         {
-            WeaponItem tempItem = playerEquipedItem;
+            Item tempItem = playerEquipedItem;
             playerEquipedItem = item;
             return tempItem;
 
