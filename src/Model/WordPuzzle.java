@@ -2,8 +2,8 @@ package Model;
 
 public class WordPuzzle extends Puzzle
 {
-	public WordPuzzle(String id, String type, String prize, String solve, String answer, String examine, String hint) {
-		super(id, type, prize, solve, answer, examine, hint);
+	public WordPuzzle(String id, String type, String prize, String solve, String answer, String examine, String hint, String itemUse) {
+		super(id, type, prize, solve, answer, examine, hint, itemUse);
 	}
 
 	public String SolveWordPuzzle(String solution, Item item)
