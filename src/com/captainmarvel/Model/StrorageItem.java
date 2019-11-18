@@ -1,4 +1,4 @@
-package final_prj;
+package com.captainmarvel.Model;
 
 public class StrorageItem extends Item
 {
