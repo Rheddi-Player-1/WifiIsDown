@@ -8,6 +8,7 @@ import org.w3c.dom.NodeList;
 import org.w3c.dom.Node;
 import org.w3c.dom.Element;
 import java.io.File;
+import java.io.File;
 import java.util.*;
 
 public class Rooms 
@@ -134,25 +135,32 @@ public class Rooms
 	}
 	
 	public void look() {
-		getRoomDescription().toString();
+		System.out.println(rooms.get(roomID));
 	}
 	
 	public void changeRooms(String value)
 	{
-		for(String a : roomConnections)
+		if(roomLocked == false)
 		{
-			if(a.equalsIgnoreCase(value))
+			for(String a : roomConnections)
 			{
-				System.out.println(getRoomDescription());
+				if(a.equalsIgnoreCase(value))
+				{
+					System.out.println(getRoomDescription());
+				}
 			}
 		}
+		else
+		{
+			System.out.println("Sorry, room is locked.");
+		}
 	}
-	/*
+
 	public String toString() 
 	{
 	     return roomDescription;
 	 }
-	*/
+
 	 //Method Reads Rooms XML file
 	public static HashMap<String, Rooms> readRoomsXML()
 	{
