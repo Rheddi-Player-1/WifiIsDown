@@ -248,6 +248,7 @@ public class Controller
         else if(userDecision.contains("USE ITEM"))
         {
             //controller method for items
+            
         }
         else if(userDecision.contains("IGNORE"))
         {
