@@ -2,7 +2,7 @@ package com.captainmarvel.Model;
 
 public class WordPuzzle extends Puzzle
 {
-	public ItemPuzzle(String type, String answer, String prize)
+	public WordPuzzle(String type, String answer, String prize)
 	{
 		super();
 	}
