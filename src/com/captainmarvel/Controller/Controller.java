@@ -369,9 +369,10 @@ public class Controller
             else
                 view.print(enemy1.getMonsterName() + " dodges your attack!");
         }
-        else if(userDecision.containts("USE ITEM"))
+        else if(userDecision.contains("USE ITEM"))
         {
             //controller method for items
+            
         }
         else if(userDecision.containts("IGNORE"))
         {
