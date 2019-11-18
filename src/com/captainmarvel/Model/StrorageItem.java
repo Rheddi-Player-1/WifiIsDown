@@ -10,14 +10,14 @@ public class StrorageItem extends Item
         this.itemCapacity = itemCapacity;
     }
 
-    public int getItemSize()
+    public int getItemCapacity()
     {
         return itemCapacity;
     }
 
-    public void setItemSize(int itemCapacity)
+    public void setItemCapacity(int itemCapacity)
     {
         this.itemCapacity = itemCapacity;
     }
-
+    
 }
