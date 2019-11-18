@@ -29,35 +29,18 @@ public class Item
 		this.itemDescription = itemDescription;
 	}
 
+	//Getters and Setters
+	public String getItemID() {	return itemID; }
 
-	public String getItemID()
-	{
-		return itemID;
-	}
+	public String getItemName() { return itemName; }
 
-	public String getItemName()
-	{
-		return itemName;
-	}
+	public String getItemDescription(){	return itemDescription; }
 
-	public String getItemDescription()
-	{
-		return itemDescription;
-	}
+	public HashMap<String, Item> getAllItems() { return allItems; }
 
-	public HashMap<String, Item> getAllItems()
-	{
-		return allItems;
-	}
-	public void setAllItems(HashMap<String, Item> allItems)
-	{
-		this.allItems = allItems;
-	}
+	public void setAllItems(HashMap<String, Item> allItems) { this.allItems = allItems; }
 
-	public String inspectItem()
-	{
-		return itemDescription;
-	}
+	public String inspectItem(){ return itemDescription; }
 
 	public Item pickUpItem()
 	{
