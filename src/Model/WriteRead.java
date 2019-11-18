@@ -34,11 +34,16 @@ public class WriteRead
             playerName.appendChild(doc.createTextNode(user.getPlayerName()));
             playerInfoRoot.appendChild(playerName);
 
-            Element playerMaxStress = doc.createElement("playerMaxStress");
-            playerMaxStress.appendChild(doc.createTextNode(Integer.toString(user.getPlayerMaxStress())));
-            playerMaxStress.appendChild(playerMaxStress);
+            Element playerCurrentStress = doc.createElement("playerCurrentStress");
+            playerCurrentStress.appendChild(doc.createTextNode(Integer.toString(user.getPlayerCurrentStress())));
+            playerInfoRoot.appendChild(playerCurrentStress);
 
-            Element player
+            Element playerAttack = doc.createElement("playerAttack");
+            playerAttack.appendChild(doc.createTextNode(Integer.toString(user.getPlayerAttack())));
+            playerInfoRoot.appendChild(playerAttack);
+
+            Element playerEquippedItem = doc.createElement("playerEquippedItem");
+            playerEquippedItem.appendChild(doc.createTe)
 
 
             return true;

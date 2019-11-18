@@ -33,11 +33,11 @@ public class Player
     }
 
     //Load Game Constructor
-    public Player(String playerName, int playerMaxStress, int playerCurrentStress, int playerAttack, WeaponItem playerEquipedItem,
+    public Player(String playerName, int playerCurrentStress, int playerAttack, WeaponItem playerEquipedItem,
                   StorageItem playerStorageItem, Item playerHeldItem, Rooms currentRooms, ArrayList<Item> carriedItems)
     {
         this.playerName = playerName;
-        this.playerMaxStress = playerMaxStress;
+        playerMaxStress = 20;
         this.playerAttack = playerAttack;
         this.playerCurrentStress = playerCurrentStress;
         this.playerEquipedItem = playerEquipedItem;
@@ -183,6 +183,23 @@ public class Player
             throw new ItemDoesNotExist(itemName);
 
         return removed;
+    }
+
+    public WeaponItem equip(WeaponItem item)
+    {
+        if(playerEquipedItem == null)
+        {
+            playerEquipedItem = item;
+            return null;
+        }
+        else
+        {
+            WeaponItem tempItem = playerEquipedItem;
+            playerEquipedItem = item;
+            return tempItem;
+
+        }
+
     }
 
 }
