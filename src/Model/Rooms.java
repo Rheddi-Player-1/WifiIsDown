@@ -127,7 +127,7 @@ public class Rooms
 		}
 	}
 	
-	public void removeFromRoom(String value, Item item)
+	public void removeFromRoom(Item item)
 	{
 		roomItems.remove(item);
 	}
