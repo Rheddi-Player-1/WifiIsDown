@@ -2,6 +2,10 @@ package com.captainmarvel.Model;
 
 public class ItemPuzzle extends Puzzle
 {
+	public ItemPuzzle(String type, String answer, String prize)
+	{
+		super();
+	}
 	public void SolveItemPuzzle(String solution, Item item, Puzzle puzzle)
 	{
 		if(getType().equalsIgnoreCase("IP"))
