@@ -2,7 +2,7 @@ package Model;
 
 public class StorageItem extends Item
 {
-    private static final int itemSize = 0;
+    private static final int itemSize = 50;
     private int itemCapacity;
 
     public StorageItem(String itemID, String itemName, String itemDescription, int itemCapacity)
