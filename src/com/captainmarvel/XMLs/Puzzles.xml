@@ -3,30 +3,36 @@
 		<id>P1</id>
 		<type>WP</type>
 		<prize>KI07</prize>
-		<solve>What is the world's most populous country?</solve>
-		<answer>China</answer>
+		<solve>G B G O B E 
+V U Q E X J G
+B L S I E Q R
+E A P Q D R E
+O J W X J H A
+D J I Q X H T
+</solve>
+		<answer>GO BE GREAT</answer>
 		<examine>This puzzle must be solved correctly to gain access</examine>
-		<hint>country is in Asia</hint>
+		<hint>GGC's motto</hint>
 	</puzzle>
 	
 	<puzzle>
 		<id>P2</id>
 		<type>WP</type>
 		<prize>NONE</prize>
-		<solve>What is 3 + 5?</solve>
-		<answer>8</answer>
-		<examine>This puzzle must be solved correctly to gain access</examine>
-		<hint>add the two numbers together</hint>
+		<solve>A terminal requires a password in order to be unlocked.</solve>
+		<answer>that damn grizz</answer>
+		<examine>This puzzle must be solved correctly for the possibility to win a prize.</examine>
+		<hint>Answer is in this scrabbled phrase "hatt dmna zzirg"</hint>
 	</puzzle>
 	
 	<puzzle>
 		<id>P3</id>
 		<type>WP</type>
 		<prize>KI02</prize>
-		<solve>How many programs of study does GGC have?</solve>
-		<answer>18</answer>
-		<examine>This puzzle must be solved correctly to gain access</examine>
-		<hint>answer contains two words</hint>
+		<solve>Complete the following pattern: 1, 3, 6, 10, 15, __ </solve>
+		<answer>21</answer>
+		<examine>This puzzle must be solved correctly for the possibility to win a prize.</examine>
+		<hint>The answer is 21.</hint>
 	</puzzle>
 	
 	<puzzle>
@@ -35,7 +41,7 @@
 		<prize>KI03</prize>
 		<solve>Who is the professor for our software development I class?</solve>
 		<answer>Dr. Barakat</answer>
-		<examine>This puzzle must be solved correctly to gain access</examine>
+		<examine>This puzzle must be solved correctly for the possibility to win a prize.</examine>
 		<hint>answer contains Dr. before last name</hint>
 	</puzzle>
 	
@@ -45,7 +51,7 @@
 		<prize>NONE</prize>
 		<solve>Unicorns are extinct? True or False</solve>
 		<answer>Fale</answer>
-		<examine>This puzzle must be solved correctly to gain access</examine>
+		<examine>This puzzle must be solved correctly for the possibility to win a prize.</examine>
 		<hint>They never existed</hint>
 	</puzzle>
 	
@@ -55,7 +61,7 @@
 		<prize>KI06</prize>
 		<solve>How many state are there in the United States?</solve>
 		<answer>50</answer>
-		<examine>This puzzle must be solved correctly to gain access</examine>
+		<examine>This puzzle must be solved correctly for the possibility to win a prize.</examine>
 		<hint>Include Hawaii and Alaska</hint>
 	</puzzle>
 	
@@ -65,7 +71,7 @@
 		<prize>NONE</prize>
 		<solve>Who was the first president of the United States?</solve>
 		<answer>George Washington</answer>
-		<examine>This puzzle must be solved correctly to gain access</examine>
+		<examine>This puzzle must be solved correctly for the possibility to win a prize.</examine>
 		<hint>person is on the one dollar bill</hint>
 	</puzzle>
 	
@@ -75,7 +81,7 @@
 		<prize>NONE</prize>
 		<solve>What does a caterpillar change into?</solve>
 		<answer>butterfly</answer>
-		<examine>This puzzle must be solved correctly to gain access</examine>
+		<examine>This puzzle must be solved correctly for the possibility to win a prize.</examine>
 		<hint>answer is one word</hint>
 	</puzzle>
 	
@@ -85,7 +91,7 @@
 		<prize>KI01</prize>
 		<solve>Who is the current president of GGC?</solve>
 		<answer>Dr. Joseph</answer>
-		<examine>This puzzle must be solved correctly to gain access</examine>
+		<examine>This puzzle must be solved correctly for the possibility to win a prize.</examine>
 		<hint>answer contains Dr. before last name</hint>
 	</puzzle>
 	
@@ -95,7 +101,7 @@
 		<prize>NONE</prize>
 		<solve>What does the abbreviation GGC stand for?</solve>
 		<answer>Georgia Gwinnett College</answer>
-		<examine>This puzzle must be solved correctly to gain access</examine>
+		<examine>This puzzle must be solved correctly for the possibility to win a prize.</examine>
 		<hint>name of the college you attend</hint>
 	</puzzle>
 
@@ -134,20 +140,30 @@
 	<puzzle>
 		<id>P14</id>
 		<type>IP</type>
-		<prize>KI04</prize>
-		<solve>Capture the scribble.</solve>
-		<answer>KI00</answer>
-		<examine>This puzzle must be solved correctly to gain access to receive important item.</examine>
-		<hint>Item is used on whiteboards.</hint>
+		<prize>NONE</prize>
+		<solve>Unlock the office to get in.</solve>
+		<answer>KI0I</answer>
+		<examine>This puzzle must be solved correctly to gain access.</examine>
+		<hint>Must find key to unlock door.</hint>
 	</puzzle>
 	
 	<puzzle>
 		<id>P15</id>
 		<type>IP</type>
+		<prize>KI04</prize>
+		<solve>Capture the scribble.</solve>
+		<answer>KI00</answer>
+		<examine>This puzzle must be solved correctly for the possibility to win a prize.</examine>
+		<hint>Item is used on whiteboards.</hint>
+	</puzzle>
+	
+	<puzzle>
+		<id>P16</id>
+		<type>IP</type>
 		<prize>KI05</prize>
 		<solve>Capture the scribble.</solve>
 		<answer>KI00</answer>
-		<examine>This puzzle must be solved correctly to gain access to receive important item.</examine>
+		<examine>This puzzle must be solved correctly for the possibility to win a prize.</examine>
 		<hint>Item is used on whiteboards.</hint>
 	</puzzle>
 </Puzzles>
