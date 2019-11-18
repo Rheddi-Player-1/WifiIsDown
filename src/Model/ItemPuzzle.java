@@ -2,7 +2,11 @@ package Model;
 
 public class ItemPuzzle extends Puzzle
 {
-	public void SolveItemPuzzle(String solution, Item item, Puzzle puzzle)
+	public ItemPuzzle(String id, String type, String prize, String solve, String answer, String examine, String hint) {
+		super(id, type, prize, solve, answer, examine, hint);
+	}
+
+	public String SolveItemPuzzle(String solution, Item item)
 	{
 		if(getType().equalsIgnoreCase("IP"))
 		{
@@ -13,23 +17,26 @@ public class ItemPuzzle extends Puzzle
 			
 				if(item.inventory.contains(getAnswer()) && getAnswer().equalsIgnoreCase(solution))
 				{
-					item.inventory.remove(solution);
-					System.out.println("\nCongrats!! You solved the puzzle.\n");
+					
+					attempt = 3;
 					
 					if(!getPrize().equalsIgnoreCase("NONE"))
 					{
-						//add prize to inventory statement
-						System.out.println("Item prize " + getPrize() + " was added to your inventory!");
+						item.inventory.add(item);
+						throw new WinPrizeException(getPrize());
 					}
-					attempt = 3;
+					
+					item.inventory.remove(solution);
+					return "\nCongrats!! You solved the puzzle.\n";
 				
 				}
 				else
 				{
 					int attempts = 3 - attempt;
-					System.out.println("\nYou have " + attempts + " attempts left.");
+					return "\nYou have " + attempts + " attempts left.";
 				}
 			}while(attempt != 3);
 		}
+		return null;
 	}
 }
