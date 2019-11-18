@@ -18,7 +18,7 @@ public class ItemPuzzle extends Puzzle
 					
 					if(!getPrize().equalsIgnoreCase("NONE"))
 					{
-						//add prize to inventory statement
+						item.inventory.add(item);
 						System.out.println("Item prize " + getPrize() + " was added to your inventory!");
 					}
 					attempt = 3;
@@ -33,3 +33,4 @@ public class ItemPuzzle extends Puzzle
 		}
 	}
 }
+
