@@ -12,4 +12,24 @@ public class ConsumableItem extends Item
         this.itemRecovery = itemRecovery;
     }
 
+    public int getItemSize()
+    {
+        return itemSize;
+    }
+
+    public void setItemSize(int itemSize)
+    {
+        this.itemSize = itemSize;
+    }
+
+    public double getItemRecovery()
+    {
+        return itemRecovery;
+    }
+
+    public void setItemRecovery(double itemRecovery)
+    {
+        this.itemRecovery = itemRecovery;
+    }
+
 }
