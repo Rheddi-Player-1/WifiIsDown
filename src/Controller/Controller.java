@@ -27,6 +27,11 @@ public class Controller
         Monster.generateMonsters();
     }
 
+    public void newGame()
+    {
+
+    }
+
 
     public void saveGame()
     {

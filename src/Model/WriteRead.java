@@ -239,7 +239,41 @@ public class WriteRead
 
                     String rmID = "";
                     String isVisited = "";
-                    String
+                    String roomPuzzle = "";
+                    boolean roomLocked = false;
+                    ArrayList<Item> roomItems = new ArrayList<>();
+
+                    rmID = eElement.getAttribute("roomID");
+                    isVisited = eElement.getElementsByTagName("isVisited").item(0).getTextContent();
+                    roomPuzzle = eElement.getElementsByTagName("roomPuzzle").item(0).getTextContent();
+                    String tempRoomLocked = eElement.getElementsByTagName("roomLocked").item(0).getTextContent();
+                    String roomItemIds = eElement.getElementsByTagName("roomItems").item(0).getTextContent();
+
+                    if(tempRoomLocked.equalsIgnoreCase("true"))
+                        roomLocked = true;
+
+                    if(!roomItemIds.equalsIgnoreCase("DNE"))
+                    {
+                        for(int j = 0; j < roomItemIds.length(); j++)
+                        {
+                            String tempID = "";
+                            if(roomItemIds.charAt(j) == ':')
+                            {
+                                roomItems.add(Item.allItems.get(tempID));
+                                tempID = "";
+                            }
+                            else
+                            {
+                                tempID += roomItemIds.charAt(j);
+                            }
+                        }
+                    }
+
+                    Rooms modifiedRoom = Rooms.rooms.get(roomID);
+                    modifiedRoom.setRoomVisited(isVisited);
+                    modifiedRoom.setRoomPuzzleID(roomPuzzle);
+                    modifiedRoom.setRoomLocked(roomLocked);
+                    modifiedRoom.setRoomItems(roomItems);
 
                 }
             }
