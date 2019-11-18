@@ -1,10 +1,10 @@
 package com.captainmarvel.Model;
 
-public class StrorageItem extends Item
+public class StorageItem extends Item
 {
     private int itemCapacity;
 
-    public StrorageItem(String itemID, String itemName, String itemDescription, int itemCapacity)
+    public StorageItem(String itemID, String itemName, String itemDescription, int itemCapacity)
     {
         super(itemID, itemName, itemDescription);
         this.itemCapacity = itemCapacity;
