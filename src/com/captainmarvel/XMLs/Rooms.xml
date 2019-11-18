@@ -4,7 +4,8 @@
 		<id>R00</id>
 		<visited>false</visited>
 		<board>NONE</board>
-		<locked>NO</locked>
+		<locked>false</locked>
+		<lockedDes>NONE<lockedDes>
 		<description>You find yourself on the 1st floor of the library.
 Desks and chairs fill the open space
 Several study rooms line the entire floor, which
@@ -21,7 +22,8 @@ R33
 		<id>R01</id>
 		<visited>false</visited>
 		<board>NONE</board>
-		<locked>NO</locked>
+		<locked>false</locked>
+		<lockedDes>NONE<lockedDes>
 		<description>You find yourself in a small study room.
 A large desk is in the middle of the room.
 Rooms: R00, R02</description>
@@ -34,7 +36,8 @@ Rooms: R00, R02</description>
 		<id>R02</id>
 		<visited>false</visited>
 		<board>NONE</board>
-		<locked>NO</locked>
+		<locked>false</locked>
+		<lockedDes>NONE<lockedDes>
 		<description>You find yourself in a small study room.
 The light above is constantly flickering.
 The room is a mess and chairs lay scattered 
@@ -49,7 +52,8 @@ Rooms: R00, R01, R03</description>
 		<id>R03</id>
 		<visited>false</visited>
 		<board>NONE</board>
-		<locked>NO</locked>
+		<locked>false</locked>
+		<lockedDes>NONE<lockedDes>
 		<description>You find yourself in a small study room.
 The odor of Panda Express is in the air.
 A large desk is in the middle of the room.
@@ -65,7 +69,8 @@ Rooms: R00, R02, R04</description>
 		<id>R04</id>
 		<visited>false</visited>
 		<board>NONE</board>
-		<locked>NO</locked>
+		<locked>false</locked>
+		<lockedDes>NONE<lockedDes>
 		<description>You find yourself in a study room.
 A white-board hangs on one side of the wall.
 A large desk is in the middle of the room.
@@ -80,7 +85,8 @@ Rooms: R00, R03, R05</description>
 		<id>R05</id>
 		<visited>false</visited>
 		<board>NONE</board>
-		<locked>NO</locked>
+		<locked>false</locked>
+		<lockedDes>NONE<lockedDes>
 		<description>You find yourself in a slightly bigger study room.
 A small desk with a desktop computer sits on one
 end of the room.
@@ -95,7 +101,8 @@ Rooms: R00, R04, R06</description>
 		<id>R06</id>
 		<visited>false</visited>
 		<board>NONE</board>
-		<locked>NO</locked>
+		<locked>false</locked>
+		<lockedDes>NONE<lockedDes>
 		<description>You find yourself in a study room.
 A small white-board hangs near the window.
 A small desktop with a computer sits in one corner of
@@ -110,7 +117,8 @@ Rooms: R00, R05, R33</description>
 		<id>R33</id>
 		<visited>false</visited>
 		<board>NONE</board>
-		<locked>NO</locked>
+		<locked>false</locked>
+		<lockedDes>NONE<lockedDes>
 		<description>You find yourself in a big study room.
 A projector screen fills an entire wall at the 
 end of the room.
@@ -125,7 +133,8 @@ Rooms: R00, R06</description>
 		<id>R07</id>
 		<visited>false</visited>
 		<board>NONE</board>
-		<locked>NO</locked>
+		<locked>false</locked>
+		<lockedDes>NONE<lockedDes>
 		<description>You find yourself in a instructon room.
 Rows of computers face a massive white board at the
 front of the room.
@@ -139,7 +148,8 @@ Rooms: R00, R08</description>
 		<id>R08</id>
 		<visited>false</visited>
 		<board>NONE</board>
-		<locked>NO</locked>
+		<locked>false</locked>
+		<lockedDes>NONE<lockedDes>
 		<description>You find yourself in a instructon room.
 Rows of computers face a massive white board at the
 front of the room.
@@ -155,7 +165,8 @@ Rooms: R00, R07 </description>
 		<id>R09</id>
 		<visited>false</visited>
 		<board>NONE</board>
-		<locked>NO</locked>
+		<locked>false</locked>
+		<lockedDes>NONE<lockedDes>
 		<description>You find yourself on the 2nd floor of the library.
 Tables and study booths fill the open space
 Several study rooms line the entire floor, which
@@ -173,7 +184,8 @@ R27, R28, R29, R30, R31, R32, R34 </description>
 		<id>R10</id>
 		<visited>false</visited>
 		<board>NONE</board>
-		<locked>NO</locked>
+		<locked>false</locked>
+		<lockedDes>NONE<lockedDes>
 		<description>You find yourself in a small study room.
 A large desk is in the middle of the room.
 The window towards the back of the room points at 
@@ -188,7 +200,8 @@ Rooms: R09, R11</description>
 		<id>R11</id>
 		<visited>false</visited>
 		<board>NONE</board>
-		<locked>NO</locked>
+		<locked>false</locked>
+		<lockedDes>NONE<lockedDes>
 		<description>You find yourself in a small study room.
 There is a faint buzzing sound in the air.
 A large desk is in the middle of the room.
@@ -202,7 +215,8 @@ Rooms: R09, R10, R12</description>
 		<id>R12</id>
 		<visited>false</visited>
 		<board>NONE</board>
-		<locked>NO</locked>
+		<locked>false</locked>
+		<lockedDes>NONE<lockedDes>
 		<description>You find yourself in a small study room.
 A large desk is in the middle of the room.
 Rooms: R09, R11, R13</description>
@@ -215,7 +229,8 @@ Rooms: R09, R11, R13</description>
 		<id>R13</id>
 		<visited>false</visited>
 		<board>NONE</board>
-		<locked>NO</locked>
+		<locked>false</locked>
+		<lockedDes>NONE<lockedDes>
 		<description>You find yourself in a small study room.
 The angle of the sun through the window shines too
 brightly that you can barely see what's inside the room.
@@ -229,7 +244,8 @@ Rooms: R09, R12, R14</description>
 		<id>R14</id>
 		<visited>false</visited>
 		<board>NONE</board>
-		<locked>NO</locked>
+		<locked>false</locked>
+		<lockedDes>NONE<lockedDes>
 		<description>You find yourself in a small study room.
 A moblie white-board takes up most the space inside
 the room.
@@ -243,7 +259,8 @@ Rooms: R09, R13, R15</description>
 		<id>R15</id>
 		<visited>false</visited>
 		<board>NONE</board>
-		<locked>NO</locked>
+		<locked>false</locked>
+		<lockedDes>NONE<lockedDes>
 		<description>You find yourself in a small study room.
 A large desk is in the middle of the room with no
 chairs.
@@ -257,7 +274,8 @@ Rooms: R09, R14, R16</description>
 		<id>R16</id>
 		<visited>false</visited>
 		<board>NONE</board>
-		<locked>NO</locked>
+		<locked>false</locked>
+		<lockedDes>NONE<lockedDes>
 		<description>You find yourself in a small study room.
 Colorful graffiti fills one wall.
 A slight worn down whtie-board hangs on the other
@@ -272,7 +290,8 @@ Rooms: R16, R15, R17</description>
 		<id>R17</id>
 		<visited>false</visited>
 		<board>NONE</board>
-		<locked>NO</locked>
+		<locked>false</locked>
+		<lockedDes>NONE<lockedDes>
 		<description>You find yourself in a small study room.
 Several chairs surround a large desk.
 Underneath the table lies a mysterious liquid.
@@ -286,7 +305,8 @@ Rooms: R09, R16</description>
 		<id>R18</id>
 		<visited>false</visited>
 		<board>NONE</board>
-		<locked>NO</locked>
+		<locked>false</locked>
+		<lockedDes>NONE<lockedDes>
 		<description>You find yourself in a small study room.
 A large desk is in the middle of the room.
 Rooms: R09, R34, R19</description>
@@ -299,7 +319,8 @@ Rooms: R09, R34, R19</description>
 		<id>R19</id>
 		<visited>false</visited>
 		<board>NONE</board>
-		<locked>NO</locked>
+		<locked>false</locked>
+		<lockedDes>NONE<lockedDes>
 		<description>You find yourself in a small study room.
 A large desk is in the middle of the room with
 several books spiraled across the table.
@@ -313,7 +334,8 @@ Rooms: R09, R18, R20</description>
 		<id>R20</id>
 		<visited>false</visited>
 		<board>YES</board>
-		<locked>NO</locked>
+		<locked>false</locked>
+		<lockedDes>NONE<lockedDes>
 		<description>You find yourself in a small study room.
 A large white-board hangs on one side of the room.
 Rooms: R09, R19, R21</description>
@@ -326,9 +348,10 @@ Rooms: R09, R19, R21</description>
 		<id>R21</id>
 		<visited>false</visited>
 		<board>NONE</board>
-		<locked>A locked room. A hamster wheel can be 
+		<locked>true</locked>
+		<lockedDes>A locked room. A hamster wheel can be 
 heard squeaking through the door. It contains a much 
-larger wheel attached to a main generator.</locked>
+larger wheel attached to a main generator.<lockedDes>
 		<description>You find yourself inside the
 power room.
 Rooms: R09, R20</description>
@@ -341,9 +364,10 @@ Rooms: R09, R20</description>
 		<id>R22</id>
 		<visited>false</visited>
 		<board>NONE</board>
-		<locked>A locked room wherein an ancient 
+		<locked>true</locked>
+		<lockedDes>A locked room wherein an ancient 
 terminal with flickering green text 
-is visible through the window.</locked>
+is visible through the window.<lockedDes>
 		<description>You find yourself in the terminal room.
 Rooms: R09, R23</description>
 		<connections>R09:R23</connections>
@@ -355,9 +379,10 @@ Rooms: R09, R23</description>
 		<id>R23</id>
 		<visited>false</visited>
 		<board>NONE</board>
-		<locked>A locked room. Large glass windows 
+		<locked>false</locked>
+		<lockedDes>A locked room. Large glass windows 
 reveal the red glow of a complex server 
-board missing several cables.</locked>
+board missing several cables.<lockedDes>
 		<description>You find yourself in the server room.
 Rooms: R09, R22, R24</description>
 		<connections>R09:R22:R24</connections>
@@ -369,7 +394,8 @@ Rooms: R09, R22, R24</description>
 		<id>R24</id>
 		<visited>false</visited>
 		<board>YES</board>
-		<locked>NO</locked>
+		<locked>false</locked>
+		<lockedDes>NONE<lockedDes>
 		<description>A large, quiet, open 
 study room with large glass windows 
 overlooking the entire library, and a whiteboard.
@@ -383,7 +409,8 @@ Rooms: R09, R23, R25</description>
 		<id>R25</id>
 		<visited>false</visited>
 		<board>NONE</board>
-		<locked>NO</locked>
+		<locked>false</locked>
+		<lockedDes>NONE<lockedDes>
 		<description>A medium sized bathroom with 
 flickering fluorescent lights
 Rooms: R09, R24, R26</description>
@@ -396,7 +423,8 @@ Rooms: R09, R24, R26</description>
 		<id>R26</id>
 		<visited>false</visited>
 		<board>NONE</board>
-		<locked>NO</locked>
+		<locked>false</locked>
+		<lockedDes>NONE<lockedDes>
 		<description>A medium sized study room with 
 a large desk, several chairs, TV, whiteboard, 
 and large glass window overlooking GGC’s lawn
@@ -410,7 +438,8 @@ Rooms: R09, R25, R27</description>
 		<id>R27</id>
 		<visited>false</visited>
 		<board>NONE</board>
-		<locked>NO</locked>
+		<locked>false</locked>
+		<lockedDes>NONE<lockedDes>
 		<description>You find yourself in a small study room.
 One door leads to another study room and the other
 from where you came.
@@ -424,7 +453,8 @@ Rooms: R09, R26</description>
 		<id>R28</id>
 		<visited>false</visited>
 		<board>NONE</board>
-		<locked>NO</locked>
+		<locked>false</locked>
+		<lockedDes>NONE<lockedDes>
 		<description>A small study room with only a 
 few chairs, a table, and a whiteboard.
 Rooms: R09, R29</description>
@@ -437,7 +467,8 @@ Rooms: R09, R29</description>
 		<id>R29</id>
 		<visited>false</visited>
 		<board>NONE</board>
-		<locked>NO</locked>
+		<locked>false</locked>
+		<lockedDes>NONE<lockedDes>
 		<description>You find yourself in a small study room..
 Rooms: R09, R28, R30</description>
 		<connections>R09:R28:R30</connections>
@@ -449,7 +480,8 @@ Rooms: R09, R28, R30</description>
 		<id>R30</id>
 		<visited>false</visited>
 		<board>NONE</board>
-		<locked>NO</locked>
+		<locked>false</locked>
+		<lockedDes>NONE<lockedDes>
 		<description>You find yourself in a small study room.
 Rooms: R09, R29</description>
 		<connections>R09:R29</connections>
@@ -461,7 +493,8 @@ Rooms: R09, R29</description>
 		<id>R31</id>
 		<visited>false</visited>
 		<board>NONE</board>
-		<locked>NO</locked>
+		<locked>false</locked>
+		<lockedDes>NONE<lockedDes>
 		<description>You find yourself in a study room.
 Trash litters the entire floor.
 Rooms: R09, R32</description>
@@ -474,7 +507,8 @@ Rooms: R09, R32</description>
 		<id>R32</id>
 		<visited>false</visited>
 		<board>NONE</board>
-		<locked>NO</locked>
+		<locked>false</locked>
+		<lockedDes>NONE<lockedDes>
 		<description>A medium sized bathroom with 
 flickering fluorescent lights
 Rooms: R09, R31</description>
@@ -487,7 +521,8 @@ Rooms: R09, R31</description>
 		<id>R34</id>
 		<visited>false</visited>
 		<board>NONE</board>
-		<locked>NO</locked>
+		<locked>false</locked>
+		<lockedDes>NONE<lockedDes>
 		<description>You find yourself in a study room.
 The space is so small that it feels like a closet.
 Rooms: R09, R18</description>
@@ -501,7 +536,8 @@ Rooms: R09, R18</description>
 		<id>R35</id>
 		<visited>false</visited>
 		<board>NONE</board>
-		<locked>NO</locked>
+		<locked>false</locked>
+		<lockedDes>NONE<lockedDes>
 		<description>You find yourself in a study room.
 The room is filled with several chairs.
 one door leads to another study room and the other
@@ -516,7 +552,8 @@ Rooms: R36</description>
 		<id>R36</id>
 		<visited>false</visited>
 		<board>NONE</board>
-		<locked>NO</locked>
+		<locked>false</locked>
+		<lockedDes>NONE<lockedDes>
 		<description>You find yourself on the 3rd floor of the library.
 There is only one study room on this floor.
 2nd Floor Rooms: R09
@@ -526,5 +563,4 @@ There is only one study room on this floor.
 		<vendingItem>SI02</vendingItem>
 	</Room>
 </Rooms>
-	
 	
