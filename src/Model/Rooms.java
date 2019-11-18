@@ -154,11 +154,6 @@ public class Rooms
 		}
 	}
 
-	public String toString() 
-	{
-	     return roomDescription;
-	 }
-
 	 //Method Reads Rooms XML file
 	public static void readRoomsXML()
 	{
