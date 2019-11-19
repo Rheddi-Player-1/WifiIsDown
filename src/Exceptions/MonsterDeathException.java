@@ -3,9 +3,9 @@ package Exceptions;
 public class MonsterDeathException extends RuntimeException
 {
 
-    public MonsterDeathException(String monsterName)
+    public MonsterDeathException()
     {
-        super(monsterName + " has been deafeated!");
+        super("Enemy has been deafeated!");
     }
 
 }

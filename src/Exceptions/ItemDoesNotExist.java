@@ -2,8 +2,8 @@ package Exceptions;
 
 public class ItemDoesNotExist extends RuntimeException
 {
-    public ItemDoesNotExist(String itemName)
+    public ItemDoesNotExist()
     {
-        super(itemName + " is not here!");
+        super("That's not here!");
     }
 }

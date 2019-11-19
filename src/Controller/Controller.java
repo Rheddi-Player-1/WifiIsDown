@@ -17,7 +17,6 @@ public class Controller
 
     public Controller()
     {
-        user = new Player();
         view = new Console();
         room = new Rooms();
         input = new Scanner(System.in);
@@ -31,18 +30,48 @@ public class Controller
 
     public void newGame()
     {
+        view.print("Enter your name: ");
+        String name = input.nextLine();
 
+        user = new Player(name, Rooms.rooms.get("R00"));
     }
 
 
     public void saveGame()
     {
+        try
+        {
+            view.print(WriteRead.saveData(user));
+        }
+        catch (Exception e)
+        {
+            view.print("Error Saving data, please try again");
+        }
 
     }
 
     public void loadGame()
     {
-
+        try
+        {
+            view.print("----------------------------------------------------------------------------------------------------");
+            view.print("CURRENT SAVES:");
+            view.print("----------------------------------------------------------------------------------------------------");
+            view.print(WriteRead.saveToString());
+            view.print("----------------------------------------------------------------------------------------------------");
+            view.print("\nEnter the file name");
+            String userFile = input.nextLine();
+            user = WriteRead.loadData(userFile);
+        }
+        catch (FileDoesNotExist e)
+        {
+            view.print(e.getMessage());
+            loadGame();
+        }
+        catch(Exception e)
+        {
+            view.print("There has been an error, please try again.");
+        }
     }
 
     public void preBattlePhase()

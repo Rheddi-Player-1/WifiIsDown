@@ -3,9 +3,9 @@ package Exceptions;
 public class WinPrizeException extends RuntimeException
 {
 
-    public WinPrizeException(String prize)
+    public WinPrizeException()
     {
-        super("Item prize " + prize + " was added to your inventory!");
+        super("Prize has been added to your inventory!");
     }
 
 }
