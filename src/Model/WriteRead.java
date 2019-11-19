@@ -8,6 +8,7 @@ import javax.xml.transform.Transformer;
 import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
+import java.nio.file.Files;
 
 import Exceptions.FileDoesNotExist;
 import org.w3c.dom.*;
@@ -17,9 +18,35 @@ import java.time.LocalDateTime;
 
 public class WriteRead
 {
-    public static boolean saveData(Player user)
+    public static String saveToString()
     {
-        String dataFile = "XMLs/Data";
+        ArrayList<String> files = new ArrayList<>();
+        String returnStrig = "";
+        try
+        {
+            String saveFolder = "GameSaves/";
+
+            Files.list(new File(saveFolder).toPath())
+                    .limit(10)
+                    .forEach(p ->
+                    {
+                        String tempFile = p.toString();
+                        files.add(tempFile.replace(".xml", ""));
+                    });
+            for(int i = 0; i < files.size(); i++)
+                returnStrig += files.get(i) + "\n";
+
+            return returnStrig;
+        }
+        catch(Exception e)
+        {
+            return "This file does not exist!";
+        }
+    }
+    public static String saveData(Player user)
+    {
+        String fullFileName = "";
+        String dataFile = "GameSaves/Data";
         try
         {
             DocumentBuilderFactory docFac = DocumentBuilderFactory.newInstance();
@@ -129,18 +156,19 @@ public class WriteRead
 
             DateTimeFormatter datFor = DateTimeFormatter.ofPattern("yyyy/MM/ddHH:mm:ss");
             LocalDateTime current = LocalDateTime.now();
+            String date = datFor.format(current);
 
             TransformerFactory transFact = TransformerFactory.newInstance();
             Transformer trans = transFact.newTransformer();
             DOMSource domSc = new DOMSource(doc);
-            StreamResult strRes = new StreamResult(new File(dataFile + datFor.format(current) + ".xml"));
-
+            StreamResult strRes = new StreamResult(new File(dataFile + date + ".xml"));
+            fullFileName = "Data" + date;
             trans.transform(domSc, strRes);
-            return true;
+            return "Game Saved! " + fullFileName;
         }
         catch(Exception e)
         {
-            return false;
+            return "";
         }
     }
 
@@ -150,7 +178,7 @@ public class WriteRead
 
         try
         {
-            File itemInfo = new File("XMLs/" + fileName + ".xml");
+            File itemInfo = new File("GameSaves/" + fileName + ".xml");
             DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
             DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
             Document doc = dBuilder.parse(itemInfo);
