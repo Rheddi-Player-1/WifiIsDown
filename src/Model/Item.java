@@ -78,7 +78,7 @@ public class Item
 
 					if (!tempHeldItems.isEmpty())
 					{
-						heldItem = 
+						heldItem =
 					}
 					VendingItem vItem = new VendingItem(code, name, description, size, capacity, ispickable, heldItem);
 				}

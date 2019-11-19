@@ -19,7 +19,7 @@ public class Controller
     {
         user = new Player();
         view = new Console();
-        rooms = new Rooms();
+        room = new Rooms();
         input = new Scanner(System.in);
         mainEnemy = null;
 
