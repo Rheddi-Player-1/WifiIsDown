@@ -10,6 +10,7 @@ public class Controller
 {
     private Player user;
     private Console view;
+    private Rooms room;
     private Scanner input;
     private Monster mainEnemy;
     private ArrayList<Item> carriedItems = new ArrayList<Item>();
@@ -17,6 +18,7 @@ public class Controller
     public Controller()
     {
         view = new Console();
+        room = new Rooms();
         input = new Scanner(System.in);
         mainEnemy = null;
 
@@ -246,6 +248,9 @@ public class Controller
 
             view.print(enemy.getMonsterName() + " has been defeated!");
             //Controller method for returning to room interaction
+            view.print("Which room would you pick?");
+            String value = input.nextLine();
+        	rooms.changeRooms(value);
 
         }
         catch(PlayerDeathException e2)
@@ -291,12 +296,15 @@ public class Controller
         else if(userDecision.contains("IGNORE"))
         {
             //controller method for room interactions
+        	view.print("Which room would you pick?");
+            String value = input.nextLine();
+        	rooms.changeRooms(value);
         }
         else
             view.print("That monster does not exist! The enemy gets closer and prepares for an all out assault!");
     }
 
-    public void playerInterruptedBattle(Monster enemy1, int enemy1Odds, Monster enemy2, int enemy2Odds, int userOdds)
+    public void playerInterruptedBattle(Monster enemy1, int enemy1Odds, Monster enemy2, int enemy2Odds, int userOdds, Rooms rooms)
     {
         view.print("What will you do?");
         String userDecision = input.nextLine().toUpperCase();
@@ -335,6 +343,9 @@ public class Controller
         else if(userDecision.contains("IGNORE"))
         {
             //controller method for room interactions
+        	view.print("Which room would you pick?");
+            String value = input.nextLine();
+        	rooms.changeRooms(value);
         }
         else
             view.print("That monster does not exist! The enemy gets closer and prepares for an all out assault!");

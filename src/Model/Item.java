@@ -19,7 +19,7 @@ public class Item
 	private String itemDescription;
 	private int itemSize;
 	public static HashMap <String, Item> allItems;
-	private ArrayList<Item> inventory = new ArrayList<Item>();
+	private ArrayList<Item> inventory = new ArrayList<>();
 	private Rooms room;
 
 	// Creating constructors for different types of items.
@@ -78,7 +78,7 @@ public class Item
 
 					if (!tempHeldItems.isEmpty())
 					{
-						heldItem = null;
+						heldItem =
 					}
 					VendingItem vItem = new VendingItem(code, name, description, size, capacity, ispickable, heldItem);
 				}
@@ -100,7 +100,7 @@ public class Item
 					double recovery = Integer.parseInt(consumableItem.getElementsByTagName("itemRecovery").item(0).getTextContent());
 
 					ConsumableItem cItem = new ConsumableItem(code, name, description, size, recovery);
-
+					allItems.put(cItem.getItemID(), cItem);
 				}
 			}
 
@@ -119,7 +119,7 @@ public class Item
 					double attackBonus = Integer.parseInt(weaponItem.getElementsByTagName("attackBonus").item(0).getTextContent());
 
 					WeaponItem wItem = new WeaponItem(code, name, description, size, attackBonus);
-
+					allItems.put(wItem.getItemID(), wItem);
 				}
 			}
 
@@ -137,7 +137,7 @@ public class Item
 					int size = Integer.parseInt(keyItem.getElementsByTagName("itemSize").item(0).getTextContent());
 
 					KeyItem kItem = new KeyItem(code, name, description, size);
-
+					allItems.put(kItem.getItemID(), kItem);
 				}
 			}
 
@@ -155,7 +155,7 @@ public class Item
 					int capacity = Integer.parseInt(storageItem.getElementsByTagName("itemCapacity").item(0).getTextContent());
 
 					StorageItem sItem = new StorageItem(code, name, description, capacity);
-
+					allItems.put(sItem.getItemID(), sItem);
 				}
 			}
 
