@@ -22,7 +22,11 @@ public class Item
 	private ArrayList<Item> inventory = new ArrayList<>();
 	private Rooms room;
 
-	// Creating constructors for different types of items.
+	//Empty constructor
+	public Item()
+	{
+
+	}
 	public Item(String itemID, String itemName, String itemDescription, int itemSize)
 	{
 		this.itemID = itemID;
@@ -76,10 +80,16 @@ public class Item
 					boolean ispickable = Boolean.parseBoolean(vendingItem.getElementsByTagName("itemIsPickUpAble").item(0).getTextContent());
 					String tempHeldItems = vendingItem.getElementsByTagName("heldItems").item(0).getTextContent();
 
-					if (!tempHeldItems.isEmpty())
+					String [] splitHeldItems = tempHeldItems.split(":");
+					ArrayList<Item> heldItem = new ArrayList<>();
+					for (int j = 0; j < splitHeldItems.length; j++)
 					{
-						heldItem =
+						if (!(splitHeldItems.length == 0))
+						{
+							heldItem.add(tempHeldItems[j]);
+						}
 					}
+
 					VendingItem vItem = new VendingItem(code, name, description, size, capacity, ispickable, heldItem);
 				}
 			}
