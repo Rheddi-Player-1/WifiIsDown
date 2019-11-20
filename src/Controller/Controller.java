@@ -347,11 +347,7 @@ public class Controller
         catch(MonsterDeathException e1)
         {
             isMonsterDead = true;
-            view.print(enemy.getMonsterName() + " has been defeated!");
-            //Controller method for returning to room interaction
-            view.print("Which room would you pick?");
-            String value = input.nextLine();
-        	rooms.changeRooms(value);
+            mainMenu();
 
         }
         catch(PlayerDeathException e2)
@@ -391,22 +387,30 @@ public class Controller
         else if(userDecision.contains("USE ITEM"))
         {
             //controller method for items
-            user = new Player();
-            carriedItems = user
+
             
         }
         else if(userDecision.contains("IGNORE"))
         {
-            //controller method for room interactions
-        	view.print("Which room would you pick?");
-            String value = input.nextLine();
-        	rooms.changeRooms(value);
+            int pickANum = (int)(Math.random() * (20 + 1) - 1);
+
+            if(pickANum == userOdds || userOdds > pickANum)
+            {
+                view.print("You ran from the fight!");
+                isMonsterDead = true;
+                mainMenu();
+            }
+            else
+            {
+                view.print("You could not get away!");
+                battlePhase(enemy, enemyOdds, userOdds);
+            }
         }
         else
             view.print("That monster does not exist! The enemy gets closer and prepares for an all out assault!");
     }
 
-    public void playerInterruptedBattle(Monster enemy1, int enemy1Odds, Monster enemy2, int enemy2Odds, int userOdds, Rooms rooms)
+    public void playerInterruptedBattle(Monster enemy1, int enemy1Odds, Monster enemy2, int enemy2Odds, int userOdds)
     {
         view.print("What will you do?");
         String userDecision = input.nextLine().toUpperCase();
@@ -444,13 +448,22 @@ public class Controller
         }
         else if(userDecision.contains("IGNORE"))
         {
-            //controller method for room interactions
-        	view.print("Which room would you pick?");
-            String value = input.nextLine();
-        	rooms.changeRooms(value);
+            int pickANum = (int)(Math.random() * (20 + 1) - 1);
+
+            if(pickANum == userOdds || userOdds > pickANum)
+            {
+                view.print("You ran from the fight!");
+                isMonsterDead = true;
+                mainMenu();
+            }
+            else
+            {
+                view.print("You could not get away!");
+                battlePhaseInterrupted(enemy1, enemy1Odds, enemy2, enemy2Odds, userOdds);
+            }
         }
         else
-            view.print("That monster does not exist! The enemy gets closer and prepares for an all out assault!");
+            view.print("That does not exist! The enemy gets closer and prepares for an all out assault!");
     }
 
 }
