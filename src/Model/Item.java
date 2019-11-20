@@ -24,7 +24,7 @@ public class Item
 
 	// Empty constructor
 	public Item() { };
-	
+
 	public Item(String itemID, String itemName, String itemDescription, int itemSize)
 	{
 		this.itemID = itemID;
@@ -84,11 +84,13 @@ public class Item
 					{
 						if (!(splitHeldItems.length == 0))
 						{
-							heldItem.add(splitHeldItems[j]);
+							Item item = allItems.get(splitHeldItems[j]);
+							heldItem.add(item);
 						}
 					}
 
 					VendingItem vItem = new VendingItem(code, name, description, size, capacity, ispickable, heldItem);
+					allItems.put(vItem.getItemID(), vItem);
 				}
 			}
 
