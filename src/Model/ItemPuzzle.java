@@ -8,7 +8,7 @@ public class ItemPuzzle extends Puzzle
 		super(id, type, prize, solve, answer, examine, hint, itemUse);
 	}
 
-	public String SolveItemPuzzle(String solution)
+	public String solveItemPuzzle(String solution)
 	{
 		if(getType().equalsIgnoreCase("IP"))
 		{
