@@ -113,6 +113,11 @@
 			<itemDescription>A boring book. It has a weird sticky note that says "thatdamngrizz" on it.</itemDescription>
 			<itemSize>1</itemSize>
 		</keyItem>
+		<keyItem itemCode = "KI08">
+			<itemName>Ethernet Cables</itemName>
+			<itemDescription>CAT6 cable. You can use this to repair the server room.</itemDescription>
+			<itemSize>2</itemSize>
+		</keyItem>
 	</keyItems>
 	<storageItems>
 		<storageItem itemCode = "SI00">
