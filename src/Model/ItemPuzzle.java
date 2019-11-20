@@ -1,5 +1,7 @@
 package Model;
 
+import Exceptions.*;
+
 public class ItemPuzzle extends Puzzle
 {
 	public ItemPuzzle(String id, String type, String prize, String solve, String answer, String examine, String hint, String itemUse) {
@@ -23,7 +25,7 @@ public class ItemPuzzle extends Puzzle
 					if(!getPrize().equalsIgnoreCase("NONE"))
 					{
 						item.inventory.add(item);
-						throw new WinPrizeException(getPrize());
+						throw new WinPrizeException();
 					}
 					
 					item.inventory.remove(solution);

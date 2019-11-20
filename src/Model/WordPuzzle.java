@@ -1,5 +1,7 @@
 package Model;
 
+import Exceptions.*;
+
 public class WordPuzzle extends Puzzle
 {
 	public WordPuzzle(String id, String type, String prize, String solve, String answer, String examine, String hint, String itemUse) {
@@ -21,7 +23,7 @@ public class WordPuzzle extends Puzzle
 					{
 						attempt = 3;
 						item.inventory.add(item);
-						throw new WinPrizeException(getPrize());
+						throw new WinPrizeException();
 					}
 					
 					return "\nCongrats!! You solved the puzzle.\n";				

@@ -135,7 +135,7 @@ public class WriteRead
                 roomInfoRoot.appendChild(roomPuzzle);
 
                 Element roomLocked = doc.createElement("roomLocked");
-                roomPuzzle.appendChild(doc.createTextNode(Boolean.toString(tempRoom.getRoomLocked())));
+                roomPuzzle.appendChild(doc.createTextNode(Boolean.toString(tempRoom.isRoomLocked())));
                 roomInfoRoot.appendChild(roomLocked);
 
                 //MY TIME COMPLEXITY!!!!

@@ -143,7 +143,7 @@ public class Monster
     {
         monsterHealth -= damage;
         if(monsterHealth <= 0)
-            throw new MonsterDeathException(monsterName);
+            throw new MonsterDeathException();
     }
 
     public static void generateMonsters()
