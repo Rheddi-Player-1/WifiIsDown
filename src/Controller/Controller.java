@@ -474,8 +474,8 @@ public class Controller
 
         String userInput = input.nextLine().toUpperCase();
 
-        //Remove extra spacing between the words
-        String currentRoom = userInput.replaceAll("\\s+", " ");
+        //Remove extra spacings in the input
+        String currentRoom = userInput.replaceAll("\\s+", "");
         if (room.getRoomConnections().contains(userInput))
         {
             room.changeRooms(currentRoom);
