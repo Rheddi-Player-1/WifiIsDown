@@ -14,6 +14,7 @@ public class Controller
     private Scanner input;
     private Monster mainEnemy;
     private ArrayList<Item> carriedItems = new ArrayList<Item>();
+    private boolean isMonsterDead;
 
     public Controller()
     {
@@ -21,6 +22,7 @@ public class Controller
         room = new Rooms();
         input = new Scanner(System.in);
         mainEnemy = null;
+        isMonsterDead = false;
 
         Item.readItemXML();
         Rooms.readRoomsXML();
@@ -49,10 +51,20 @@ public class Controller
         view.print("/_______  /\\____/ \\/\\_/|___|  / ");
         view.print("        \\/                  \\/  ");
     }
+
     public void gameStart()
     {
-        titleScreen();
-
+        view.print("NEW GAME\nCONTINUE");
+        String userInput = input.nextLine().toUpperCase();
+        if(userInput.contains("NEW GAME"))
+            newGame();
+        else if (userInput.contains("CONTINUE"))
+            loadGame();
+        else
+        {
+            view.print("Invalid Input. Please try again...");
+            gameStart();
+        }
     }
 
 
@@ -86,10 +98,27 @@ public class Controller
         {
 
         }
+        else if(userInput.contains("DATA"))
+        {
+            view.print("SAVE GAME\nLOAD GAME");
+            String userOtherInput = input.nextLine().toUpperCase();
+
+            if(userOtherInput.contains("SAVE"))
+                saveGame();
+            else if(userOtherInput.contains("LOAD"))
+                loadGame();
+            else
+            {
+                view.print("I do not understand what you're saying");
+                mainMenu();
+            }
+        }
+        else if(userInput.contains("QUIT"))
+            System.exit(0);
         else if(userInput.contains("HELP"))
         {
             view.print("Inventory: Check and use items that you are carrying.\nInvestigate: Search the room you are currently in.\nMove: " +
-                    "Move to another room that's connected.");
+                    "Move to another room that's connected.\nData: Load or save current game.\nLeave: Quit current game.");
             mainMenu();
 
         }
@@ -285,7 +314,8 @@ public class Controller
         }
         catch(PlayerDeathException e2)
         {
-            //Controller method for loading or starting a new game
+            titleScreen();
+            gameStart();
         }
 
         battlePhaseInterrupted(enemy1, enemy1Int, enemy2, enemy2Int, playerInt);
@@ -316,7 +346,7 @@ public class Controller
         }
         catch(MonsterDeathException e1)
         {
-
+            isMonsterDead = true;
             view.print(enemy.getMonsterName() + " has been defeated!");
             //Controller method for returning to room interaction
             view.print("Which room would you pick?");
@@ -326,7 +356,8 @@ public class Controller
         }
         catch(PlayerDeathException e2)
         {
-            //Controller method for loading or starting a new game
+            titleScreen();
+            gameStart();
         }
         battlePhase(enemy, enemyInt, playerInt);
     }
