@@ -201,7 +201,6 @@ public class Monster
         }
         catch(Exception e)
         {
-            System.out.println("Error! Please try again.\n");
             e.printStackTrace();
         }
     }
