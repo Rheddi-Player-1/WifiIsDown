@@ -537,11 +537,18 @@ public class Controller
 
     public void inventory()
     {
-            for (Item item : user.getCarriedItems())
-            {
-                view.print(item.getItemName());
-            }
+        for (Item item : user.getCarriedItems())
+        {
+            view.print(item.getItemName());
+        }
 
+        view.print("Which item do you want to pick?");
+        String userInput = input.nextLine().replaceAll("\\s+", "");
+        Item i = Item.allItems.get(userInput);
+        if (user.getCarriedItems().contains(i))
+        {
+            
+        }
 
     }
 
