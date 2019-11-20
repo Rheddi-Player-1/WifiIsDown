@@ -50,7 +50,7 @@ public class Item
 	//Read all the items to a hashmap
 	public static void readItemXML()
 	{
-		File itemInfo = new File("XMLs/Items.xml");
+		File itemInfo = new File("src/XMLs/Items.xml");
 		DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
 		DocumentBuilder dBuilder;
 		try
