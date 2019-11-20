@@ -201,7 +201,7 @@ public class Player
         }
 
         if(!isHere)
-            throw new ItemDoesNotExist(itemName);
+            throw new ItemDoesNotExist();
 
         return removed;
     }

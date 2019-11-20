@@ -30,11 +30,54 @@ public class Controller
 
     public void newGame()
     {
+        view.print("----------------------------------------------------------------------------------------------------");
+        view.print("You wake up in the Kaufman Library...\n... and the WIFI is down!");
+        view.print("----------------------------------------------------------------------------------------------------");
+
         view.print("Enter your name: ");
         String name = input.nextLine();
 
         user = new Player(name, Rooms.rooms.get("R00"));
     }
+
+    public void mainMenu()
+    {
+        view.print(user.getCurrentRooms().getRoomDescription());
+        view.print("Type \"help\" for assistance.");
+        String userInput = input.nextLine().toUpperCase();
+
+        if(userInput.contains("INVENTORY"))
+        {
+
+        }
+        else if(userInput.contains("INVESTIGATE"))
+        {
+
+        }
+        else if(userInput.contains("MOVE"))
+        {
+
+        }
+        else if(userInput.contains("HELP"))
+        {
+            view.print("Inventory: Check and use items that you are carrying.\nInvestigate: Search the room you are currently in.\nMove: " +
+                    "Move to another room that's connected.");
+            mainMenu();
+
+        }
+        else
+        {
+            view.print("What is \""+ userInput + "\"? That's not a thing...");
+            mainMenu();
+        }
+
+    }
+
+    public void moveRooms()
+    {
+
+    }
+
 
 
     public void saveGame()
