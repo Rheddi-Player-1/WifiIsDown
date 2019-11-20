@@ -4,11 +4,11 @@ import Exceptions.*;
 
 public class ItemPuzzle extends Puzzle
 {
-	public ItemPuzzle(String id, String type, String prize, String solve, String answer, String examine, String hint, String itemUse) {
+	public ItemPuzzle(String id, String type, Item prize, String solve, String answer, String examine, String hint, Item itemUse) {
 		super(id, type, prize, solve, answer, examine, hint, itemUse);
 	}
 
-	public String SolveItemPuzzle(String solution, Item item)
+	public String SolveItemPuzzle(String solution)
 	{
 		if(getType().equalsIgnoreCase("IP"))
 		{
@@ -16,19 +16,23 @@ public class ItemPuzzle extends Puzzle
 
 			do{
 				attempt++;
-			
-				if(item.inventory.contains(getItemUse()) && getAnswer().equalsIgnoreCase(solution))
+				
+				Rooms rooms = Rooms.rooms.get(solution);
+				Player player = null;
+				Item item = null;
+				
+				if(player.getPlayerEquipedItem().equals(getItemUse()) && getAnswer().equalsIgnoreCase(solution))
 				{
 					
 					attempt = 3;
 					
-					if(!getPrize().equalsIgnoreCase("NONE"))
+					if(!getPrize().equals("NONE"))
 					{
-						item.inventory.add(item);
+						rooms.roomItems.add(getPrize());
 						throw new WinPrizeException();
 					}
 					
-					item.inventory.remove(solution);
+					rooms.roomItems.remove(item);
 					return "\nCongrats!! You solved the puzzle.\n";
 				
 				}
