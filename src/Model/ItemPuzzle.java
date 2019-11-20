@@ -4,8 +4,12 @@ import Exceptions.*;
 
 public class ItemPuzzle extends Puzzle
 {
-	public ItemPuzzle(String id, String type, Item prize, String solve, String answer, String examine, String hint, Item itemUse) {
+
+
+	public ItemPuzzle(String id, String type, Item prize, String solve, String answer, String examine, String hint,
+			Item itemUse) {
 		super(id, type, prize, solve, answer, examine, hint, itemUse);
+		// TODO Auto-generated constructor stub
 	}
 
 	public String solveItemPuzzle(String solution)
@@ -28,11 +32,11 @@ public class ItemPuzzle extends Puzzle
 					
 					if(!getPrize().equals("NONE"))
 					{
-						rooms.roomItems.add(getPrize());
+						rooms.getRoomItems().add(getPrize());
 						throw new WinPrizeException();
 					}
 					
-					rooms.roomItems.remove(item);
+					rooms.getRoomItems().remove(item);
 					return "\nCongrats!! You solved the puzzle.\n";
 				
 				}
