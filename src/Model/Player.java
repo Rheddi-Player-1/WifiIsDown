@@ -223,4 +223,22 @@ public class Player
 
     }
 
+    public boolean useItem(Item item)
+    {
+        try
+        {
+            ConsumableItem hItem = (ConsumableItem) item;
+            if(hItem.getHealingPoints() > (playerMaxStress - playerCurrentStress))
+                playerCurrentStress = playerMaxStress;
+            else
+                playerCurrentStress += hItem.getHealingPoints();
+
+            return true;
+        }
+        catch(Exception e)
+        {
+            return false;
+        }
+    }
+
 }

@@ -81,6 +81,7 @@ public class Controller
 
     public void mainMenu()
     {
+        boolean useVend = false;
         view.print(user.getCurrentRooms().getRoomDescription());
         view.print("Type \"help\" for assistance.");
         String userInput = input.nextLine().toUpperCase();
@@ -93,7 +94,52 @@ public class Controller
         {
             if(isMonsterDead = false)
                 preBattlePhase();
-            else
+            else if (!user.getCurrentRooms().getVendingItem().equalsIgnoreCase("NONE"))
+            {
+                view.print("There's a vending machine here, do you want to use it?");
+                VendingItem vendingMachine  = (VendingItem) Item.allItems.get(user.getCurrentRooms().getVendingItem());
+                for(int i = 0; i < vendingMachine.getHeldItem().size(); i++)
+                    view.print(vendingMachine.getHeldItem().get(i).getItemName() + "\n");
+
+                view.print("Nevermind...");
+                String userInputToo = input.nextLine().toUpperCase();
+
+                if(userInputToo.contains("NEVERMIND"))
+                {
+                    useVend = true;
+                    mainMenu();
+                }
+                else
+                {
+                    boolean isThere = false;
+                    int i = 0;
+                    while(!isThere || i < vendingMachine.getHeldItem().size())
+                    {
+                        if(vendingMachine.getHeldItem().get(i).getItemName().toUpperCase().contains(userInputToo))
+                        {
+                            try
+                            {
+                                user.addItem(vendingMachine.getHeldItem().get(i));
+                                isThere = true;
+                                useVend = true;
+                                mainMenu();
+                            }
+                            catch (OverEncumbered e)
+                            {
+                                view.print(e.getMessage());
+                                view.print("Try again later");
+                                mainMenu();
+                            }
+                        }
+                        else
+                        {
+                            view.print("That's not an option. Try again later.");
+                            mainMenu();
+                        }
+                    }
+                }
+            }
+            else if(useVend == true || user.getCurrentRooms().getVendingItem().equalsIgnoreCase("NONE"))
             {
                 ArrayList<Item> roomItems = user.getCurrentRooms().getRoomItems();
 
@@ -110,9 +156,10 @@ public class Controller
                     int i = 0;
                     while(!isItThere || i < roomItems.size())
                     {
-                        if(roomItems.get(i).getItemName().toUpperCase().contains(userInputToo))
+                        if(roomItems.get(i).getItemName().toUpperCase().contains(userInputToo) && user.getCarriedItems().contains(Item.allItems.get("KI06")))
                         {
                             user.getCurrentRooms().removeFromRoom(roomItems.get(i));
+                            user.removeItem("KI06");
                             user.addItem(roomItems.get(i));
                             view.print(userInputToo + " has been added to your inventory");
                             mainMenu();
@@ -422,6 +469,13 @@ public class Controller
             else
                 view.print(enemy.getMonsterName() + " dodges your attack!");
         }
+        else if(userDecision.contains("HELP"))
+        {
+            view.print("Attack: Attack the current enemy.\nUse Item: Change equipment and use consumable items.\nIgnore: " +
+                    "Attempt to run from the fight.");
+            playerBattle(enemy, enemyOdds, userOdds);
+
+        }
         else if(userDecision.contains("USE ITEM"))
         {
             //controller method for items
@@ -445,7 +499,10 @@ public class Controller
             }
         }
         else
+        {
             view.print("That monster does not exist! The enemy gets closer and prepares for an all out assault!");
+            battlePhase(enemy, enemyOdds, userOdds);
+        }
     }
 
     public void playerInterruptedBattle(Monster enemy1, int enemy1Odds, Monster enemy2, int enemy2Odds, int userOdds)
@@ -478,11 +535,21 @@ public class Controller
                     view.print(enemy2.getMonsterName() + " dodges your attack!");
             }
             else
+            {
                 view.print("That monster does not exist! You're lack of speed causes you to miss an opportunity to attack!");
+                battlePhaseInterrupted(enemy1, enemy1Odds, enemy2, enemy2Odds, userOdds);
+            }
         }
         else if(userDecision.contains("USE ITEM"))
         {
             //controller method for items
+        }
+        else if(userDecision.contains("HELP"))
+        {
+            view.print("Attack: Attack one of the two enemies.\nUse Item: Change equipment and use consumable items.\nIgnore: " +
+                    "Attempt to run from the fight.");
+            playerInterruptedBattle(enemy1, enemy1Odds, enemy2, enemy2Odds, userOdds);
+
         }
         else if(userDecision.contains("IGNORE"))
         {
@@ -501,7 +568,10 @@ public class Controller
             }
         }
         else
+        {
             view.print("That does not exist! The enemy gets closer and prepares for an all out assault!");
+            battlePhaseInterrupted(enemy1, enemy1Odds, enemy2, enemy2Odds, userOdds);
+        }
     }
 
     public void changeRooms()
