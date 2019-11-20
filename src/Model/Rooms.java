@@ -178,6 +178,24 @@ public class Rooms
 	public Rooms look() {
 		return rooms.get(roomID);
 	}
+	
+	public void changeRooms(String value)
+	{
+		if(roomLocked == false)
+		{
+			for(String a : roomConnections)
+			{
+				if(a.equalsIgnoreCase(value))
+				{
+					getRoomDescription();
+				}
+			}
+		}
+		else
+		{
+			throw new LockedRoomException();
+		}
+	}
 
 	 //Method Reads Rooms XML file
 	public static void readRoomsXML()
