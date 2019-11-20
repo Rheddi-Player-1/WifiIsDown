@@ -1,6 +1,7 @@
 package Controller;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Scanner;
 import Model.*;
 import View.*;
@@ -349,6 +350,19 @@ public class Controller
         }
         else
             view.print("That monster does not exist! The enemy gets closer and prepares for an all out assault!");
+    }
+
+    public void changeRooms()
+    {
+        // Updating the currentRoom
+        // when the room is changed, change the current room to the room the user picked.
+        // userInput = currentRoom
+        room.changeRooms(currentRoom);
+        if (/*roomischanged*/)
+        {
+            
+        }
+
     }
 
 }
