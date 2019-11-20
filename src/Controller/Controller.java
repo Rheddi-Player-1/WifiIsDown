@@ -87,9 +87,7 @@ public class Controller
         String userInput = input.nextLine().toUpperCase();
 
         if(userInput.contains("INVENTORY"))
-        {
-
-        }
+            inventory();
         else if(userInput.contains("INVESTIGATE"))
         {
             if(isMonsterDead = false)
@@ -477,11 +475,7 @@ public class Controller
 
         }
         else if(userDecision.contains("USE ITEM"))
-        {
-            //controller method for items
-
-            
-        }
+            inventory();
         else if(userDecision.contains("IGNORE"))
         {
             int pickANum = (int)(Math.random() * (20 + 1) - 1);
@@ -541,9 +535,7 @@ public class Controller
             }
         }
         else if(userDecision.contains("USE ITEM"))
-        {
-            //controller method for items
-        }
+            inventory();
         else if(userDecision.contains("HELP"))
         {
             view.print("Attack: Attack one of the two enemies.\nUse Item: Change equipment and use consumable items.\nIgnore: " +
