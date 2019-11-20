@@ -4,7 +4,7 @@ import Exceptions.*;
 
 public class WordPuzzle extends Puzzle
 {
-	public WordPuzzle(String id, String type, String prize, String solve, String answer, String examine, String hint, String itemUse) {
+	public WordPuzzle(String id, String type, Item prize, String solve, String answer, String examine, String hint, Item itemUse) {
 		super(id, type, prize, solve, answer, examine, hint, itemUse);
 	}
 
@@ -16,13 +16,17 @@ public class WordPuzzle extends Puzzle
 
 			do{
 				attempt++;
+				
+				Rooms rooms = Rooms.rooms.get(solution);
+				Player player = null;
+				Item items = null;
 			
 				if(getAnswer().equalsIgnoreCase(solution))
 				{					
-					if(!getPrize().equalsIgnoreCase("NONE"))
+					if(!getPrize().equals("NONE"))
 					{
 						attempt = 3;
-						item.inventory.add(item);
+						rooms.roomItems.add(getPrize());
 						throw new WinPrizeException();
 					}
 					
