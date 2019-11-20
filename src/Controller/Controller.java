@@ -529,8 +529,10 @@ public class Controller
 
     public void inventory()
     {
-        Item item = new Item();
-        view.print(item.getAllItems());
+        for (Item items: user.getCarriedItems())
+        {
+            view.print(items.getItemName());
+        }
     }
 
 }
