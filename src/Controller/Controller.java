@@ -91,7 +91,10 @@ public class Controller
         String userInput = input.nextLine().toUpperCase();
 
         if(userInput.contains("INVENTORY"))
+        {
             inventory();
+            mainMenu();
+        }
         else if(userInput.contains("INVESTIGATE"))
         {
             if(!isMonsterDead)
@@ -287,7 +290,7 @@ public class Controller
             while(i < Monster.allMonsters.size() - 1 || mainEnemy != null)
             {
                 Monster temp = Monster.allMonsters.get("MO" + i);
-                if(randomMonster >= temp.getMinEncounterValue() || randomMonster <= temp.getMaxEncounterValue())
+                if(randomMonster >= temp.getMinEncounterValue() && randomMonster <= temp.getMaxEncounterValue())
                     mainEnemy = temp;
                 else
                     i++;
@@ -493,7 +496,10 @@ public class Controller
 
         }
         else if(userDecision.contains("USE ITEM"))
+        {
             inventory();
+            battlePhase(enemy, enemyOdds, userOdds);
+        }
         else if(userDecision.contains("IGNORE"))
         {
             int pickANum = (int)(Math.random() * (20 + 1) - 1);
@@ -553,7 +559,10 @@ public class Controller
             }
         }
         else if(userDecision.contains("USE ITEM"))
+        {
             inventory();
+            battlePhaseInterrupted(enemy1, enemy1Odds, enemy2, enemy2Odds, userOdds);
+        }
         else if(userDecision.contains("HELP"))
         {
             view.print("Attack: Attack one of the two enemies.\nUse Item: Change equipment and use consumable items.\nIgnore: " +
