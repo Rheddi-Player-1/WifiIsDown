@@ -80,12 +80,13 @@ public class Controller
         String name = input.nextLine();
 
         user = new Player(name, Rooms.rooms.get("R00"));
+        mainMenu();
     }
 
     public void mainMenu()
     {
         boolean useVend = false;
-        view.print(user.getCurrentRooms().getRoomDescription());
+        view.print("\n" + user.getCurrentRooms().getRoomDescription());
         view.print("Type \"help\" for assistance.");
         String userInput = input.nextLine().toUpperCase();
 
