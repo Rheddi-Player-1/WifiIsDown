@@ -23,7 +23,7 @@ public class Monster
     private int maxEncounterValue;
     private Item heldItem;
 
-    public static HashMap<String, Monster> allMonsters;
+    public static HashMap<String, Monster> allMonsters = new HashMap<>();
 
     public Monster(String monsterID, String monsterName, String monsterDescription, String monsterAttackPhrase,
                    int monsterHealth, int monsterAttack, int minEcnounter, int maxEncounter, Item heldItem)
@@ -150,7 +150,7 @@ public class Monster
     {
         try
         {
-            File itemInfo = new File("src/XMLs/Monsters.xml");
+            File itemInfo = new File("src/XMLs/Monster.xml");
             DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
             DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
             Document doc = dBuilder.parse(itemInfo);

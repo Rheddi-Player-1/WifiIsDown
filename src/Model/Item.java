@@ -18,7 +18,7 @@ public class Item
 	private String itemName;
 	private String itemDescription;
 	private int itemSize;
-	public static HashMap <String, Item> allItems;
+	public static HashMap <String, Item> allItems = new HashMap<>();
 	private Rooms room;
 
 	// Empty constructor
@@ -106,7 +106,7 @@ public class Item
 					String name = consumableItem.getElementsByTagName("itemName").item(0).getTextContent();
 					String description = consumableItem.getElementsByTagName("itemDescription").item(0).getTextContent();
 					int size = Integer.parseInt(consumableItem.getElementsByTagName("itemSize").item(0).getTextContent());
-					double recovery = Integer.parseInt(consumableItem.getElementsByTagName("itemRecovery").item(0).getTextContent());
+					double recovery = Double.parseDouble(consumableItem.getElementsByTagName("itemRecovery").item(0).getTextContent());
 
 					ConsumableItem cItem = new ConsumableItem(code, name, description, size, recovery);
 					allItems.put(cItem.getItemID(), cItem);
@@ -125,7 +125,7 @@ public class Item
 					String name = weaponItem.getElementsByTagName("itemName").item(0).getTextContent();
 					String description = weaponItem.getElementsByTagName("itemDescription").item(0).getTextContent();
 					int size = Integer.parseInt(weaponItem.getElementsByTagName("itemSize").item(0).getTextContent());
-					double attackBonus = Integer.parseInt(weaponItem.getElementsByTagName("attackBonus").item(0).getTextContent());
+					double attackBonus = Double.parseDouble(weaponItem.getElementsByTagName("attackBonus").item(0).getTextContent());
 
 					WeaponItem wItem = new WeaponItem(code, name, description, size, attackBonus);
 					allItems.put(wItem.getItemID(), wItem);

@@ -204,7 +204,7 @@ public class Rooms
 	 //Method Reads Rooms XML file
 	public static void readRoomsXML()
 	{
-		File xml = new File("Rooms.xml");
+		File xml = new File("src/XMLs/Rooms.xml");
 		DocumentBuilderFactory f = DocumentBuilderFactory.newInstance();
 		DocumentBuilder b;
 		try {

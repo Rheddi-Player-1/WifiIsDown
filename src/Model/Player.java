@@ -228,10 +228,10 @@ public class Player
         try
         {
             ConsumableItem hItem = (ConsumableItem) item;
-            if(hItem.getHealingPoints() > (playerMaxStress - playerCurrentStress))
+            if((playerMaxStress * hItem.getHealingPoints()) > (playerMaxStress - playerCurrentStress))
                 playerCurrentStress = playerMaxStress;
             else
-                playerCurrentStress += hItem.getHealingPoints();
+                playerCurrentStress += (playerMaxStress *hItem.getHealingPoints());
 
             return true;
         }

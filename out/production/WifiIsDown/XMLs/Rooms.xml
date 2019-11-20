@@ -2,6 +2,7 @@
 <Rooms>
 	<Room>
 		<id>R00</id>
+		<key>NONE</key>
 		<visited>false</visited>
 		<board>NONE</board>
 		<locked>false</locked>
@@ -20,6 +21,7 @@ R33
 	
 	<Room>
 		<id>R01</id>
+		<key>NONE</key>
 		<visited>false</visited>
 		<board>NONE</board>
 		<locked>false</locked>
@@ -34,6 +36,7 @@ Rooms: R00, R02</description>
 	
 	<Room>
 		<id>R02</id>
+		<key>NONE</key>
 		<visited>false</visited>
 		<board>NONE</board>
 		<locked>false</locked>
@@ -50,6 +53,7 @@ Rooms: R00, R01, R03</description>
 
 	<Room>
 		<id>R03</id>
+		<key>NONE</key>
 		<visited>false</visited>
 		<board>NONE</board>
 		<locked>false</locked>
@@ -67,6 +71,7 @@ Rooms: R00, R02, R04</description>
 
 	<Room>
 		<id>R04</id>
+		<key>NONE</key>
 		<visited>false</visited>
 		<board>NONE</board>
 		<locked>false</locked>
@@ -83,6 +88,7 @@ Rooms: R00, R03, R05</description>
 
 	<Room>
 		<id>R05</id>
+		<key>NONE</key>
 		<visited>false</visited>
 		<board>NONE</board>
 		<locked>false</locked>
@@ -99,6 +105,7 @@ Rooms: R00, R04, R06</description>
 
 	<Room>
 		<id>R06</id>
+		<key>NONE</key>
 		<visited>false</visited>
 		<board>NONE</board>
 		<locked>false</locked>
@@ -115,6 +122,7 @@ Rooms: R00, R05, R33</description>
 
 	<Room>
 		<id>R33</id>
+		<key>NONE</key>
 		<visited>false</visited>
 		<board>NONE</board>
 		<locked>false</locked>
@@ -131,6 +139,7 @@ Rooms: R00, R06</description>
 
 	<Room>
 		<id>R07</id>
+		<key>NONE</key>
 		<visited>false</visited>
 		<board>NONE</board>
 		<locked>false</locked>
@@ -146,6 +155,7 @@ Rooms: R00, R08</description>
 
 	<Room>
 		<id>R08</id>
+		<key>NONE</key>
 		<visited>false</visited>
 		<board>NONE</board>
 		<locked>false</locked>
@@ -163,6 +173,7 @@ Rooms: R00, R07 </description>
 
 	<Room>
 		<id>R09</id>
+		<key>NONE</key>
 		<visited>false</visited>
 		<board>NONE</board>
 		<locked>false</locked>
@@ -182,6 +193,7 @@ R27, R28, R29, R30, R31, R32, R34 </description>
 
 	<Room>
 		<id>R10</id>
+		<key>NONE</key>
 		<visited>false</visited>
 		<board>NONE</board>
 		<locked>false</locked>
@@ -198,6 +210,7 @@ Rooms: R09, R11</description>
 
 	<Room>
 		<id>R11</id>
+		<key>NONE</key>
 		<visited>false</visited>
 		<board>NONE</board>
 		<locked>false</locked>
@@ -213,6 +226,7 @@ Rooms: R09, R10, R12</description>
 
 	<Room>
 		<id>R12</id>
+		<key>NONE</key>
 		<visited>false</visited>
 		<board>NONE</board>
 		<locked>false</locked>
@@ -227,6 +241,7 @@ Rooms: R09, R11, R13</description>
 
 	<Room>
 		<id>R13</id>
+		<key>NONE</key>
 		<visited>false</visited>
 		<board>NONE</board>
 		<locked>false</locked>
@@ -242,6 +257,7 @@ Rooms: R09, R12, R14</description>
 
 	<Room>
 		<id>R14</id>
+		<key>NONE</key>
 		<visited>false</visited>
 		<board>NONE</board>
 		<locked>false</locked>
@@ -257,6 +273,7 @@ Rooms: R09, R13, R15</description>
 
 	<Room>
 		<id>R15</id>
+		<key>NONE</key>
 		<visited>false</visited>
 		<board>NONE</board>
 		<locked>false</locked>
@@ -272,6 +289,7 @@ Rooms: R09, R14, R16</description>
 
 	<Room>
 		<id>R16</id>
+		<key>NONE</key>
 		<visited>false</visited>
 		<board>NONE</board>
 		<locked>false</locked>
@@ -288,6 +306,7 @@ Rooms: R16, R15, R17</description>
 
 	<Room>
 		<id>R17</id>
+		<key>NONE</key>
 		<visited>false</visited>
 		<board>NONE</board>
 		<locked>false</locked>
@@ -303,6 +322,7 @@ Rooms: R09, R16</description>
 
 	<Room>
 		<id>R18</id>
+		<key>NONE</key>
 		<visited>false</visited>
 		<board>NONE</board>
 		<locked>false</locked>
@@ -317,6 +337,7 @@ Rooms: R09, R34, R19</description>
 
 	<Room>
 		<id>R19</id>
+		<key>NONE</key>
 		<visited>false</visited>
 		<board>NONE</board>
 		<locked>false</locked>
@@ -332,6 +353,7 @@ Rooms: R09, R18, R20</description>
 
 	<Room>
 		<id>R20</id>
+		<key>NONE</key>
 		<visited>false</visited>
 		<board>YES</board>
 		<locked>false</locked>
@@ -346,6 +368,7 @@ Rooms: R09, R19, R21</description>
 //power room
 	<Room>
 		<id>R21</id>
+		<key>KI04</key>
 		<visited>false</visited>
 		<board>NONE</board>
 		<locked>true</locked>
@@ -356,12 +379,13 @@ larger wheel attached to a main generator.</lockedDes>
 power room.
 Rooms: R09, R20</description>
 		<connections>R09:R20</connections>
-		<puzzleID>P14</puzzleID>
+		<puzzleID>NONE</puzzleID>
 		<vendingItem>NONE</vendingItem>
 	</Room>
 //terminal room	
 	<Room>
 		<id>R22</id>
+		<key>KI01</key>
 		<visited>false</visited>
 		<board>NONE</board>
 		<locked>true</locked>
@@ -371,12 +395,13 @@ is visible through the window.</lockedDes>
 		<description>You find yourself in the terminal room.
 Rooms: R09, R23</description>
 		<connections>R09:R23</connections>
-		<puzzleID>P13</puzzleID>
+		<puzzleID>NONE</puzzleID>
 		<vendingItem>NONE</vendingItem>
 	</Room>
 //server room
 	<Room>
 		<id>R23</id>
+		<key>KI05</key>
 		<visited>false</visited>
 		<board>NONE</board>
 		<locked>false</locked>
@@ -386,12 +411,13 @@ board missing several cables.</lockedDes>
 		<description>You find yourself in the server room.
 Rooms: R09, R22, R24</description>
 		<connections>R09:R22:R24</connections>
-		<puzzleID>P12</puzzleID>
+		<puzzleID>P17</puzzleID>
 		<vendingItem>NONE</vendingItem>
 	</Room>
 	
 	<Room>
 		<id>R24</id>
+		<key>NONE</key>
 		<visited>false</visited>
 		<board>YES</board>
 		<locked>false</locked>
@@ -407,6 +433,7 @@ Rooms: R09, R23, R25</description>
 	
 	<Room>
 		<id>R25</id>
+		<key>NONE</key>
 		<visited>false</visited>
 		<board>NONE</board>
 		<locked>false</locked>
@@ -421,6 +448,7 @@ Rooms: R09, R24, R26</description>
 	
 	<Room>
 		<id>R26</id>
+		<key>NONE</key>
 		<visited>false</visited>
 		<board>NONE</board>
 		<locked>false</locked>
@@ -436,6 +464,7 @@ Rooms: R09, R25, R27</description>
 	
 	<Room>
 		<id>R27</id>
+		<key>NONE</key>
 		<visited>false</visited>
 		<board>NONE</board>
 		<locked>false</locked>
@@ -451,6 +480,7 @@ Rooms: R09, R26</description>
 	
 	<Room>
 		<id>R28</id>
+		<key>NONE</key>
 		<visited>false</visited>
 		<board>NONE</board>
 		<locked>false</locked>
@@ -465,6 +495,7 @@ Rooms: R09, R29</description>
 	
 	<Room>
 		<id>R29</id>
+		<key>NONE</key>
 		<visited>false</visited>
 		<board>NONE</board>
 		<locked>false</locked>
@@ -478,6 +509,7 @@ Rooms: R09, R28, R30</description>
 	
 	<Room>
 		<id>R30</id>
+		<key>NONE</key>
 		<visited>false</visited>
 		<board>NONE</board>
 		<locked>false</locked>
@@ -491,6 +523,7 @@ Rooms: R09, R29</description>
 	
 	<Room>
 		<id>R31</id>
+		<key>NONE</key>
 		<visited>false</visited>
 		<board>NONE</board>
 		<locked>false</locked>
@@ -505,6 +538,7 @@ Rooms: R09, R32</description>
 	
 	<Room>
 		<id>R32</id>
+		<key>NONE</key>
 		<visited>false</visited>
 		<board>NONE</board>
 		<locked>false</locked>
@@ -519,6 +553,7 @@ Rooms: R09, R31</description>
 	
 	<Room>
 		<id>R34</id>
+		<key>NONE</key>
 		<visited>false</visited>
 		<board>NONE</board>
 		<locked>false</locked>
@@ -534,6 +569,7 @@ Rooms: R09, R18</description>
 /////////////////////////////////////////////////////////////////////////
 	<Room>
 		<id>R35</id>
+		<key>NONE</key>
 		<visited>false</visited>
 		<board>NONE</board>
 		<locked>false</locked>
@@ -550,6 +586,7 @@ Rooms: R36</description>
 	
 	<Room>
 		<id>R36</id>
+		<key>NONE</key>
 		<visited>false</visited>
 		<board>NONE</board>
 		<locked>false</locked>
@@ -563,3 +600,4 @@ There is only one study room on this floor.
 		<vendingItem>SI02</vendingItem>
 	</Room>
 </Rooms>
+	

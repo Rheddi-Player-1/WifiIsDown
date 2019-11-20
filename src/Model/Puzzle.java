@@ -107,7 +107,7 @@ public class Puzzle
 	//Method Reads Puzzle XML file
 	public static void readPuzzleXML()
 	{
-		File xml = new File("Puzzles.xml");
+		File xml = new File("src/Xmls/Puzzles.xml");
 		DocumentBuilderFactory f = DocumentBuilderFactory.newInstance();
 		DocumentBuilder b;
 		try {
@@ -151,7 +151,7 @@ public class Puzzle
 		} 
 		catch (Exception e) 
 		{
-			System.out.println("\nWrong Input. Try Again.\n");
+			e.printStackTrace();
 		}
 	}
 }

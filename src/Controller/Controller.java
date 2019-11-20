@@ -149,38 +149,44 @@ public class Controller
             {
                 ArrayList<Item> roomItems = user.getCurrentRooms().getRoomItems();
 
-                for(int i = 0; i < roomItems.size(); i++)
+                if(roomItems.isEmpty())
                 {
-                    view.print(roomItems.get(i).getItemName() + "\n" + roomItems.get(i).getItemDescription() + "\n");
-                }
-                view.print("Do you want to pick up anything?");
-                String userInputToo = input.nextLine().toUpperCase();
-
-                try
-                {
-                    boolean isItThere = false;
-                    int i = 0;
-                    while(!isItThere || i < roomItems.size())
-                    {
-                        if(roomItems.get(i).getItemName().toUpperCase().contains(userInputToo) && user.getCarriedItems().contains(Item.allItems.get("KI06")))
-                        {
-                            user.getCurrentRooms().removeFromRoom(roomItems.get(i));
-                            user.removeItem("KI06");
-                            user.addItem(roomItems.get(i));
-                            view.print(userInputToo + " has been added to your inventory");
-                            mainMenu();
-                        }
-                        else
-                        {
-                            view.print("That's not here!");
-                            mainMenu();
-                        }
-                    }
-                }
-                catch(OverEncumbered e)
-                {
-                    view.print(e.getMessage());
+                    view.print("Theres nothing here");
                     mainMenu();
+                }
+                else
+                {
+                    for (int i = 0; i < roomItems.size(); i++)
+                    {
+                        view.print(roomItems.get(i).getItemName() + "\n" + roomItems.get(i).getItemDescription() + "\n");
+                    }
+                    view.print("Do you want to pick up anything?");
+                    String userInputToo = input.nextLine().toUpperCase();
+
+                    try
+                    {
+                        boolean isItThere = false;
+                        int i = 0;
+                        while (!isItThere || i < roomItems.size())
+                        {
+                            if (roomItems.get(i).getItemName().toUpperCase().contains(userInputToo) && user.getCarriedItems().contains(Item.allItems.get("KI06")))
+                            {
+                                user.getCurrentRooms().removeFromRoom(roomItems.get(i));
+                                user.removeItem("KI06");
+                                user.addItem(roomItems.get(i));
+                                view.print(userInputToo + " has been added to your inventory");
+                                mainMenu();
+                            } else
+                            {
+                                view.print("That's not here!");
+                                mainMenu();
+                            }
+                        }
+                    } catch (OverEncumbered e)
+                    {
+                        view.print(e.getMessage());
+                        mainMenu();
+                    }
                 }
             }
 
@@ -245,9 +251,13 @@ public class Controller
             view.print("----------------------------------------------------------------------------------------------------");
             view.print(WriteRead.saveToString());
             view.print("----------------------------------------------------------------------------------------------------");
-            view.print("\nEnter the file name");
-            String userFile = input.nextLine();
-            user = WriteRead.loadData(userFile);
+            view.print("\nEnter the file name or Back to start a new game.");
+            String userFile = input.nextLine().toUpperCase();
+            if(userFile.contains("BACK"))
+                gameStart();
+            else
+                user = WriteRead.loadData(userFile);
+
         }
         catch (FileDoesNotExist e)
         {
@@ -585,11 +595,25 @@ public class Controller
         String currentRoom = userInput.replaceAll("\\s+", ""); //Remove extra spacings in the input
         if (user.getCurrentRooms().getRoomConnections().contains(userInput))
         {
-            Rooms room = Rooms.rooms.get(userInput);
-            if(user.getPlayerEquipedItem().getItemName().contains(room.getKey()))
+            Rooms room = Rooms.rooms.get(currentRoom);
+            if(room.isRoomLocked() && user.getPlayerEquipedItem().getItemName().contains(room.getKey()))
             {
             	isMonsterDead = false;
-                user.setCurrentRooms(Rooms.rooms.get(currentRoom));
+            	view.print(room.getRoomLockedDes());
+            	view.print("You were able to unlock it!");
+                user.setCurrentRooms(room);
+                mainMenu();
+            }
+            else if (!room.isRoomLocked())
+            {
+                isMonsterDead = false;
+                user.setCurrentRooms(room);
+                mainMenu();
+            }
+            else if(room.isRoomLocked() && !user.getPlayerEquipedItem().getItemName().contains(room.getKey()))
+            {
+                view.print(room.getRoomLockedDes());
+                view.print("You cannot get in without equipping the key...");
                 mainMenu();
             }
             else
