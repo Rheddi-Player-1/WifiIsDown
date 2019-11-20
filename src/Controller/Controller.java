@@ -612,7 +612,11 @@ public class Controller
             view.print("Do you want to drop, use, or equip an item?");
             String userinput = input.nextLine();
             if(userinput.equalsIgnoreCase("drop")) user.removeItem(i.getItemName());
-            if(userinput.equalsIgnoreCase("use")) user.useItem(i);
+            if(userinput.equalsIgnoreCase("use"))
+            {
+                if(user.useItem(i)) view.print("You gained some strength");
+                else view.print("You cannot use this item.");
+            }
             if(userinput.equalsIgnoreCase("equip")) user.equip(i);
         }
 
