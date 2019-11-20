@@ -504,7 +504,7 @@ public class Controller
             view.print("That does not exist! The enemy gets closer and prepares for an all out assault!");
     }
 
-    public void changeRooms()
+    public void changeRooms(Rooms rooms)
     {
         view.print("Where do you want to go? Below are the list of rooms that you can choose from.\n");
         for (String r: user.getCurrentRooms().getRoomConnections())
@@ -516,22 +516,21 @@ public class Controller
         String currentRoom = userInput.replaceAll("\\s+", ""); //Remove extra spacings in the input
         if (user.getCurrentRooms().getRoomConnections().contains(userInput))
         {
-            isMonsterDead = false;
-            user.setCurrentRooms(Rooms.rooms.get(currentRoom));
-            mainMenu();
+            if(user.getPlayerEquipedItem().equalsIgnoreCase(rooms.getKey()))
+            {
+            	isMonsterDead = false;
+                user.setCurrentRooms(Rooms.rooms.get(currentRoom));
+                mainMenu();
+            }
+            else
+            {
+            	mainMenu();
+            }
         }
         else
         {
             view.print("That room does not exit.");
             changeRooms();
-        }
-    }
-
-    public void inventory()
-    {
-        for (Item items: user.getCarriedItems())
-        {
-            view.print(items.getItemName());
         }
     }
 

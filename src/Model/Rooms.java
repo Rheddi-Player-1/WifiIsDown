@@ -16,6 +16,7 @@ import java.util.*;
 public class Rooms 
 {
 	private String roomID;
+	private String key;
 	private String roomDescription;
 	private String vendingItem;
 	private String roomVisited;
@@ -29,8 +30,9 @@ public class Rooms
 	
 	
 	
-	public Rooms(String roomDescription, String vendingItem, String roomVisited, String roomPuzzleID,
+	public Rooms(String key, String roomDescription, String vendingItem, String roomVisited, String roomPuzzleID,
 			String roomBoard, boolean roomLocked, String roomLockedDes, ArrayList<String> roomConnections) {
+		this.key = key;
 		this.roomID = roomID;
 		this.roomDescription = roomDescription;
 		this.vendingItem = vendingItem;
@@ -151,6 +153,13 @@ public class Rooms
 		Rooms.rooms = rooms;
 	}
 
+	public String getKey() {
+		return key;
+	}
+
+	public void setKey(String key) {
+		this.key = key;
+	}
 
 	public void visitedRoom(String value)
 	{
@@ -220,6 +229,7 @@ public class Rooms
 				{
 					Element e = (Element) node;
 					
+					String key = e.getElementsByTagName("key").item(0).getTextContent();
 					String id = e.getElementsByTagName("id").item(0).getTextContent();
 					String visited = e.getElementsByTagName("visited").item(0).getTextContent();
 					String description = e.getElementsByTagName("description").item(0).getTextContent();
@@ -233,7 +243,7 @@ public class Rooms
 					String[] connectionsArray = connections.split(":");
 					ArrayList<String> connect = new ArrayList<String>(Arrays.asList(connectionsArray));
 					
-					rooms.put(id, new Rooms(description, vendingItem, visited, puzzleID,
+					rooms.put(id, new Rooms(key, description, vendingItem, visited, puzzleID,
 						 roomBoard, roomLocked, roomLockedDes, connect));
 				}
 			}
@@ -244,4 +254,5 @@ public class Rooms
 		}
 	}
 }
+
 
