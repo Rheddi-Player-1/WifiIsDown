@@ -19,7 +19,6 @@ public class Item
 	private String itemDescription;
 	private int itemSize;
 	public static HashMap <String, Item> allItems;
-	private ArrayList<Item> inventory = new ArrayList<>();
 	private Rooms room;
 
 	// Empty constructor

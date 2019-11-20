@@ -527,4 +527,10 @@ public class Controller
         }
     }
 
+    public void inventory()
+    {
+        Item item = new Item();
+        view.print(item.getAllItems());
+    }
+
 }
