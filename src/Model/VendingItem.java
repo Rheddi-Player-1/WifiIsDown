@@ -1,13 +1,15 @@
 package Model;
 
+import java.util.ArrayList;
+
 public class VendingItem extends Item
 {
 	private int itemCapacity;
 	private boolean isPickable;
-	private Item heldItem;
+	private ArrayList<Item> heldItem;
 
 	public VendingItem(String itemID, String itemName, String itemDescription, int itemSize, int itemCapacity,
-					   boolean isPickable, Item heldItem)
+					   boolean isPickable, ArrayList<Item> heldItem)
 	{
 		super(itemID, itemName, itemDescription, itemSize);
 		this.itemCapacity = itemCapacity;
@@ -35,15 +37,12 @@ public class VendingItem extends Item
 		this.isPickable = isPickable;
 	}
 
-	public Item getHeldItem()
+	public ArrayList<Item> getHeldItem()
 	{
 		return heldItem;
 	}
 
-	public void setHeldItem(Item heldItem)
-	{
-		this.heldItem = heldItem;
-	}
+	public void setHeldItem(ArrayList<Item> heldItem) { this.heldItem = heldItem; }
 
 }
 
