@@ -534,4 +534,12 @@ public class Controller
         }
     }
 
+    public void inventory()
+    {
+        for (Item item: user.getCarriedItems())
+        {
+            view.print(item.getItemName());
+        }
+    }
+
 }
