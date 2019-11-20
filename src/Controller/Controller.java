@@ -180,6 +180,11 @@ public class Controller
 
             }
 
+            else if()
+            {
+                // check for puzzles and force the user to solve it
+            }
+
         }
         else if(userInput.contains("MOVE"))
         {
