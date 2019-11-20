@@ -547,7 +547,7 @@ public class Controller
         Item i = Item.allItems.get(userInput);
         if (user.getCarriedItems().contains(i))
         {
-            
+            view.print("Do you want to drop, use, or equip an item?");
         }
 
     }
