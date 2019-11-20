@@ -94,7 +94,7 @@ public class Controller
             inventory();
         else if(userInput.contains("INVESTIGATE"))
         {
-            if(isMonsterDead = false)
+            if(!isMonsterDead)
                 preBattlePhase();
             else if (!user.getCurrentRooms().getVendingItem().equalsIgnoreCase("NONE"))
             {
@@ -233,6 +233,7 @@ public class Controller
         try
         {
             view.print(WriteRead.saveData(user));
+            mainMenu();
         }
         catch (Exception e)
         {

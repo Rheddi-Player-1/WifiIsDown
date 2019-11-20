@@ -24,7 +24,7 @@ public class WriteRead
         String returnStrig = "";
         try
         {
-            String saveFolder = "GameSaves/";
+            String saveFolder = "src/GameSaves/";
 
             Files.list(new File(saveFolder).toPath())
                     .limit(10)
@@ -43,10 +43,11 @@ public class WriteRead
             return "This file does not exist!";
         }
     }
+
     public static String saveData(Player user)
     {
         String fullFileName = "";
-        String dataFile = "GameSaves/Data";
+        String dataFile = "src/GameSaves/Data";
         try
         {
             DocumentBuilderFactory docFac = DocumentBuilderFactory.newInstance();
@@ -154,7 +155,7 @@ public class WriteRead
                 roomInfoRoot.appendChild(roomItems);
             }
 
-            DateTimeFormatter datFor = DateTimeFormatter.ofPattern("yyyy/MM/ddHH:mm:ss");
+            DateTimeFormatter datFor = DateTimeFormatter.ofPattern("yyyyMMdd");
             LocalDateTime current = LocalDateTime.now();
             String date = datFor.format(current);
 
@@ -168,7 +169,7 @@ public class WriteRead
         }
         catch(Exception e)
         {
-            return "";
+            return "Your file did not save! Try again later.";
         }
     }
 
@@ -178,7 +179,7 @@ public class WriteRead
 
         try
         {
-            File itemInfo = new File("GameSaves/" + fileName + ".xml");
+            File itemInfo = new File("src/GameSaves/" + fileName + ".xml");
             DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
             DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
             Document doc = dBuilder.parse(itemInfo);
