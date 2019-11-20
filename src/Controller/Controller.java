@@ -11,7 +11,6 @@ public class Controller
 {
     private Player user;
     private Console view;
-    private Rooms room;
     private Scanner input;
     private Monster mainEnemy;
     private ArrayList<Item> carriedItems = new ArrayList<Item>();
@@ -20,7 +19,6 @@ public class Controller
     public Controller()
     {
         view = new Console();
-        room = new Rooms();
         input = new Scanner(System.in);
         mainEnemy = null;
         isMonsterDead = false;
@@ -93,11 +91,51 @@ public class Controller
         }
         else if(userInput.contains("INVESTIGATE"))
         {
+            if(isMonsterDead = false)
+                preBattlePhase();
+            else
+            {
+                ArrayList<Item> roomItems = user.getCurrentRooms().getRoomItems();
+
+                for(int i = 0; i < roomItems.size(); i++)
+                {
+                    view.print(roomItems.get(i).getItemName() + "\n" + roomItems.get(i).getItemDescription() + "\n");
+                }
+                view.print("Do you want to pick up anything?");
+                String userInputToo = input.nextLine().toUpperCase();
+
+                try
+                {
+                    boolean isItThere = false;
+                    int i = 0;
+                    while(!isItThere || i < roomItems.size())
+                    {
+                        if(roomItems.get(i).getItemName().toUpperCase().contains(userInputToo))
+                        {
+                            user.getCurrentRooms().removeFromRoom(roomItems.get(i));
+                            user.addItem(roomItems.get(i));
+                            view.print(userInputToo + " has been added to your inventory");
+                            mainMenu();
+                        }
+                        else
+                        {
+                            view.print("That's not here!");
+                            mainMenu();
+                        }
+                    }
+                }
+                catch(OverEncumbered e)
+                {
+                    view.print(e.getMessage());
+                    mainMenu();
+                }
+
+            }
 
         }
         else if(userInput.contains("MOVE"))
         {
-
+            changeRooms();
         }
         else if(userInput.contains("DATA"))
         {
@@ -131,12 +169,6 @@ public class Controller
 
     }
 
-    public void moveRooms()
-    {
-
-    }
-
-
 
     public void saveGame()
     {
@@ -147,6 +179,7 @@ public class Controller
         catch (Exception e)
         {
             view.print("Error Saving data, please try again");
+            mainMenu();
         }
 
     }
@@ -172,6 +205,7 @@ public class Controller
         catch(Exception e)
         {
             view.print("There has been an error, please try again.");
+            gameStart();
         }
     }
 
@@ -179,7 +213,7 @@ public class Controller
     {
         int randomMonster = 0;
 
-        if(/*!user.getCurrentRoom().hasboard()*/) //Needs to check to see if the current room does not have a board
+        if(user.getCurrentRooms().getRoomBoard().equalsIgnoreCase("NONE"))
         {
             int interuptedMax = Monster.allMonsters.get("M0" + (Monster.allMonsters.size() - 2)).getMaxEncounterValue();
             int interupted = (int) (Math.random() * interuptedMax);
@@ -315,6 +349,7 @@ public class Controller
         }
         catch(PlayerDeathException e2)
         {
+            view.print(e2.getMessage());
             titleScreen();
             gameStart();
         }
@@ -347,12 +382,14 @@ public class Controller
         }
         catch(MonsterDeathException e1)
         {
+            view.print(e1.getMessage());
             isMonsterDead = true;
             mainMenu();
 
         }
         catch(PlayerDeathException e2)
         {
+            view.print(e2.getMessage());
             titleScreen();
             gameStart();
         }
@@ -470,18 +507,24 @@ public class Controller
     public void changeRooms()
     {
         view.print("Where do you want to go? Below are the list of rooms that you can choose from.\n");
-        for (String r: room.getRoomConnections())
+        for (String r: user.getCurrentRooms().getRoomConnections())
         {
             view.print(r);
         }
 
         String userInput = input.nextLine().toUpperCase();
         String currentRoom = userInput.replaceAll("\\s+", ""); //Remove extra spacings in the input
-        if (room.getRoomConnections().contains(userInput))
+        if (user.getCurrentRooms().getRoomConnections().contains(userInput))
         {
-            room.changeRooms(currentRoom);
+            isMonsterDead = false;
+            user.setCurrentRooms(Rooms.rooms.get(currentRoom));
+            mainMenu();
         }
-        else view.print("That room do not exit.");
+        else
+        {
+            view.print("That room does not exit.");
+            changeRooms();
+        }
     }
 
 }
