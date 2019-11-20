@@ -16,15 +16,15 @@ public class Puzzle
 {
 	private String id;
 	private String type;
-	private String prize;
+	private Item prize;
 	private String solve;
 	private String answer;
 	private String examine;
 	private String hint;
-	private String itemUse;
+	private Item itemUse;
 	public static HashMap<String, Puzzle> puzzle = new HashMap<>();
 	
-	public Puzzle(String id, String type, String prize, String solve, String answer, String examine, String hint, String itemUse) 
+	public Puzzle(String id, String type, Item prize, String solve, String answer, String examine, String hint, Item itemUse) 
 	{
 		this.id = id;
 		this.type = type;
@@ -51,11 +51,11 @@ public class Puzzle
 		this.type = type;
 	}
 
-	public String getPrize() {
+	public Item getPrize() {
 		return prize;
 	}
 
-	public void setPrize(String prize) {
+	public void setPrize(Item prize) {
 		this.prize = prize;
 	}
 
@@ -96,11 +96,11 @@ public class Puzzle
 		return solve;
 	}
 	
-	public String getItemUse() {
+	public Item getItemUse() {
 		return itemUse;
 	}
 
-	public void setItemUse(String itemUse) {
+	public void setItemUse(Item itemUse) {
 		this.itemUse = itemUse;
 	}
 
@@ -120,18 +120,30 @@ public class Puzzle
 			{
 				Node node = puzzleNodes.item(i);
 				
+				Item prize = null;
+				Item itemUse = null;
 				if(node.getNodeType() == Node.ELEMENT_NODE)
 				{
 					Element e = (Element) node;
 					
 					String id = e.getElementsByTagName("id").item(0).getTextContent();
 					String type = e.getElementsByTagName("type").item(0).getTextContent();
-					String prize = e.getElementsByTagName("prize").item(0).getTextContent();
+					String temp1 = e.getElementsByTagName("prize").item(0).getTextContent();
 					String solve = e.getElementsByTagName("solve").item(0).getTextContent();
 					String answer = e.getElementsByTagName("answer").item(0).getTextContent();
 					String examine = e.getElementsByTagName("examine").item(0).getTextContent();
 					String hint = e.getElementsByTagName("hint").item(0).getTextContent();
-					String itemUse = e.getElementsByTagName("itemUse").item(0).getTextContent();
+					String temp2 = e.getElementsByTagName("itemUse").item(0).getTextContent();
+					
+					if(!temp1.equalsIgnoreCase("NONE"))
+                        prize = Item.allItems.get(temp1);
+                    else
+                        prize = null;
+					
+					if(!temp2.equalsIgnoreCase("null"))
+                        itemUse = Item.allItems.get(temp2);
+                    else
+                        itemUse = null;
 					
 					puzzle.put(id, new Puzzle(id, type, prize, solve, answer, examine, hint, itemUse));
 				}
@@ -143,4 +155,5 @@ public class Puzzle
 		}
 	}
 }
+
 
