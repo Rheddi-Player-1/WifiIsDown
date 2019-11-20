@@ -110,6 +110,10 @@ public class Controller
                     useVend = true;
                     mainMenu();
                 }
+                else if(user.getCurrentRooms().equals(puzzle.getId()))
+                {
+                solvePuzzle();
+                }
                 else
                 {
                     boolean isThere = false;
