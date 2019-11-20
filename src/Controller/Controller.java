@@ -469,15 +469,18 @@ public class Controller
 
     public void changeRooms()
     {
-        // Updating the currentRoom
-        // when the room is changed, change the current room to the room the user picked.
-        // userInput = currentRoom
-        room.changeRooms(currentRoom);
-        if (/*roomischanged*/)
-        {
-            
-        }
+        view.print("Where do you want to go? Below are the list of rooms that you can choose from.\n");
+        view.print(Arrays.toString(room.getRoomConnections()));
 
+        String userInput = input.nextLine().toUpperCase();
+
+        //Remove extra spacing between the words
+        String currentRoom = userInput.replaceAll("\\s+", " ");
+        if (room.getRoomConnections().contains(userInput))
+        {
+            room.changeRooms(currentRoom);
+        }
+        else view.print("That room do not exit.");
     }
 
 }
