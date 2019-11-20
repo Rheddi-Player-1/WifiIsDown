@@ -11,6 +11,9 @@ public class Controller
 {
     private Player user;
     private Console view;
+    private Puzzle puzzle;
+    private WordPuzzle word;
+    private ItemPuzzle item;
     private Scanner input;
     private Monster mainEnemy;
     private ArrayList<Item> carriedItems = new ArrayList<Item>();
@@ -617,5 +620,17 @@ public class Controller
         }
 
     }
-
+    
+    public void solvePuzzle()
+    {
+    	if(user.getCurrentRooms().equals(puzzle.getId()))
+    	{
+    		puzzle.getSolve();
+    		view.print("What is your answer?");
+    		String answer = input.nextLine().toUpperCase();
+    		
+    		item.solveItemPuzzle(answer);
+    		word.solveWordPuzzle(answer);
+    	}
+    }
 }
