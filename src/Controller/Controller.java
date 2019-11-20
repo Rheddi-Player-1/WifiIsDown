@@ -470,12 +470,13 @@ public class Controller
     public void changeRooms()
     {
         view.print("Where do you want to go? Below are the list of rooms that you can choose from.\n");
-        view.print(Arrays.toString(room.getRoomConnections()));
+        for (String r: room.getRoomConnections())
+        {
+            view.print(r);
+        }
 
         String userInput = input.nextLine().toUpperCase();
-
-        //Remove extra spacings in the input
-        String currentRoom = userInput.replaceAll("\\s+", "");
+        String currentRoom = userInput.replaceAll("\\s+", ""); //Remove extra spacings in the input
         if (room.getRoomConnections().contains(userInput))
         {
             room.changeRooms(currentRoom);
