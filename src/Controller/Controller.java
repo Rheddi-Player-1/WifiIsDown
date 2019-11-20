@@ -97,7 +97,9 @@ public class Controller
         }
         else if(userInput.contains("INVESTIGATE"))
         {
-            if(!isMonsterDead)
+            if(!user.getCurrentRooms().getRoomPuzzleID().equalsIgnoreCase("none"))
+                solvePuzzle();
+            else if(!isMonsterDead)
                 preBattlePhase();
             else if (!user.getCurrentRooms().getVendingItem().equalsIgnoreCase("NONE"))
             {
@@ -665,18 +667,25 @@ public class Controller
     
     public void solvePuzzle()
     {
-    	if(user.getCurrentRooms().equals(puzzle.getId()))
-    	{
-    		puzzle.getSolve();
-    		view.print("What is your answer?");
-    		String answer = input.nextLine().toUpperCase();
-    		
-    		item.solveItemPuzzle(answer);
-    		word.solveWordPuzzle(answer);
-    	}
-        else 
-    	{
-    		mainMenu();
-    	}
+        Puzzle roomPuzzle = Puzzle.puzzle.get(user.getCurrentRooms().getRoomPuzzleID());
+        view.print(roomPuzzle.puzzleDescription());
+        roomPuzzle.getSolve();
+        view.print("What is your answer? Type \"Hint\" for a clue, or \"Back\" to leave.");
+        String answer = input.nextLine().toUpperCase();
+        if(answer.contains("HINT"))
+        {
+            view.print(roomPuzzle.getHint());
+            solvePuzzle();
+        }
+        else if (answer.contains("BACK"))
+        {
+            mainMenu();
+        }
+        else
+        {
+            item.solveItemPuzzle(answer);
+            word.solveWordPuzzle(answer);
+            mainMenu();
+        }
     }
 }
