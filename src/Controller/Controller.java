@@ -632,5 +632,9 @@ public class Controller
     		item.solveItemPuzzle(answer);
     		word.solveWordPuzzle(answer);
     	}
+        else 
+    	{
+    		mainMenu();
+    	}
     }
 }
