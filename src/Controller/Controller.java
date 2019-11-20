@@ -28,6 +28,34 @@ public class Controller
         Monster.generateMonsters();
     }
 
+    public void titleScreen()
+    {
+        view.print(" __      __.______________.___  ");
+        view.print("/  \\    /  \\   \\_   _____/|   | ");
+        view.print("\\   \\/\\/   /   ||    __)  |   | ");
+        view.print(" \\        /|   ||     \\   |   | ");
+        view.print("  \\__/\\  / |___|\\___  /   |___| ");
+        view.print("       \\/           \\/         ");
+        view.print("          .__                   ");
+        view.print("          |__| ______          ");
+        view.print("          |  |/  ___/           ");
+        view.print("          |  |\\___ \\            ");
+        view.print("          |__/____  >           ");
+        view.print("                  \\/            ");
+        view.print("________                        ");
+        view.print("\\______ \\   ______  _  ______   ");
+        view.print(" |    |  \\ /  _ \\ \\/ \\/ /    \\  ");
+        view.print(" |    `   (  <_> )     /   |  \\ ");
+        view.print("/_______  /\\____/ \\/\\_/|___|  / ");
+        view.print("        \\/                  \\/  ");
+    }
+    public void gameStart()
+    {
+        titleScreen();
+
+    }
+
+
     public void newGame()
     {
         view.print("----------------------------------------------------------------------------------------------------");
