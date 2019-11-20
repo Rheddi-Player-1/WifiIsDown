@@ -129,34 +129,12 @@ D J I Q X H T
 	</puzzle>
 	
 	<puzzle>
-		<id>P12</id>
-		<type>IP</type>
-		<prize>NONE</prize>
-		<solve>Unlock the server room to fix the WIFI.</solve>
-		<answer></answer>
-		<itemUse>KI05</itemUse>
-		<examine>This puzzle must be solved correctly to gain access to server room.</examine>
-		<hint>Must find key to unlock door.</hint>
-	</puzzle>
-	
-	<puzzle>
-		<id>P13</id>
-		<type>IP</type>
-		<prize>NONE</prize>
-		<solve>Unlock the office to get in.</solve>
-		<answer></answer>
-		<itemUse>KI04</itemUse>
-		<examine>This puzzle must be solved correctly to gain access.</examine>
-		<hint>Must find key to unlock door.</hint>
-	</puzzle>
-	
-	<puzzle>
 		<id>P14</id>
 		<type>IP</type>
 		<prize>NONE</prize>
 		<solve>Unlock the office to get in.</solve>
 		<answer></answer>
-		<itemUse>KI0I</itemUse>
+		<itemUse>KI01</itemUse>
 		<examine>This puzzle must be solved correctly to gain access.</examine>
 		<hint>Must find key to unlock door.</hint>
 	</puzzle>
@@ -181,5 +159,16 @@ D J I Q X H T
 		<itemUse>KI00</itemUse>
 		<examine>This puzzle must be solved correctly for the possibility to win a prize.</examine>
 		<hint>Item is used on whiteboards.</hint>
+	</puzzle>
+	
+	<puzzle>
+		<id>P17</id>
+		<type>IP</type>
+		<prize>NONE</prize>
+		<solve>Fix the server room.</solve>
+		<answer></answer>
+		<itemUse>KI08</itemUse>
+		<examine>This is the second to the last puzzle in order to win the game.</examine>
+		<hint>Need to have the ethernet cable item.</hint>
 	</puzzle>
 </Puzzles>
