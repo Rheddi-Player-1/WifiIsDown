@@ -22,7 +22,9 @@ public class Item
 	private ArrayList<Item> inventory = new ArrayList<>();
 	private Rooms room;
 
-	// Constructor
+	// Empty constructor
+	public Item() { };
+
 	public Item(String itemID, String itemName, String itemDescription, int itemSize)
 	{
 		this.itemID = itemID;
@@ -77,16 +79,18 @@ public class Item
 					String tempHeldItems = vendingItem.getElementsByTagName("heldItems").item(0).getTextContent();
 
 					String [] splitHeldItems = tempHeldItems.split(":");
-					ArrayList<String> heldItem = new ArrayList<>();
+					ArrayList<Item> heldItem = new ArrayList<>();
 					for (int j = 0; j < splitHeldItems.length; j++)
 					{
 						if (!(splitHeldItems.length == 0))
 						{
-							heldItem.add(splitHeldItems[j]);
+							Item item = allItems.get(splitHeldItems[j]);
+							heldItem.add(item);
 						}
 					}
 
 					VendingItem vItem = new VendingItem(code, name, description, size, capacity, ispickable, heldItem);
+					allItems.put(vItem.getItemID(), vItem);
 				}
 			}
 
