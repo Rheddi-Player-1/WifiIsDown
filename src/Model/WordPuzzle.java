@@ -4,8 +4,13 @@ import Exceptions.*;
 
 public class WordPuzzle extends Puzzle
 {
-	public WordPuzzle(String id, String type, Item prize, String solve, String answer, String examine, String hint, Item itemUse) {
+
+
+
+	public WordPuzzle(String id, String type, Item prize, String solve, String answer, String examine, String hint,
+			Item itemUse) {
 		super(id, type, prize, solve, answer, examine, hint, itemUse);
+		// TODO Auto-generated constructor stub
 	}
 
 	public String solveWordPuzzle(String solution)
@@ -26,7 +31,7 @@ public class WordPuzzle extends Puzzle
 					if(!getPrize().equals("NONE"))
 					{
 						attempt = 3;
-						rooms.roomItems.add(getPrize());
+						rooms.getRoomItems().add(getPrize());
 						throw new WinPrizeException();
 					}
 					
