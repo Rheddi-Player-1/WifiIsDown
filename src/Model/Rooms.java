@@ -169,16 +169,9 @@ public class Rooms
 		}
 	}
 	
-	public void addToRoom(String value, Item item)
-	{	
-		if(item.inventory.contains(value))
-		{
-			roomItems.add(item);
-		}
-		else
-		{
-			throw new NotInRoomException();
-		}
+	public void addToRoom(Item item)
+	{
+		roomItems.add(item);
 	}
 	
 	public void removeFromRoom(Item item)
@@ -250,7 +243,7 @@ public class Rooms
 		} 
 		catch (Exception e) 
 		{
-			System.out.println("\nWrong Input. Try Again.\n");
+			e.printStackTrace();
 		}
 	}
 }
