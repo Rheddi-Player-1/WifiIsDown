@@ -15,6 +15,7 @@ public class Rooms
 {
 	private String roomID;
 	private String roomDescription;
+	private String vendingItem;
 	private String roomVisited;
 	private String roomPuzzleID;
 	private String roomBoard;
@@ -24,14 +25,10 @@ public class Rooms
 	private ArrayList<Item> roomItems = new ArrayList<Item>();
 	public static HashMap<String, Rooms> rooms = new HashMap<String, Rooms>();
 	
-	//constructor with no parameters
-	public Rooms() 
-	{
-		Rooms.readRoomsXML();
-	}
-	public Rooms(String roomDescription, String roomVisited, String roomPuzzleID, String roomBoard, boolean roomLocked, String roomLockedDes, String[] roomConnections) 
-	{
+	public Rooms(String roomDescription, String vendingItem, String roomVisited, String roomPuzzleID,
+			String roomBoard, boolean roomLocked, String roomLockedDes, String[] roomConnections) {
 		this.roomDescription = roomDescription;
+		this.vendingItem = vendingItem;
 		this.roomVisited = roomVisited;
 		this.roomPuzzleID = roomPuzzleID;
 		this.roomBoard = roomBoard;
@@ -39,6 +36,14 @@ public class Rooms
 		this.roomLockedDes = roomLockedDes;
 		this.roomConnections = roomConnections;
 	}
+
+
+	//constructor with no parameters
+	public Rooms() 
+	{
+		Rooms.readRoomsXML();
+	}
+
 	
 	public String getRoomID() {
 		return roomID;
@@ -178,7 +183,7 @@ public class Rooms
 					String id = e.getElementsByTagName("id").item(0).getTextContent();
 					String visited = e.getElementsByTagName("visited").item(0).getTextContent();
 					String description = e.getElementsByTagName("description").item(0).getTextContent();
-					String vendingItem = e.getElementsByTagName("connections").item(0).getTextContent();
+					String vendingItem = e.getElementsByTagName("vendingItem").item(0).getTextContent();
 					String puzzleID = e.getElementsByTagName("puzzleID").item(0).getTextContent();
 					String roomBoard = e.getElementsByTagName("board").item(0).getTextContent();
 					String locked = e.getElementsByTagName("locked").item(0).getTextContent();
@@ -187,7 +192,8 @@ public class Rooms
 					String connections = e.getElementsByTagName("connections").item(0).getTextContent();
 					String[] connectionsArray = connections.split(":");
 					
-					rooms.put(id, new Rooms(description, visited, puzzleID, roomBoard, roomLocked, roomLockedDes, connectionsArray));
+					rooms.put(id, new Rooms(description, vendingItem, visited, puzzleID,
+						 roomBoard, roomLocked, roomLockedDes, connectionsArray));
 				}
 			}
 		} 

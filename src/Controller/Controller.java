@@ -15,6 +15,7 @@ public class Controller
     private Scanner input;
     private Monster mainEnemy;
     private ArrayList<Item> carriedItems = new ArrayList<Item>();
+    private boolean isMonsterDead;
 
     public Controller()
     {
@@ -22,6 +23,7 @@ public class Controller
         room = new Rooms();
         input = new Scanner(System.in);
         mainEnemy = null;
+        isMonsterDead = false;
 
         Item.readItemXML();
         Rooms.readRoomsXML();
@@ -29,13 +31,111 @@ public class Controller
         Monster.generateMonsters();
     }
 
+    public void titleScreen()
+    {
+        view.print(" __      __.______________.___  ");
+        view.print("/  \\    /  \\   \\_   _____/|   | ");
+        view.print("\\   \\/\\/   /   ||    __)  |   | ");
+        view.print(" \\        /|   ||     \\   |   | ");
+        view.print("  \\__/\\  / |___|\\___  /   |___| ");
+        view.print("       \\/           \\/         ");
+        view.print("          .__                   ");
+        view.print("          |__| ______          ");
+        view.print("          |  |/  ___/           ");
+        view.print("          |  |\\___ \\            ");
+        view.print("          |__/____  >           ");
+        view.print("                  \\/            ");
+        view.print("________                        ");
+        view.print("\\______ \\   ______  _  ______   ");
+        view.print(" |    |  \\ /  _ \\ \\/ \\/ /    \\  ");
+        view.print(" |    `   (  <_> )     /   |  \\ ");
+        view.print("/_______  /\\____/ \\/\\_/|___|  / ");
+        view.print("        \\/                  \\/  ");
+    }
+
+    public void gameStart()
+    {
+        view.print("NEW GAME\nCONTINUE");
+        String userInput = input.nextLine().toUpperCase();
+        if(userInput.contains("NEW GAME"))
+            newGame();
+        else if (userInput.contains("CONTINUE"))
+            loadGame();
+        else
+        {
+            view.print("Invalid Input. Please try again...");
+            gameStart();
+        }
+    }
+
+
     public void newGame()
     {
+        view.print("----------------------------------------------------------------------------------------------------");
+        view.print("You wake up in the Kaufman Library...\n... and the WIFI is down!");
+        view.print("----------------------------------------------------------------------------------------------------");
+
         view.print("Enter your name: ");
         String name = input.nextLine();
 
         user = new Player(name, Rooms.rooms.get("R00"));
     }
+
+    public void mainMenu()
+    {
+        view.print(user.getCurrentRooms().getRoomDescription());
+        view.print("Type \"help\" for assistance.");
+        String userInput = input.nextLine().toUpperCase();
+
+        if(userInput.contains("INVENTORY"))
+        {
+
+        }
+        else if(userInput.contains("INVESTIGATE"))
+        {
+
+        }
+        else if(userInput.contains("MOVE"))
+        {
+
+        }
+        else if(userInput.contains("DATA"))
+        {
+            view.print("SAVE GAME\nLOAD GAME");
+            String userOtherInput = input.nextLine().toUpperCase();
+
+            if(userOtherInput.contains("SAVE"))
+                saveGame();
+            else if(userOtherInput.contains("LOAD"))
+                loadGame();
+            else
+            {
+                view.print("I do not understand what you're saying");
+                mainMenu();
+            }
+        }
+        else if(userInput.contains("QUIT"))
+            System.exit(0);
+        else if(userInput.contains("HELP"))
+        {
+            view.print("Inventory: Check and use items that you are carrying.\nInvestigate: Search the room you are currently in.\nMove: " +
+                    "Move to another room that's connected.\nData: Load or save current game.\nLeave: Quit current game.");
+            mainMenu();
+
+        }
+        else
+        {
+            view.print("What is \""+ userInput + "\"? That's not a thing...");
+            mainMenu();
+        }
+
+    }
+
+    public void moveRooms()
+    {
+
+    }
+
 
 
     public void saveGame()
@@ -215,7 +315,8 @@ public class Controller
         }
         catch(PlayerDeathException e2)
         {
-            //Controller method for loading or starting a new game
+            titleScreen();
+            gameStart();
         }
 
         battlePhaseInterrupted(enemy1, enemy1Int, enemy2, enemy2Int, playerInt);
@@ -246,17 +347,14 @@ public class Controller
         }
         catch(MonsterDeathException e1)
         {
-
-            view.print(enemy.getMonsterName() + " has been defeated!");
-            //Controller method for returning to room interaction
-            view.print("Which room would you pick?");
-            String value = input.nextLine();
-        	rooms.changeRooms(value);
+            isMonsterDead = true;
+            mainMenu();
 
         }
         catch(PlayerDeathException e2)
         {
-            //Controller method for loading or starting a new game
+            titleScreen();
+            gameStart();
         }
         battlePhase(enemy, enemyInt, playerInt);
     }
@@ -290,22 +388,30 @@ public class Controller
         else if(userDecision.contains("USE ITEM"))
         {
             //controller method for items
-            user = new Player();
-            carriedItems = user
+
             
         }
         else if(userDecision.contains("IGNORE"))
         {
-            //controller method for room interactions
-        	view.print("Which room would you pick?");
-            String value = input.nextLine();
-        	rooms.changeRooms(value);
+            int pickANum = (int)(Math.random() * (20 + 1) - 1);
+
+            if(pickANum == userOdds || userOdds > pickANum)
+            {
+                view.print("You ran from the fight!");
+                isMonsterDead = true;
+                mainMenu();
+            }
+            else
+            {
+                view.print("You could not get away!");
+                battlePhase(enemy, enemyOdds, userOdds);
+            }
         }
         else
             view.print("That monster does not exist! The enemy gets closer and prepares for an all out assault!");
     }
 
-    public void playerInterruptedBattle(Monster enemy1, int enemy1Odds, Monster enemy2, int enemy2Odds, int userOdds, Rooms rooms)
+    public void playerInterruptedBattle(Monster enemy1, int enemy1Odds, Monster enemy2, int enemy2Odds, int userOdds)
     {
         view.print("What will you do?");
         String userDecision = input.nextLine().toUpperCase();
@@ -343,13 +449,22 @@ public class Controller
         }
         else if(userDecision.contains("IGNORE"))
         {
-            //controller method for room interactions
-        	view.print("Which room would you pick?");
-            String value = input.nextLine();
-        	rooms.changeRooms(value);
+            int pickANum = (int)(Math.random() * (20 + 1) - 1);
+
+            if(pickANum == userOdds || userOdds > pickANum)
+            {
+                view.print("You ran from the fight!");
+                isMonsterDead = true;
+                mainMenu();
+            }
+            else
+            {
+                view.print("You could not get away!");
+                battlePhaseInterrupted(enemy1, enemy1Odds, enemy2, enemy2Odds, userOdds);
+            }
         }
         else
-            view.print("That monster does not exist! The enemy gets closer and prepares for an all out assault!");
+            view.print("That does not exist! The enemy gets closer and prepares for an all out assault!");
     }
 
     public void changeRooms()
