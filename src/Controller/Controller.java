@@ -181,12 +181,6 @@ public class Controller
                     view.print(e.getMessage());
                     mainMenu();
                 }
-
-            }
-
-            else if()
-            {
-                // check for puzzles and force the user to solve it
             }
 
         }
