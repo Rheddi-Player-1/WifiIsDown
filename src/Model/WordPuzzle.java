@@ -8,7 +8,7 @@ public class WordPuzzle extends Puzzle
 		super(id, type, prize, solve, answer, examine, hint, itemUse);
 	}
 
-	public String SolveWordPuzzle(String solution, Item item)
+	public String solveWordPuzzle(String solution)
 	{
 		if(getType().equalsIgnoreCase("WP"))
 		{
@@ -42,3 +42,4 @@ public class WordPuzzle extends Puzzle
 		return null;
 	}
 }
+
