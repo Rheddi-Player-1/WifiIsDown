@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xml>
+	<vendingItems>
+		<vendingItem itemCode = "SI00">
+			<itemName>Food Vending Machine</itemName>
+			<itemDescription>A vending machine with various food items.</itemDescription>
+			<itemSize>50</itemSize>
+			<itemCapacity>40</itemCapacity>
+			<itemIsPickUpAble>false</itemIsPickUpAble>
+			<heldItems>CI00:CI01:CI02:</heldItems>
+		</vendingItem>
+		<vendingItem itemCode = "SI01">
+			<itemName>Drink Vending Machine</itemName>
+			<itemDescription>A vending machine with various drinks.</itemDescription>
+			<itemSize>50</itemSize>
+			<itemCapacity>40</itemCapacity>
+			<itemIsPickUpAble>false</itemIsPickUpAble>
+			<heldItems>CI03:CI04:CI05:</heldItems>
+		</vendingItem>
+		<vendingItem itemCode = "SI02">
+			<itemName>Supply Vending Machine</itemName>
+			<itemDescription>A vending machine with various school.</itemDescription>
+			<itemSize>50</itemSize>
+			<itemCapacity>40</itemCapacity>
+			<itemIsPickUpAble>false</itemIsPickUpAble>
+			<heldItems>KI00:WI00:</heldItems>
+		</vendingItem>
+	</vendingItems>
+	<consumableItems>
+		<consumableItem itemCode = "CI00">
+			<itemName>Trail Mix</itemName>
+			<itemDescription>Nutrition Facts: 20% Stress Recovery. Ingredients: Nuts, Chocolate, Raisins</itemDescription>
+			<itemSize>1</itemSize>
+			<itemRecovery>.20</itemRecovery>
+		</consumableItem>
+		<consumableItem itemCode = "CI01">
+			<itemName>Honey Bun</itemName>
+			<itemDescription>Nutrition Facts: 5% Stress Recovery. Ingredients: Wheat, All-Natural Bear Approved Honey</itemDescription>
+			<itemSize>1</itemSize>
+			<itemRecovery>.05</itemRecovery>
+		</consumableItem>
+		<consumableItem itemCode = "CI02">
+			<itemName>Gum</itemName>
+			<itemDescription>Nutrition Facts: 5% Stress Recovery. Ingredients: Stickiness</itemDescription>
+			<itemSize>1</itemSize>
+			<itemRecovery>.05</itemRecovery>
+		</consumableItem>
+		<consumableItem itemCode = "CI03">
+			<itemName>Water</itemName>
+			<itemDescription>Nutrition Facts: 10% Stress Recovery. Ingredients: Wetness</itemDescription>
+			<itemSize>1</itemSize>
+			<itemRecovery>.1</itemRecovery>
+		</consumableItem>
+		<consumableItem itemCode = "CI04">
+			<itemName>Soda</itemName>
+			<itemDescription>Nutrition Facts: 5% Stress Recovery. Ingredients: High Fructose Corn Syrup, Artificial Color</itemDescription>
+			<itemSize>2</itemSize>
+			<itemRecovery>.05</itemRecovery>
+		</consumableItem>
+		<consumableItem itemCode = "CI05">
+			<itemName>Juice</itemName>
+			<itemDescription>Nutrition Facts: 15% Stress Recovery. Ingredients: 100% For 100% Kids</itemDescription>
+			<itemSize>2</itemSize>
+			<itemRecovery>.15</itemRecovery>
+		</consumableItem>
+	</consumableItems>
+	<weaponItems>
+		<weaponItem itemCode = "WI00">
+			<itemName>Pencil</itemName>
+			<itemDescription>Attack: +3</itemDescription>
+			<itemSize>1</itemSize>
+			<attackBonus>3</attackBonus>
+		</weaponItem>
+	</weaponItems>
+	<keyItems>
+		<keyItem itemCode = "KI00">
+			<itemName>Whiteboard Marker</itemName>
+			<itemDescription>An Xpoor brand market. Might be useful later...</itemDescription>
+			<itemSize>1</itemSize>
+		</keyItem>
+		<keyItem itemCode = "KI01">
+			<itemName>Hairpin</itemName>
+			<itemDescription>This might be useful for picking locks.</itemDescription>
+			<itemSize>1</itemSize>
+		</keyItem>
+		<keyItem itemCode = "KI02">
+			<itemName>Laptop</itemName>
+			<itemDescription>You can get online using this.</itemDescription>
+			<itemSize>10</itemSize>
+		</keyItem>
+		<keyItem itemCode = "KI03">
+			<itemName>Walkie Talkie</itemName>
+			<itemDescription>When set to a channel, you can communicate with others on that same channel.</itemDescription>
+			<itemSize>3</itemSize>
+		</keyItem>
+		<keyItem itemCode = "KI04">
+			<itemName>Office Key</itemName>
+			<itemDescription>Must be the key that unlocks the top office.</itemDescription>
+			<itemSize>1</itemSize>
+		</keyItem>
+		<keyItem itemCode = "KI05">
+			<itemName>Server Room Key</itemName>
+			<itemDescription>Must be the key that unlocks the server rooms.</itemDescription>
+			<itemSize>1</itemSize>
+		</keyItem>
+		<keyItem itemCode = "KI06">
+			<itemName>$1 Bank Note</itemName>
+			<itemDescription>You can use this at the vending machines!</itemDescription>
+			<itemSize>1</itemSize>
+		</keyItem>
+		<keyItem itemCode = "KI07">
+			<itemName>Technician's Book</itemName>
+			<itemDescription>A boring book. It has a weird sticky note that says "thatdamngrizz" on it.</itemDescription>
+			<itemSize>1</itemSize>
+		</keyItem>
+		<keyItem itemCode = "KI08">
+			<itemName>Ethernet Cables</itemName>
+			<itemDescription>CAT6 cable. You can use this to repair the server room.</itemDescription>
+			<itemSize>2</itemSize>
+		</keyItem>
+	</keyItems>
+	<storageItems>
+		<storageItem itemCode = "SI00">
+			<itemName>Small Backpack</itemName>
+			<itemDescription>A small backpack. It has 5 storage blocks... whatever that means.</itemDescription>
+			<itemCapacity>5</itemCapacity>
+		</storageItem>
+		<storageItem itemCode = "SI01">
+			<itemName>Medium Backpack</itemName>
+			<itemDescription>A medium backpack. It has 8 storage blocks... whatever that means.</itemDescription>
+			<itemCapacity>8</itemCapacity>
+		</storageItem>
+		<storageItem itemCode = "SI02">
+			<itemName>Large Backpack</itemName>
+			<itemDescription>A large backpack. It has 13 storage blocks... whatever that means.</itemDescription>
+			<itemCapacity>13</itemCapacity>
+		</storageItem>
+		<storageItem itemCode = "SI03">
+			<itemName>Trekking Backpack</itemName>
+			<itemDescription>A huge hiking backpack. It has 20 storage blocks... whatever that means.</itemDescription>
+			<itemCapacity>20</itemCapacity>
+		</storageItem>
+	</storageItems>
+</xml>

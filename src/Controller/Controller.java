@@ -642,25 +642,30 @@ public class Controller
 
     public void inventory()
     {
-        for (Item item : user.getCarriedItems())
+        if (carriedItems.isEmpty())
         {
-            view.print(item.getItemName());
+            view.print("You have nothing in your bag.");
         }
-
-        view.print("Which item do you want to pick?");
-        String userInput = input.nextLine().replaceAll("\\s+", "");
-        Item i = Item.allItems.get(userInput);
-        if (user.getCarriedItems().contains(i))
-        {
-            view.print("Do you want to drop, use, or equip an item?");
-            String userinput = input.nextLine();
-            if(userinput.equalsIgnoreCase("drop")) user.removeItem(i.getItemName());
-            if(userinput.equalsIgnoreCase("use"))
-            {
-                if(user.useItem(i)) view.print("You gained some strength");
-                else view.print("You cannot use this item.");
+        else {
+            for (Item item : user.getCarriedItems()) {
+                view.print(item.getItemName());
             }
-            if(userinput.equalsIgnoreCase("equip")) user.equip(i);
+            view.print("Which item do you want to pick?");
+            String userInput = input.nextLine().replaceAll("\\s+", "");
+            Item i = Item.allItems.get(userInput);
+
+            if (user.getCarriedItems().contains(i)) {
+                view.print("Do you want to drop, use, or equip an item?");
+                String userinput = input.nextLine();
+                if (userinput.equalsIgnoreCase("drop")) {
+                    user.removeItem(i.getItemName());
+                }
+                if (userinput.equalsIgnoreCase("use")) {
+                    if (user.useItem(i)) view.print("You gained some strength");
+                    else view.print("You cannot use this item.");
+                }
+                if (userinput.equalsIgnoreCase("equip")) user.equip(i);
+            }
         }
 
     }
