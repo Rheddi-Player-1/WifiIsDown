@@ -28,7 +28,7 @@ public class WordPuzzle extends Puzzle
 			
 				if(getAnswer().equalsIgnoreCase(solution))
 				{					
-					if(!getPrize().equals("NONE"))
+					if(getPrize() != null)
 					{
 						attempt = 3;
 						rooms.getRoomItems().add(getPrize());

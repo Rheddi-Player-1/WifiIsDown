@@ -30,7 +30,7 @@ public class ItemPuzzle extends Puzzle
 					
 					attempt = 3;
 					
-					if(!getPrize().equals("NONE"))
+					if(getPrize() != null)
 					{
 						rooms.getRoomItems().add(getPrize());
 						throw new WinPrizeException();

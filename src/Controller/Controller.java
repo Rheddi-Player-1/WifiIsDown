@@ -691,8 +691,18 @@ public class Controller
         }
         else
         {
-            item.solveItemPuzzle(answer);
-            word.solveWordPuzzle(answer);
+            if (roomPuzzle.getType().equalsIgnoreCase("ip"))
+            {
+                item = new ItemPuzzle(roomPuzzle.getId(),roomPuzzle.getType(),roomPuzzle.getPrize(),roomPuzzle.getSolve(),
+                        roomPuzzle.getAnswer(),roomPuzzle.getExamine(),roomPuzzle.getHint(),roomPuzzle.getItemUse());
+                item.solveItemPuzzle(answer);
+            }
+            else
+            {
+                word = new WordPuzzle(roomPuzzle.getId(),roomPuzzle.getType(),roomPuzzle.getPrize(),roomPuzzle.getSolve(),
+                        roomPuzzle.getAnswer(),roomPuzzle.getExamine(),roomPuzzle.getHint(),roomPuzzle.getItemUse());
+                view.print(word.solveWordPuzzle(answer));
+            }
             mainMenu();
         }
     }
