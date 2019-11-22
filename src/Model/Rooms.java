@@ -30,7 +30,7 @@ public class Rooms
 	
 	
 	
-	public Rooms(String key, String roomDescription, String vendingItem, String roomVisited, String roomPuzzleID,
+	public Rooms(String key, String roomID, String roomDescription, String vendingItem, String roomVisited, String roomPuzzleID,
 			String roomBoard, boolean roomLocked, String roomLockedDes, ArrayList<String> roomConnections) {
 		this.key = key;
 		this.roomID = roomID;
@@ -43,7 +43,7 @@ public class Rooms
 		this.roomLockedDes = roomLockedDes;
 		this.roomConnections = roomConnections;
 	}
-	
+
 	public String getRoomID() {
 		return roomID;
 	}
@@ -236,7 +236,7 @@ public class Rooms
 					String[] connectionsArray = connections.split(":");
 					ArrayList<String> connect = new ArrayList<String>(Arrays.asList(connectionsArray));
 					
-					rooms.put(id, new Rooms(key, description, vendingItem, visited, puzzleID,
+					rooms.put(id, new Rooms(key, id, description, vendingItem, visited, puzzleID,
 						 roomBoard, roomLocked, roomLockedDes, connect));
 				}
 			}

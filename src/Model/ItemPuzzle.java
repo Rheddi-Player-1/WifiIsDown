@@ -12,7 +12,7 @@ public class ItemPuzzle extends Puzzle
 		// TODO Auto-generated constructor stub
 	}
 
-	public String solveItemPuzzle(String solution)
+	public String solveItemPuzzle(String solution, Rooms room)
 	{
 		if(getType().equalsIgnoreCase("IP"))
 		{
@@ -27,7 +27,6 @@ public class ItemPuzzle extends Puzzle
 				
 				if(player.getPlayerEquipedItem().equals(getItemUse()) && getAnswer().equalsIgnoreCase(solution))
 				{
-					
 					attempt = 3;
 					
 					if(getPrize() != null)
@@ -36,9 +35,8 @@ public class ItemPuzzle extends Puzzle
 						throw new WinPrizeException();
 					}
 					
-					rooms.getRoomItems().remove(item);
+					room.setRoomPuzzleID("none");
 					return "\nCongrats!! You solved the puzzle.\n";
-				
 				}
 				else
 				{

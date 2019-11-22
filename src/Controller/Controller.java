@@ -11,6 +11,7 @@ public class Controller
 {
     private Player user;
     private Console view;
+    private Rooms room;
     private Puzzle puzzle;
     private WordPuzzle word;
     private ItemPuzzle item;
@@ -676,6 +677,7 @@ public class Controller
     public void solvePuzzle()
     {
         Puzzle roomPuzzle = Puzzle.puzzle.get(user.getCurrentRooms().getRoomPuzzleID());
+        Rooms room = Rooms.rooms.get(user.getCurrentRooms().getRoomID());
         view.print(roomPuzzle.puzzleDescription());
         roomPuzzle.getSolve();
         view.print("What is your answer? Type \"Hint\" for a clue, or \"Back\" to leave.");
@@ -695,13 +697,13 @@ public class Controller
             {
                 item = new ItemPuzzle(roomPuzzle.getId(),roomPuzzle.getType(),roomPuzzle.getPrize(),roomPuzzle.getSolve(),
                         roomPuzzle.getAnswer(),roomPuzzle.getExamine(),roomPuzzle.getHint(),roomPuzzle.getItemUse());
-                item.solveItemPuzzle(answer);
+                view.print(item.solveItemPuzzle(answer, room));
             }
             else
             {
                 word = new WordPuzzle(roomPuzzle.getId(),roomPuzzle.getType(),roomPuzzle.getPrize(),roomPuzzle.getSolve(),
                         roomPuzzle.getAnswer(),roomPuzzle.getExamine(),roomPuzzle.getHint(),roomPuzzle.getItemUse());
-                view.print(word.solveWordPuzzle(answer));
+                view.print(word.solveWordPuzzle(answer, room));
             }
             mainMenu();
         }
