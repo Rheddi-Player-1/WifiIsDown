@@ -21,7 +21,6 @@ public class ItemPuzzle extends Puzzle
 			do{
 				attempt++;
 				
-				Rooms rooms = Rooms.rooms.get(solution);
 				Player player = null;
 				Item item = null;
 				
@@ -31,7 +30,7 @@ public class ItemPuzzle extends Puzzle
 					
 					if(getPrize() != null)
 					{
-						rooms.getRoomItems().add(getPrize());
+						room.getRoomItems().add(getPrize());
 						throw new WinPrizeException();
 					}
 					

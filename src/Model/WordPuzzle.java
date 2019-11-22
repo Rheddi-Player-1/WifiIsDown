@@ -21,15 +21,13 @@ public class WordPuzzle extends Puzzle
 
 			do{
 				attempt++;
-				
-				Rooms rooms = Rooms.rooms.get(solution);
 
 				if(getAnswer().equalsIgnoreCase(solution))
 				{					
 					if(getPrize() != null)
 					{
 						attempt = 3;
-						rooms.getRoomItems().add(getPrize());
+						room.getRoomItems().add(getPrize());
 						throw new WinPrizeException();
 					}
 
