@@ -291,16 +291,19 @@ public class Controller
             int i = 0;
             while(i < Monster.allMonsters.size() - 1 || mainEnemy != null)
             {
-                Monster temp = Monster.allMonsters.get("MO" + i);
+                Monster temp = Monster.allMonsters.get("M0" + i);
                 if(randomMonster >= temp.getMinEncounterValue() && randomMonster <= temp.getMaxEncounterValue())
+                {
                     mainEnemy = temp;
+                    break;
+                }
                 else
                     i++;
             }
-            if(interupted >= Monster.allMonsters.get("MO" +(Monster.allMonsters.size() - 2)).getMinEncounterValue() ||
-                    interupted <= Monster.allMonsters.get("MO" +(Monster.allMonsters.size()- 2)).getMaxEncounterValue())
+            if(interupted >= Monster.allMonsters.get("M0" +(Monster.allMonsters.size() - 2)).getMinEncounterValue() ||
+                    interupted <= Monster.allMonsters.get("M0" +(Monster.allMonsters.size()- 2)).getMaxEncounterValue())
             {
-                Monster secondaryEnemy = Monster.allMonsters.get("MO" +(Monster.allMonsters.size() - 1));
+                Monster secondaryEnemy = Monster.allMonsters.get("M0" +(Monster.allMonsters.size() - 1));
 
                 int mainEnemyInt = (int) (Math.random() * (20 + 1) - 1);
                 int secondaryEnemyInt = (int) (Math.random() * (20 + 1) - 1);
@@ -323,7 +326,7 @@ public class Controller
             int i = 0;
             while(i < Monster.allMonsters.size() - 1 || mainEnemy != null)
             {
-                Monster temp = Monster.allMonsters.get("MO" + i);
+                Monster temp = Monster.allMonsters.get("M0" + i);
                 if(randomMonster >= temp.getMinEncounterValue() || randomMonster <= temp.getMaxEncounterValue())
                     mainEnemy = temp;
                 else
