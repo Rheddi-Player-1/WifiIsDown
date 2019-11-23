@@ -54,10 +54,10 @@ public class WriteRead
             DocumentBuilder docBuild = docFac.newDocumentBuilder();
             Document doc = docBuild.newDocument();
 
-            Element playerInfoRoot = doc.createElement("player");
+            Element playerInfoRoot = doc.createElement("Players");
             doc.appendChild(playerInfoRoot);
-            Element roomInfoRoot = doc.createElement("room");
-            doc.appendChild(roomInfoRoot);
+            Element roomInfoRoot = doc.createElement("player");
+            playerInfoRoot.appendChild(roomInfoRoot);
 
             Element playerName = doc.createElement("playerName");
             playerName.appendChild(doc.createTextNode(user.getPlayerName()));
@@ -115,46 +115,6 @@ public class WriteRead
             playerCarriedItems.appendChild(doc.createTextNode(carriedItems));
             playerInfoRoot.appendChild(playerCarriedItems);
 
-
-            for(int i = 0; i < Rooms.rooms.size(); i++)
-            {
-                Rooms tempRoom = null;
-                if(i < 10)
-                    tempRoom = Rooms.rooms.get("R0" + i);
-                else
-                    tempRoom = Rooms.rooms.get("R" + i);
-                Attr roomId = doc.createAttribute("roomID");
-                roomId.setValue(tempRoom.getRoomID());
-                roomInfoRoot.setAttributeNode(roomId);
-
-                Element roomVisited = doc.createElement("isVisited");
-                roomVisited.appendChild(doc.createTextNode(tempRoom.getRoomVisited()));
-                roomInfoRoot.appendChild(roomVisited);
-
-                Element roomPuzzle = doc.createElement("roomPuzzle");
-                roomPuzzle.appendChild(doc.createTextNode(tempRoom.getRoomPuzzleID()));
-                roomInfoRoot.appendChild(roomPuzzle);
-
-                Element roomLocked = doc.createElement("roomLocked");
-                roomPuzzle.appendChild(doc.createTextNode(Boolean.toString(tempRoom.isRoomLocked())));
-                roomInfoRoot.appendChild(roomLocked);
-
-                //MY TIME COMPLEXITY!!!!
-                String roomItemsString = "";
-
-                if(tempRoom.getRoomItems().isEmpty())
-                    roomItemsString = "DNE";
-                else
-                {
-                    for (int j = 0; j < tempRoom.getRoomItems().size(); j++)
-                        roomItemsString += (tempRoom.getRoomItems().get(j).getItemID() + ":");
-                }
-
-                Element roomItems = doc.createElement("roomItems");
-                roomItems.appendChild(doc.createTextNode(roomItemsString));
-                roomInfoRoot.appendChild(roomItems);
-            }
-
             DateTimeFormatter datFor = DateTimeFormatter.ofPattern("yyyyMMdd");
             LocalDateTime current = LocalDateTime.now();
             String date = datFor.format(current);
@@ -162,7 +122,7 @@ public class WriteRead
             TransformerFactory transFact = TransformerFactory.newInstance();
             Transformer trans = transFact.newTransformer();
             DOMSource domSc = new DOMSource(doc);
-            StreamResult strRes = new StreamResult(new File(dataFile + date + ".xml"));
+            StreamResult strRes = new StreamResult(new File("save.xml"));
             fullFileName = "Data" + date;
             trans.transform(domSc, strRes);
             return "Game Saved! " + fullFileName;
