@@ -18,19 +18,16 @@ public class Puzzle
 	private String type;
 	private Item prize;
 	private String solve;
-	private String answer;
 	private String examine;
 	private String hint;
-	private Item itemUse;
 	public static HashMap<String, Puzzle> puzzle = new HashMap<>();
 	
-	public Puzzle(String id, String type, Item prize, String solve, String answer, String examine, String hint, Item itemUse) 
+	public Puzzle(String id, String type, Item prize, String solve, String examine, String hint)
 	{
 		this.id = id;
 		this.type = type;
 		this.prize = prize;
 		this.solve = solve;
-		this.answer = answer;
 		this.examine = examine;
 		this.hint = hint;
 	}
@@ -67,14 +64,6 @@ public class Puzzle
 		this.solve = solve;
 	}
 
-	public String getAnswer() {
-		return answer;
-	}
-
-	public void setAnswer(String answer) {
-		this.answer = answer;
-	}
-
 	public String getExamine() {
 		return examine;
 	}
@@ -95,14 +84,7 @@ public class Puzzle
 	{
 		return solve;
 	}
-	
-	public Item getItemUse() {
-		return itemUse;
-	}
 
-	public void setItemUse(Item itemUse) {
-		this.itemUse = itemUse;
-	}
 
 	//Method Reads Puzzle XML file
 	public static void readPuzzleXML()
@@ -115,13 +97,12 @@ public class Puzzle
 			Document d = b.parse(xml);
 			d.getDocumentElement();
 			
-			NodeList puzzleNodes = d.getElementsByTagName("puzzle");
+			NodeList puzzleNodes = d.getElementsByTagName("wordPuzzle");
 			for(int i = 0; i < puzzleNodes.getLength(); i++)
 			{
 				Node node = puzzleNodes.item(i);
 				
 				Item prize = null;
-				Item itemUse = null;
 				if(node.getNodeType() == Node.ELEMENT_NODE)
 				{
 					Element e = (Element) node;
@@ -133,19 +114,46 @@ public class Puzzle
 					String answer = e.getElementsByTagName("answer").item(0).getTextContent();
 					String examine = e.getElementsByTagName("examine").item(0).getTextContent();
 					String hint = e.getElementsByTagName("hint").item(0).getTextContent();
-					String temp2 = e.getElementsByTagName("itemUse").item(0).getTextContent();
 					
 					if(!temp1.equalsIgnoreCase("NONE"))
                         prize = Item.allItems.get(temp1);
                     else
                         prize = null;
-					
+
+					puzzle.put(id, new WordPuzzle(id, type, prize, solve, examine, hint, answer));
+				}
+			}
+
+			NodeList puzzleNodesToo = d.getElementsByTagName("itemPuzzle");
+			for(int i = 0; i < puzzleNodesToo.getLength(); i++)
+			{
+				Node node = puzzleNodes.item(i);
+
+				Item prize = null;
+				Item itemUse = null;
+				if(node.getNodeType() == Node.ELEMENT_NODE)
+				{
+					Element e = (Element) node;
+
+					String id = e.getElementsByTagName("id").item(0).getTextContent();
+					String type = e.getElementsByTagName("type").item(0).getTextContent();
+					String temp1 = e.getElementsByTagName("prize").item(0).getTextContent();
+					String solve = e.getElementsByTagName("solve").item(0).getTextContent();
+					String examine = e.getElementsByTagName("examine").item(0).getTextContent();
+					String hint = e.getElementsByTagName("hint").item(0).getTextContent();
+					String temp2 = e.getElementsByTagName("itemUse").item(0).getTextContent();
+
+					if(!temp1.equalsIgnoreCase("NONE"))
+						prize = Item.allItems.get(temp1);
+					else
+						prize = null;
+
 					if(!temp2.equalsIgnoreCase("null"))
-                        itemUse = Item.allItems.get(temp2);
-                    else
-                        itemUse = null;
-					
-					puzzle.put(id, new Puzzle(id, type, prize, solve, answer, examine, hint, itemUse));
+						itemUse = Item.allItems.get(temp2);
+					else
+						itemUse = null;
+
+					puzzle.put(id, new ItemPuzzle(id, type, prize, solve, examine, hint, itemUse));
 				}
 			}
 		} 
