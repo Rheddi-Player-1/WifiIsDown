@@ -16,8 +16,6 @@ public class ItemPuzzle extends Puzzle
 	{
 		if(getType().equalsIgnoreCase("IP"))
 		{
-
-
 			Player player = null;
 			Item item = null;
 
