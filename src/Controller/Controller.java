@@ -99,8 +99,8 @@ public class Controller
         {
             if(!user.getCurrentRooms().getRoomPuzzleID().equalsIgnoreCase("none"))
                 solvePuzzle();
-//            else if(!isMonsterDead)
-//                preBattlePhase();
+            else if(!isMonsterDead)
+                preBattlePhase();
             //else if(user.getCurrentRooms().equals(puzzle.getId()))
                 //solvePuzzle();
             else if (!user.getCurrentRooms().getVendingItem().equalsIgnoreCase("NONE"))
@@ -705,7 +705,7 @@ public class Controller
                 {
                     item = new ItemPuzzle(roomPuzzle.getId(), roomPuzzle.getType(), roomPuzzle.getPrize(), roomPuzzle.getSolve(),
                             roomPuzzle.getAnswer(), roomPuzzle.getExamine(), roomPuzzle.getHint(), roomPuzzle.getItemUse());
-                    boolean isSolved = item.solveItemPuzzle(answer, room);
+                    boolean isSolved = item.solveItemPuzzle(answer, user.getCurrentRooms().getRoomID());
 
                     if(!isSolved)
                     {
@@ -718,7 +718,7 @@ public class Controller
 
                     word = new WordPuzzle(roomPuzzle.getId(), roomPuzzle.getType(), roomPuzzle.getPrize(), roomPuzzle.getSolve(),
                             roomPuzzle.getAnswer(), roomPuzzle.getExamine(), roomPuzzle.getHint(), roomPuzzle.getItemUse());
-                    boolean isSolved = word.solveWordPuzzle(answer, room);
+                    boolean isSolved = word.solveWordPuzzle(answer, user.getCurrentRooms().getRoomID());
 
                     if(!isSolved)
                     {

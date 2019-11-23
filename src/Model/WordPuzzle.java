@@ -13,7 +13,7 @@ public class WordPuzzle extends Puzzle
 		// TODO Auto-generated constructor stub
 	}
 
-	public boolean solveWordPuzzle(String solution, Rooms room)
+	public boolean solveWordPuzzle(String solution, String roomID)
 	{
 		if(getType().equalsIgnoreCase("WP"))
 		{
@@ -22,11 +22,11 @@ public class WordPuzzle extends Puzzle
 				{					
 					if(getPrize() != null)
 					{
-						room.getRoomItems().add(getPrize());
+						Rooms.rooms.get(roomID).getRoomItems().add(getPrize());
 						throw new WinPrizeException();
 					}
 
-					room.setRoomPuzzleID("none");
+					Rooms.rooms.get(roomID).setRoomPuzzleID("none");
 					return true;
 				}
 				else

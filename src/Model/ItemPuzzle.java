@@ -12,7 +12,7 @@ public class ItemPuzzle extends Puzzle
 		// TODO Auto-generated constructor stub
 	}
 
-	public boolean solveItemPuzzle(String solution, Rooms room)
+	public boolean solveItemPuzzle(String solution, String roomID)
 	{
 		if(getType().equalsIgnoreCase("IP"))
 		{
@@ -26,11 +26,11 @@ public class ItemPuzzle extends Puzzle
 
 				if (getPrize() != null)
 				{
-					room.getRoomItems().add(getPrize());
+					Rooms.rooms.get(roomID).getRoomItems().add(getPrize());
 					throw new WinPrizeException();
 				}
 
-				room.setRoomPuzzleID("none");
+				Rooms.rooms.get(roomID).setRoomPuzzleID("none");
 				return true;
 			} else
 				return false;
