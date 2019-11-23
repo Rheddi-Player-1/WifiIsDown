@@ -17,7 +17,6 @@ public class Controller
     private ItemPuzzle item;
     private Scanner input;
     private Monster mainEnemy;
-    private ArrayList<Item> carriedItems = new ArrayList<Item>();
     private boolean isMonsterDead;
 
     public Controller()
@@ -648,7 +647,7 @@ public class Controller
 
     public void inventory()
     {
-        if (carriedItems.isEmpty())
+        if (user.getCarriedItems().isEmpty())
         {
             view.print("You have nothing in your bag.");
         }

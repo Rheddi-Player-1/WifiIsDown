@@ -61,38 +61,6 @@ public class Item
 			Document doc = dBuilder.parse(itemInfo);
 			doc.getDocumentElement().normalize();
 
-			NodeList vendingItemNodes = doc.getElementsByTagName("vendingItem");
-			for (int i = 0; i < vendingItemNodes.getLength(); i++)
-			{
-				Node vNode = vendingItemNodes.item(i);
-
-				if (vNode.getNodeType() == Node.ELEMENT_NODE)
-				{
-					Element vendingItem = (Element) vNode;
-					String code = vendingItem.getAttribute("itemCode");
-					String name = vendingItem.getElementsByTagName("itemName").item(0).getTextContent();
-					String description = vendingItem.getElementsByTagName("itemDescription").item(0).getTextContent();
-					int size = Integer.parseInt(vendingItem.getElementsByTagName("itemSize").item(0).getTextContent());
-					int capacity = Integer.parseInt(vendingItem.getElementsByTagName("itemCapacity").item(0).getTextContent());
-					boolean ispickable = Boolean.parseBoolean(vendingItem.getElementsByTagName("itemIsPickUpAble").item(0).getTextContent());
-					String tempHeldItems = vendingItem.getElementsByTagName("heldItems").item(0).getTextContent();
-
-					String [] splitHeldItems = tempHeldItems.split(":");
-					ArrayList<Item> heldItem = new ArrayList<>();
-					for (int j = 0; j < splitHeldItems.length; j++)
-					{
-						if (!(splitHeldItems.length == 0))
-						{
-							Item item = allItems.get(splitHeldItems[j]);
-							heldItem.add(item);
-						}
-					}
-
-					VendingItem vItem = new VendingItem(code, name, description, size, capacity, ispickable, heldItem);
-					allItems.put(vItem.getItemID(), vItem);
-				}
-			}
-
 			NodeList consumableItemNodes = doc.getElementsByTagName("consumableItem");
 			for (int j = 0; j < consumableItemNodes.getLength(); j++)
 			{
@@ -167,6 +135,39 @@ public class Item
 					allItems.put(sItem.getItemID(), sItem);
 				}
 			}
+
+			NodeList vendingItemNodes = doc.getElementsByTagName("vendingItem");
+			for (int i = 0; i < vendingItemNodes.getLength(); i++)
+			{
+				Node vNode = vendingItemNodes.item(i);
+
+				if (vNode.getNodeType() == Node.ELEMENT_NODE)
+				{
+					Element vendingItem = (Element) vNode;
+					String code = vendingItem.getAttribute("itemCode");
+					String name = vendingItem.getElementsByTagName("itemName").item(0).getTextContent();
+					String description = vendingItem.getElementsByTagName("itemDescription").item(0).getTextContent();
+					int size = Integer.parseInt(vendingItem.getElementsByTagName("itemSize").item(0).getTextContent());
+					int capacity = Integer.parseInt(vendingItem.getElementsByTagName("itemCapacity").item(0).getTextContent());
+					boolean ispickable = Boolean.parseBoolean(vendingItem.getElementsByTagName("itemIsPickUpAble").item(0).getTextContent());
+					String tempHeldItems = vendingItem.getElementsByTagName("heldItems").item(0).getTextContent();
+
+					String [] splitHeldItems = tempHeldItems.split(":");
+					ArrayList<Item> heldItem = new ArrayList<>();
+					for (int j = 0; j < splitHeldItems.length; j++)
+					{
+						if (!(splitHeldItems.length == 0))
+						{
+							Item item = allItems.get(splitHeldItems[j]);
+							heldItem.add(item);
+						}
+					}
+
+					VendingItem vItem = new VendingItem(code, name, description, size, capacity, ispickable, heldItem);
+					allItems.put(vItem.getItemID(), vItem);
+				}
+			}
+
 
 		}
 		catch (Exception e)
