@@ -678,35 +678,39 @@ public class Controller
     
     public void solvePuzzle()
     {
-        Puzzle roomPuzzle = Puzzle.puzzle.get(user.getCurrentRooms().getRoomPuzzleID());
-        Rooms room = Rooms.rooms.get(user.getCurrentRooms().getRoomID());
-        view.print(roomPuzzle.puzzleDescription());
-        roomPuzzle.getSolve();
-        view.print("What is your answer? Type \"Hint\" for a clue, or \"Back\" to leave.");
-        String answer = input.nextLine().toUpperCase();
-        if(answer.contains("HINT"))
+        try
         {
-            view.print(roomPuzzle.getHint());
-            solvePuzzle();
-        }
-        else if (answer.contains("BACK"))
-        {
-            mainMenu();
-        }
-        else
-        {
-            if (roomPuzzle.getType().equalsIgnoreCase("ip"))
+            Puzzle roomPuzzle = Puzzle.puzzle.get(user.getCurrentRooms().getRoomPuzzleID());
+            Rooms room = Rooms.rooms.get(user.getCurrentRooms().getRoomID());
+            view.print(roomPuzzle.puzzleDescription());
+            roomPuzzle.getSolve();
+            view.print("What is your answer? Type \"Hint\" for a clue, or \"Back\" to leave.");
+            String answer = input.nextLine().toUpperCase();
+            if (answer.contains("HINT"))
             {
-                item = new ItemPuzzle(roomPuzzle.getId(),roomPuzzle.getType(),roomPuzzle.getPrize(),roomPuzzle.getSolve(),
-                        roomPuzzle.getAnswer(),roomPuzzle.getExamine(),roomPuzzle.getHint(),roomPuzzle.getItemUse());
-                view.print(item.solveItemPuzzle(answer, room));
-            }
-            else
+                view.print(roomPuzzle.getHint());
+                solvePuzzle();
+            } else if (answer.contains("BACK"))
             {
-                word = new WordPuzzle(roomPuzzle.getId(),roomPuzzle.getType(),roomPuzzle.getPrize(),roomPuzzle.getSolve(),
-                        roomPuzzle.getAnswer(),roomPuzzle.getExamine(),roomPuzzle.getHint(),roomPuzzle.getItemUse());
-                view.print(word.solveWordPuzzle(answer, room));
+                mainMenu();
+            } else
+            {
+                if (roomPuzzle.getType().equalsIgnoreCase("ip"))
+                {
+                    item = new ItemPuzzle(roomPuzzle.getId(), roomPuzzle.getType(), roomPuzzle.getPrize(), roomPuzzle.getSolve(),
+                            roomPuzzle.getAnswer(), roomPuzzle.getExamine(), roomPuzzle.getHint(), roomPuzzle.getItemUse());
+                    view.print(item.solveItemPuzzle(answer, room));
+                } else
+                {
+                    word = new WordPuzzle(roomPuzzle.getId(), roomPuzzle.getType(), roomPuzzle.getPrize(), roomPuzzle.getSolve(),
+                            roomPuzzle.getAnswer(), roomPuzzle.getExamine(), roomPuzzle.getHint(), roomPuzzle.getItemUse());
+                    view.print(word.solveWordPuzzle(answer, room));
+                }
             }
+        }
+        catch (WinPrizeException e)
+        {
+            view.print(e.getMessage());
             mainMenu();
         }
     }
