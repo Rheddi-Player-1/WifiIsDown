@@ -21,7 +21,7 @@ public class Player
     public Player(String playerName, Rooms startingRoom)
     {
         this.playerName = playerName;
-        playerMaxStress = 20;
+        playerMaxStress = 50;
         playerAttack = 5;
         playerCurrentStress = 0;
         playerEquipedItem = null;
@@ -37,7 +37,7 @@ public class Player
                   Item playerStorageItem, Item playerHeldItem, Rooms currentRooms, ArrayList<Item> carriedItems, int availableStorage)
     {
         this.playerName = playerName;
-        playerMaxStress = 20;
+        playerMaxStress = 50;
         this.playerAttack = playerAttack;
         this.playerCurrentStress = playerCurrentStress;
         this.playerEquipedItem = playerEquipedItem;
@@ -231,7 +231,7 @@ public class Player
             if((playerMaxStress * hItem.getHealingPoints()) > (playerMaxStress - playerCurrentStress))
                 playerCurrentStress = playerMaxStress;
             else
-                playerCurrentStress += (playerMaxStress *hItem.getHealingPoints());
+                playerCurrentStress -= (playerMaxStress *hItem.getHealingPoints());
 
             return true;
         }

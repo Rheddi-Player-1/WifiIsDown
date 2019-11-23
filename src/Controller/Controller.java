@@ -290,7 +290,7 @@ public class Controller
             randomMonster = (int) (Math.random() * (Monster.allMonsters.get("M0" + (Monster.allMonsters.size() - 3)).getMaxEncounterValue()));
 
             int i = 0;
-            while(i < Monster.allMonsters.size() - 1 || mainEnemy != null)
+            while(i < Monster.allMonsters.size() - 1 || mainEnemy == null)
             {
                 Monster temp = Monster.allMonsters.get("M0" + i);
                 if(randomMonster >= temp.getMinEncounterValue() && randomMonster <= temp.getMaxEncounterValue())
@@ -354,7 +354,7 @@ public class Controller
         view.print("----------------------------------------------------------------------------------------------------");
         try
         {
-            if(enemy1Int > enemy2Int || enemy1Int > playerInt)
+            if(enemy1Int > enemy2Int && enemy1Int > playerInt)
             {
                 if(enemy1Odds > userOdds)
                     enemyAttack(enemy1);
@@ -366,11 +366,12 @@ public class Controller
                         enemyAttack(enemy2);
                     else
                         enemyMisses(enemy2);
+                    playerInterruptedBattle(enemy1, enemy1Odds, enemy2, enemy2Odds, userOdds);
                 }
                 else
                     playerInterruptedBattle(enemy1, enemy1Odds, enemy2, enemy2Odds, userOdds);
             }
-            else if(enemy2Int > enemy1Int || enemy2Int > playerInt)
+            else if(enemy2Int > enemy1Int && enemy2Int > playerInt)
             {
                 if (enemy2Odds > userOdds)
                     enemyAttack(enemy2);
@@ -382,6 +383,7 @@ public class Controller
                         enemyAttack(enemy1);
                     else
                         enemyMisses(enemy1);
+                    playerInterruptedBattle(enemy1, enemy1Odds, enemy2, enemy2Odds, userOdds);
                 }
                 else
                     playerInterruptedBattle(enemy1, enemy1Odds, enemy2, enemy2Odds, userOdds);
