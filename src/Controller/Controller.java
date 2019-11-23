@@ -683,39 +683,72 @@ public class Controller
         try
         {
             Puzzle roomPuzzle = Puzzle.puzzle.get(user.getCurrentRooms().getRoomPuzzleID());
-            Rooms room = Rooms.rooms.get(user.getCurrentRooms().getRoomID());
-            view.print(roomPuzzle.puzzleDescription());
-            roomPuzzle.getSolve();
-            view.print("What is your answer? Type \"Hint\" for a clue, or \"Back\" to leave.");
-            String answer = input.nextLine().toUpperCase();
-            if (answer.contains("HINT"))
+            if (roomPuzzle.getType().equalsIgnoreCase("ip"))
             {
-                view.print(roomPuzzle.getHint());
-                solvePuzzle();
-            }
-            else if (answer.contains("BACK"))
-            {
-                mainMenu();
+                ItemPuzzle puz = (ItemPuzzle) roomPuzzle;
+
+                view.print(roomPuzzle.puzzleDescription());
+                view.print("What item should you use? Type \"Hint\" for a clue, or \"Back\" to leave.");
+
+                for(int i = 0; i < user.getCarriedItems().size(); i++)
+                    view.print(user.getCarriedItems().get(i).getItemName());
+
+                String answer = input.nextLine().toUpperCase();
+
+                if (answer.contains("HINT"))
+                {
+                    view.print(roomPuzzle.getHint());
+                    solvePuzzle();
+                }
+                else if (answer.contains("BACK"))
+                    mainMenu();
+                else
+                {
+                    boolean isAnOption = false;
+                    int i = 0;
+                    while(isAnOption || i < user.getCarriedItems().size())
+                    {
+                        if(user.getCarriedItems().get(i).getItemName().toUpperCase().contains(answer))
+                            answer = user.getCarriedItems().get(i).getItemID();
+                        else
+                            i++;
+                    }
+
+                    if(!isAnOption)
+                    {
+                        view.print(answer + " is not in your inventory, please try again.");
+                        solvePuzzle();
+                    }
+                    else
+                    {
+                        boolean isSolved = puz.solveItemPuzzle(answer, user.getCurrentRooms().getRoomID());
+                        if(!isSolved)
+                        {
+                            view.print("Incorrect, try again!");
+                            solvePuzzle();
+                        }
+                    }
+                }
+
             }
             else
             {
-                if (roomPuzzle.getType().equalsIgnoreCase("ip"))
-                {
-                    item = new ItemPuzzle(roomPuzzle.getId(), roomPuzzle.getType(), roomPuzzle.getPrize(), roomPuzzle.getSolve(),
-                            roomPuzzle.getAnswer(), roomPuzzle.getExamine(), roomPuzzle.getHint(), roomPuzzle.getItemUse());
-                    boolean isSolved = item.solveItemPuzzle(answer, user.getCurrentRooms().getRoomID());
+                WordPuzzle wpuz = (WordPuzzle) roomPuzzle;
+                view.print(roomPuzzle.puzzleDescription());
+                view.print("What item should you use? Type \"Hint\" for a clue, or \"Back\" to leave.");
 
-                    if(!isSolved)
-                    {
-                        view.print("Incorrect, try again!");
-                        solvePuzzle();
-                    }
+                String answer = input.nextLine().toUpperCase();
+
+                if (answer.contains("HINT"))
+                {
+                    view.print(roomPuzzle.getHint());
+                    solvePuzzle();
                 }
+                else if (answer.contains("BACK"))
+                    mainMenu();
                 else
                 {
-                    word = new WordPuzzle(roomPuzzle.getId(), roomPuzzle.getType(), roomPuzzle.getPrize(), roomPuzzle.getSolve(),
-                            roomPuzzle.getAnswer(), roomPuzzle.getExamine(), roomPuzzle.getHint(), roomPuzzle.getItemUse());
-                    boolean isSolved = word.solveWordPuzzle(answer, user.getCurrentRooms().getRoomID());
+                    boolean isSolved = wpuz.solveWordPuzzle(answer, user.getCurrentRooms().getRoomID());
 
                     if(!isSolved)
                     {
