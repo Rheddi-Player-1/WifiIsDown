@@ -100,8 +100,8 @@ public class Controller
         {
             if(!user.getCurrentRooms().getRoomPuzzleID().equalsIgnoreCase("none"))
                 solvePuzzle();
-            else if(!isMonsterDead)
-                preBattlePhase();
+//            else if(!isMonsterDead)
+//                preBattlePhase();
             else if (!user.getCurrentRooms().getVendingItem().equalsIgnoreCase("NONE"))
             {
                 view.print("There's a vending machine here, do you want to use it?");
