@@ -83,8 +83,8 @@
 		</monster>
 		<monster monsterCode = "M07">
 			<monsterName>Eldritch Scribble</monsterName>
-			<monsterHealth>2147483647</monsterHealth>
-			<monsterAttack>2147483647</monsterAttack>
+			<monsterHealth>20</monsterHealth>
+			<monsterAttack>5</monsterAttack>
 			<monsterDescription>You encountered the Eldritch Scribble!</monsterDescription>
 			<monsterAttackPhrase>"Try and CAPTURE me!"</monsterAttackPhrase>
 			<monsterMinEncounterValue>45</monsterMinEncounterValue>

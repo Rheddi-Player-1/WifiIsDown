@@ -16,7 +16,7 @@ R33
 2nd Floor Rooms: R09</description>
 		<connections>R01:R02:R03:R04:R05:R06:R07:R08:R33:R09</connections>
 		<puzzleID>NONE</puzzleID>
-		<vendingItem>SI00</vendingItem>
+		<vendingItem>VI00</vendingItem>
 	</Room>
 	
 	<Room>
@@ -188,7 +188,7 @@ R17, R18, R19, R20, R21, R22, R23, R24, R25, R26,
 R27, R28, R29, R30, R31, R32, R34 </description>
 		<connections>R10:R11:R12:R13:R14:R15:R16:R17:R18:R19:R20:R21:R22:R23:R24:R25:R26:R27:R28:R29:R30:R31:R32:R34</connections>
 		<puzzleID>NONE</puzzleID>
-		<vendingItem>SI01</vendingItem>
+		<vendingItem>VI01</vendingItem>
 	</Room>
 
 	<Room>
@@ -597,7 +597,7 @@ There is only one study room on this floor.
 3rd Floor Rooms: R35</description>
 		<connections>R09:R35</connections>
 		<puzzleID>P11</puzzleID>
-		<vendingItem>SI02</vendingItem>
+		<vendingItem>VI02</vendingItem>
 	</Room>
 </Rooms>
 	

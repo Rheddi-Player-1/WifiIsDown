@@ -101,8 +101,6 @@ public class Controller
                 solvePuzzle();
             else if(!isMonsterDead)
                 preBattlePhase();
-            //else if(user.getCurrentRooms().equals(puzzle.getId()))
-                //solvePuzzle();
             else if (!user.getCurrentRooms().getVendingItem().equalsIgnoreCase("NONE"))
             {
                 view.print("There's a vending machine here, do you want to use it?");
@@ -715,7 +713,6 @@ public class Controller
                 }
                 else
                 {
-
                     word = new WordPuzzle(roomPuzzle.getId(), roomPuzzle.getType(), roomPuzzle.getPrize(), roomPuzzle.getSolve(),
                             roomPuzzle.getAnswer(), roomPuzzle.getExamine(), roomPuzzle.getHint(), roomPuzzle.getItemUse());
                     boolean isSolved = word.solveWordPuzzle(answer, user.getCurrentRooms().getRoomID());
