@@ -703,29 +703,27 @@ public class Controller
             {
                 if (roomPuzzle.getType().equalsIgnoreCase("ip"))
                 {
-                    boolean isSolved = false;
                     item = new ItemPuzzle(roomPuzzle.getId(), roomPuzzle.getType(), roomPuzzle.getPrize(), roomPuzzle.getSolve(),
                             roomPuzzle.getAnswer(), roomPuzzle.getExamine(), roomPuzzle.getHint(), roomPuzzle.getItemUse());
-                    while(!isSolved)
-                    {
-                        isSolved = item.solveItemPuzzle(answer, room);
+                    boolean isSolved = item.solveItemPuzzle(answer, room);
 
-                        if(!isSolved)
-                            view.print("Incorrect, try again");
+                    if(!isSolved)
+                    {
+                        view.print("Incorrect, try again!");
+                        solvePuzzle();
                     }
                 }
                 else
                 {
-                    boolean isSolved = false;
+
                     word = new WordPuzzle(roomPuzzle.getId(), roomPuzzle.getType(), roomPuzzle.getPrize(), roomPuzzle.getSolve(),
                             roomPuzzle.getAnswer(), roomPuzzle.getExamine(), roomPuzzle.getHint(), roomPuzzle.getItemUse());
-                    while (!isSolved)
+                    boolean isSolved = word.solveWordPuzzle(answer, room);
+
+                    if(!isSolved)
                     {
-                       isSolved = word.solveWordPuzzle(answer, room);
-
-                       if(!isSolved)
-                           view.print("Incorrect, try again");
-
+                        view.print("Incorrect, try again!");
+                        solvePuzzle();
                     }
                 }
             }

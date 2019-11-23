@@ -5,7 +5,7 @@ public class WinPrizeException extends RuntimeException
 
     public WinPrizeException()
     {
-        super("Prize has been added to your inventory!");
+        super("The puzzle dropped an object in the room!");
     }
 
 }
