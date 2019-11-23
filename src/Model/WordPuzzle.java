@@ -13,35 +13,27 @@ public class WordPuzzle extends Puzzle
 		// TODO Auto-generated constructor stub
 	}
 
-	public String solveWordPuzzle(String solution, Rooms room)
+	public boolean solveWordPuzzle(String solution, Rooms room)
 	{
 		if(getType().equalsIgnoreCase("WP"))
 		{
-			int attempt = 0;
-
-			do{
-				attempt++;
 
 				if(getAnswer().equalsIgnoreCase(solution))
 				{					
 					if(getPrize() != null)
 					{
-						attempt = 3;
 						room.getRoomItems().add(getPrize());
 						throw new WinPrizeException();
 					}
 
 					room.setRoomPuzzleID("none");
-					return "\nCongrats!! You solved the puzzle.\n";				
+					return true;
 				}
 				else
-				{
-					int attempts = 3 - attempt;
-					return "\nYou have " + attempts + " attempts left.";
-				}
-			}while(attempt != 3);
+					return false;
 		}
-		return null;
+		else
+			return false;
 	}
 }
 

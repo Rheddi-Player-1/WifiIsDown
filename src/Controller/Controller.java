@@ -101,6 +101,8 @@ public class Controller
                 solvePuzzle();
 //            else if(!isMonsterDead)
 //                preBattlePhase();
+            //else if(user.getCurrentRooms().equals(puzzle.getId()))
+                //solvePuzzle();
             else if (!user.getCurrentRooms().getVendingItem().equalsIgnoreCase("NONE"))
             {
                 view.print("There's a vending machine here, do you want to use it?");
@@ -116,15 +118,12 @@ public class Controller
                     useVend = true;
                     mainMenu();
                 }
-                else if(user.getCurrentRooms().equals(puzzle.getId()))
-                {
-                solvePuzzle();
-                }
+
                 else
                 {
                     boolean isThere = false;
                     int i = 0;
-                    while(!isThere || i < vendingMachine.getHeldItem().size())
+                    while(isThere || i < vendingMachine.getHeldItem().size())
                     {
                         if(vendingMachine.getHeldItem().get(i).getItemName().toUpperCase().contains(userInputToo))
                         {
@@ -158,7 +157,7 @@ public class Controller
 
                 if(roomItems.isEmpty())
                 {
-                    view.print("Theres nothing here");
+                    view.print("There's nothing here");
                     mainMenu();
                 }
                 else
@@ -695,21 +694,39 @@ public class Controller
             {
                 view.print(roomPuzzle.getHint());
                 solvePuzzle();
-            } else if (answer.contains("BACK"))
+            }
+            else if (answer.contains("BACK"))
             {
                 mainMenu();
-            } else
+            }
+            else
             {
                 if (roomPuzzle.getType().equalsIgnoreCase("ip"))
                 {
+                    boolean isSolved = false;
                     item = new ItemPuzzle(roomPuzzle.getId(), roomPuzzle.getType(), roomPuzzle.getPrize(), roomPuzzle.getSolve(),
                             roomPuzzle.getAnswer(), roomPuzzle.getExamine(), roomPuzzle.getHint(), roomPuzzle.getItemUse());
-                    view.print(item.solveItemPuzzle(answer, room));
-                } else
+                    while(!isSolved)
+                    {
+                        isSolved = item.solveItemPuzzle(answer, room);
+
+                        if(!isSolved)
+                            view.print("Incorrect, try again");
+                    }
+                }
+                else
                 {
+                    boolean isSolved = false;
                     word = new WordPuzzle(roomPuzzle.getId(), roomPuzzle.getType(), roomPuzzle.getPrize(), roomPuzzle.getSolve(),
                             roomPuzzle.getAnswer(), roomPuzzle.getExamine(), roomPuzzle.getHint(), roomPuzzle.getItemUse());
-                    view.print(word.solveWordPuzzle(answer, room));
+                    while (!isSolved)
+                    {
+                       isSolved = word.solveWordPuzzle(answer, room);
+
+                       if(!isSolved)
+                           view.print("Incorrect, try again");
+
+                    }
                 }
             }
         }
