@@ -58,7 +58,7 @@ public class Controller
     {
         view.print("NEW GAME\nCONTINUE");
         String userInput = input.nextLine().toUpperCase();
-        if(userInput.contains("NEW GAME"))
+        if(userInput.contains("NEW"))
             newGame();
         else if (userInput.contains("CONTINUE"))
             loadGame();
@@ -143,10 +143,12 @@ public class Controller
                             }
                         }
                         else
-                        {
-                            view.print("That's not an option. Try again later.");
-                            mainMenu();
-                        }
+                            i++;
+                    }
+                    if(!isThere)
+                    {
+                        view.print(userInputToo + " is not an option. \nTry again later.");
+                        mainMenu();
                     }
                 }
             }
@@ -219,8 +221,10 @@ public class Controller
             System.exit(0);
         else if(userInput.contains("HELP"))
         {
-            view.print("Inventory: Check and use items that you are carrying.\nInvestigate: Search the room you are currently in.\nMove: " +
-                    "Move to another room that's connected.\nData: Load or save current game.\nLeave: Quit current game.");
+            view.print("----------------------------------------------------------------------------------------------------");
+            view.print("INVENTORY: Check and use items that you are carrying.\nINVESTIGATE: Search the room you are currently in.\nMove: " +
+                    "Move to another room that's connected.\nDATA: Load or save current game.\nLEAVE: Quit current game.");
+            view.print("----------------------------------------------------------------------------------------------------");
             mainMenu();
 
         }
@@ -497,8 +501,10 @@ public class Controller
         }
         else if(userDecision.contains("HELP"))
         {
-            view.print("Attack: Attack the current enemy.\nUse Item: Change equipment and use consumable items.\nIgnore: " +
+            view.print("----------------------------------------------------------------------------------------------------");
+            view.print("ATTACK: Attack the current enemy.\nUSE ITEM: Change equipment and use consumable items.\nIGNORE: " +
                     "Attempt to run from the fight.");
+            view.print("----------------------------------------------------------------------------------------------------");
             playerBattle(enemy, enemyOdds, userOdds);
 
         }
