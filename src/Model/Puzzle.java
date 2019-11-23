@@ -97,7 +97,7 @@ public class Puzzle
 			Document d = b.parse(xml);
 			d.getDocumentElement();
 			
-			NodeList puzzleNodes = d.getElementsByTagName("wordPuzzle");
+			NodeList puzzleNodes = d.getElementsByTagName("wordPuzzles");
 			for(int i = 0; i < puzzleNodes.getLength(); i++)
 			{
 				Node node = puzzleNodes.item(i);
@@ -124,7 +124,7 @@ public class Puzzle
 				}
 			}
 
-			NodeList puzzleNodesToo = d.getElementsByTagName("itemPuzzle");
+			NodeList puzzleNodesToo = d.getElementsByTagName("itemPuzzles");
 			for(int i = 0; i < puzzleNodesToo.getLength(); i++)
 			{
 				Node node = puzzleNodes.item(i);
