@@ -680,6 +680,7 @@ public class Controller
     
     public void solvePuzzle()
     {
+        Item solutionPrize = null;
         try
         {
             Puzzle roomPuzzle = Puzzle.puzzle.get(user.getCurrentRooms().getRoomPuzzleID());
@@ -704,25 +705,26 @@ public class Controller
                     mainMenu();
                 else
                 {
+                    Item userSolution = null;
                     boolean isAnOption = false;
                     int i = 0;
                     while(isAnOption || i < user.getCarriedItems().size())
                     {
                         if(user.getCarriedItems().get(i).getItemName().toUpperCase().contains(answer))
-                            answer = user.getCarriedItems().get(i).getItemID();
+                            userSolution = user.getCarriedItems().get(i);
                         else
                             i++;
                     }
 
-                    if(!isAnOption)
+                    if(!isAnOption || userSolution == null)
                     {
                         view.print(answer + " is not in your inventory, please try again.");
                         solvePuzzle();
                     }
                     else
                     {
-                        boolean isSolved = puz.solveItemPuzzle(answer, user.getCurrentRooms().getRoomID());
-                        if(!isSolved)
+                        solutionPrize = puz.solveItemPuzzle(userSolution, user.getCurrentRooms().getRoomID());
+                        if(solutionPrize == null)
                         {
                             view.print("Incorrect, try again!");
                             solvePuzzle();
@@ -748,9 +750,9 @@ public class Controller
                     mainMenu();
                 else
                 {
-                    boolean isSolved = wpuz.solveWordPuzzle(answer, user.getCurrentRooms().getRoomID());
+                    solutionPrize = wpuz.solveWordPuzzle(answer, user.getCurrentRooms().getRoomID());
 
-                    if(!isSolved)
+                    if(solutionPrize == null)
                     {
                         view.print("Incorrect, try again!");
                         solvePuzzle();
@@ -761,6 +763,7 @@ public class Controller
         catch (WinPrizeException e)
         {
             view.print(e.getMessage());
+            user.getCurrentRooms().addToRoom(solutionPrize);
             mainMenu();
         }
     }

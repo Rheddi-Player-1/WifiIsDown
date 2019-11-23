@@ -1,4 +1,5 @@
-<Puzzles>
+<xml>
+<wordPuzzles>
 	<puzzle>
 		<id>P1</id>
 		<type>WP</type>
@@ -114,9 +115,8 @@ D J I Q X H T
 		<examine>This puzzle must be solved correctly for the possibility to win a prize.</examine>
 		<hint>name of the college you attend</hint>
 	</puzzle>
-
-//////////////////////////////////////////////////////////////////////
-
+</wordPuzzles>
+<itemPuzzles>
 	<puzzle>
 		<id>P11</id>
 		<type>IP</type>
@@ -143,10 +143,10 @@ D J I Q X H T
 		<id>P15</id>
 		<type>IP</type>
 		<prize>KI04</prize>
-		<solve>Capture the scribble. How many sides does a octagon have?</solve>
-		<answer>8</answer>
+		<solve>A docile scribble! You should capture it!</solve>
+		<answer></answer>
 		<itemUse>KI00</itemUse>
-		<examine>This puzzle must be solved correctly for the possibility to win a prize.</examine>
+		<examine>If only there was a way to make a barrier around the "whiteboard" scribble...</examine>
 		<hint>Item is used on whiteboards.</hint>
 	</puzzle>
 	
@@ -154,10 +154,10 @@ D J I Q X H T
 		<id>P16</id>
 		<type>IP</type>
 		<prize>KI05</prize>
-		<solve>Capture the scribble. How many sides does a heptagon have?</solve>
-		<answer>7</answer>
+		<solve>A docile scribble! You should capture it!</solve>
+		<answer></answer>
 		<itemUse>KI00</itemUse>
-		<examine>This puzzle must be solved correctly for the possibility to win a prize.</examine>
+		<examine>If only there was a way to make a barrier around the "whiteboard" scribble....</examine>
 		<hint>Item is used on whiteboards.</hint>
 	</puzzle>
 	
@@ -168,7 +168,8 @@ D J I Q X H T
 		<solve>Fix the server room.</solve>
 		<answer></answer>
 		<itemUse>KI08</itemUse>
-		<examine>This is the second to the last puzzle in order to win the game.</examine>
+		<examine>Looks like you finally have what you need to fix the internet.</examine>
 		<hint>Need to have the ethernet cable item.</hint>
 	</puzzle>
-</Puzzles>
+</itemPuzzles>
+</xml>

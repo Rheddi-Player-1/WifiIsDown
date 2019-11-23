@@ -5,39 +5,33 @@ import Exceptions.*;
 public class ItemPuzzle extends Puzzle
 {
 
+	private Item itemUse;
 
-	public ItemPuzzle(String id, String type, Item prize, String solve, String answer, String examine, String hint,
+	public ItemPuzzle(String id, String type, Item prize, String solve, String examine, String hint,
 			Item itemUse) {
-		super(id, type, prize, solve, answer, examine, hint, itemUse);
-		// TODO Auto-generated constructor stub
+		super(id, type, prize, solve, examine, hint);
+
+		this.itemUse = itemUse;
 	}
 
-	public boolean solveItemPuzzle(String solution, String roomID)
+	public Item getItemUse()
 	{
-		if(getType().equalsIgnoreCase("IP"))
+		return itemUse;
+	}
+
+	public void setItemUse(Item itemUse)
+	{
+		this.itemUse = itemUse;
+	}
+
+	public Item solveItemPuzzle(Item answer, String roomID) throws WinPrizeException
+	{
+		if(answer.getItemID().equals(itemUse.getItemID()))
 		{
-
-
-			Player player = null;
-			Item item = null;
-
-			if (player.getPlayerEquipedItem().equals(getItemUse()) && getAnswer().equalsIgnoreCase(solution))
-			{
-
-				if (getPrize() != null)
-				{
-					Rooms.rooms.get(roomID).getRoomItems().add(getPrize());
-					throw new WinPrizeException();
-				}
-
-				Rooms.rooms.get(roomID).setRoomPuzzleID("none");
-				return true;
-			} else
-				return false;
+			Rooms.rooms.get(roomID).setRoomPuzzleID("NONE");
+			return getPrize();
 		}
 		else
-		{
-			return false;
-		}
+			return null;
 	}
 }

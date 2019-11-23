@@ -5,35 +5,34 @@ import Exceptions.*;
 public class WordPuzzle extends Puzzle
 {
 
+    private String answer;
 
+	public WordPuzzle(String id, String type, Item prize, String solve, String examine, String hint, String answer) {
+		super(id, type, prize, solve, examine, hint);
 
-	public WordPuzzle(String id, String type, Item prize, String solve, String answer, String examine, String hint,
-			Item itemUse) {
-		super(id, type, prize, solve, answer, examine, hint, itemUse);
-		// TODO Auto-generated constructor stub
+		this.answer = answer;
+
 	}
 
-	public boolean solveWordPuzzle(String solution, String roomID)
+    public String getAnswer()
+    {
+        return answer;
+    }
+
+    public void setAnswer(String answer)
+    {
+        this.answer = answer;
+    }
+
+    public Item solveWordPuzzle(String solution, String roomID) throws WinPrizeException
 	{
-		if(getType().equalsIgnoreCase("WP"))
-		{
-
-				if(getAnswer().equalsIgnoreCase(solution))
-				{					
-					if(getPrize() != null)
-					{
-						Rooms.rooms.get(roomID).getRoomItems().add(getPrize());
-						throw new WinPrizeException();
-					}
-
-					Rooms.rooms.get(roomID).setRoomPuzzleID("none");
-					return true;
-				}
-				else
-					return false;
-		}
-		else
-			return false;
+        if(solution.equals(answer))
+        {
+            Rooms.rooms.get(roomID).setRoomPuzzleID("NONE");
+            return getPrize();
+        }
+        else
+            return null;
 	}
 }
 
