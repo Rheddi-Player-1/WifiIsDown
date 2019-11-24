@@ -1,174 +1,162 @@
-<Puzzles>
-	<puzzle>
-		<id>P1</id>
-		<type>WP</type>
-		<prize>KI07</prize>
-		<solve>G B G O B E 
-V U Q E X J G
-B L S I E Q R
-E A P Q D R E
-O J W X J H A
-D J I Q X H T
-</solve>
-		<answer>GO BE GREAT</answer>
-		<itemUse>NONE</itemUse>
-		<examine>This puzzle must be solved correctly to gain access</examine>
-		<hint>GGC's motto</hint>
-	</puzzle>
+<?xml version="1.0" encoding="UTF-8"?>
+<xml>
+	<wordPuzzles>
+		<wordPuzzle id = "P1">
+			<type>WP</type>
+			<prize>KI07</prize>
+			<solve>G B G O B E
+					V U Q E X J G
+					B L S I E Q R
+					E A P Q D R E
+					O J W X J H A
+					D J I Q X H T
+			</solve>
+			<answer>GO BE GREAT</answer>
+			<itemUse>NONE</itemUse>
+			<examine>This puzzle must be solved correctly to gain access</examine>
+			<hint>GGC's motto</hint>
+		</wordPuzzle>
 	
-	<puzzle>
-		<id>P2</id>
-		<type>WP</type>
-		<prize>NONE</prize>
-		<solve>A terminal requires a password in order to be unlocked.</solve>
-		<answer>that damn grizz</answer>
-		<itemUse>NONE</itemUse>
-		<examine>This puzzle must be solved correctly for the possibility to win a prize.</examine>
-		<hint>Answer is in this scrabbled phrase "hatt dmna zzirg"</hint>
-	</puzzle>
+		<wordPuzzle id = "P2">
+			<type>WP</type>
+			<prize>NONE</prize>
+			<solve>A terminal requires a password in order to be unlocked.</solve>
+			<answer>that damn grizz</answer>
+			<itemUse>NONE</itemUse>
+			<examine>This puzzle must be solved correctly for the possibility to win a prize.</examine>
+			<hint>Answer is in this scrabbled phrase "hatt dmna zzirg"</hint>
+		</wordPuzzle>
 	
-	<puzzle>
-		<id>P3</id>
-		<type>WP</type>
-		<prize>KI02</prize>
-		<solve>Complete the following pattern: 1, 3, 6, 10, 15, __ </solve>
-		<answer>21</answer>
-		<itemUse>NONE</itemUse>
-		<examine>This puzzle must be solved correctly for the possibility to win a prize.</examine>
-		<hint>The answer is 21.</hint>
-	</puzzle>
+		<wordPuzzle id = "P3">
+			<type>WP</type>
+			<prize>KI02</prize>
+			<solve>Complete the following pattern: 1, 3, 6, 10, 15, __ </solve>
+			<answer>21</answer>
+			<itemUse>NONE</itemUse>
+			<examine>This puzzle must be solved correctly for the possibility to win a prize.</examine>
+			<hint>The answer is 21.</hint>
+		</wordPuzzle>
 	
-	<puzzle>
-		<id>P4</id>
-		<type>WP</type>
-		<prize>KI03</prize>
-		<solve>Who is the professor for our software development I class?</solve>
-		<answer>Dr. Barakat</answer>
-		<itemUse>NONE</itemUse>
-		<examine>This puzzle must be solved correctly for the possibility to win a prize.</examine>
-		<hint>answer contains Dr. before last name</hint>
-	</puzzle>
+		<wordPuzzle id = "P4">
+			<type>WP</type>
+			<prize>KI03</prize>
+			<solve>Who is the professor for our software development I class?</solve>
+			<answer>Dr. Barakat</answer>
+			<itemUse>NONE</itemUse>
+			<examine>This puzzle must be solved correctly for the possibility to win a prize.</examine>
+			<hint>answer contains Dr. before last name</hint>
+		</wordPuzzle>
 	
-	<puzzle>
-		<id>P5</id>
-		<type>WP</type>
-		<prize>NONE</prize>
-		<solve>Unicorns are extinct? True or False</solve>
-		<answer>false</answer>
-		<itemUse>NONE</itemUse>
-		<examine>This puzzle must be solved correctly for the possibility to win a prize.</examine>
-		<hint>They never existed</hint>
-	</puzzle>
-	
-	<puzzle>
-		<id>P6</id>
-		<type>WP</type>
-		<prize>KI06</prize>
-		<solve>How many state are there in the United States?</solve>
-		<answer>50</answer>
-		<itemUse>NONE</itemUse>
-		<examine>This puzzle must be solved correctly for the possibility to win a prize.</examine>
-		<hint>Include Hawaii and Alaska</hint>
-	</puzzle>
-	
-	<puzzle>
-		<id>P7</id>
-		<type>WP</type>
-		<prize>NONE</prize>
-		<solve>Who was the first president of the United States?</solve>
-		<answer>George Washington</answer>
-		<itemUse>NONE</itemUse>
-		<examine>This puzzle must be solved correctly for the possibility to win a prize.</examine>
-		<hint>person is on the one dollar bill</hint>
-	</puzzle>
-	
-	<puzzle>
-		<id>P8</id>
-		<type>WP</type>
-		<prize>NONE</prize>
-		<solve>What does a caterpillar change into?</solve>
-		<answer>butterfly</answer>
-		<itemUse>NONE</itemUse>
-		<examine>This puzzle must be solved correctly for the possibility to win a prize.</examine>
-		<hint>answer is one word</hint>
-	</puzzle>
-	
-	<puzzle>
-		<id>P9</id>
-		<type>WP</type>
-		<prize>KI01</prize>
-		<solve>Who is the current president of GGC?</solve>
-		<answer>Dr. Joseph</answer>
-		<itemUse>NONE</itemUse>
-		<examine>This puzzle must be solved correctly for the possibility to win a prize.</examine>
-		<hint>answer contains Dr. before last name</hint>
-	</puzzle>
-	
-	<puzzle>
-		<id>P10</id>
-		<type>WP</type>
-		<prize>NONE</prize>
-		<solve>What does the abbreviation GGC stand for?</solve>
-		<answer>Georgia Gwinnett College</answer>
-		<itemUse>NONE</itemUse>
-		<examine>This puzzle must be solved correctly for the possibility to win a prize.</examine>
-		<hint>name of the college you attend</hint>
-	</puzzle>
+		<wordPuzzle id = "P5">
+			<type>WP</type>
+			<prize>NONE</prize>
+			<solve>Unicorns are extinct? True or False</solve>
+			<answer>false</answer>
+			<itemUse>NONE</itemUse>
+			<examine>This puzzle must be solved correctly for the possibility to win a prize.</examine>
+			<hint>They never existed</hint>
+		</wordPuzzle>
 
-//////////////////////////////////////////////////////////////////////
+		<wordPuzzle id = "P6">
+			<type>WP</type>
+			<prize>KI06</prize>
+			<solve>How many state are there in the United States?</solve>
+			<answer>50</answer>
+			<itemUse>NONE</itemUse>
+			<examine>This puzzle must be solved correctly for the possibility to win a prize.</examine>
+			<hint>Include Hawaii and Alaska</hint>
+		</wordPuzzle>
+	
+		<wordPuzzle id = "P7">
+			<type>WP</type>
+			<prize>NONE</prize>
+			<solve>Who was the first president of the United States?</solve>
+			<answer>George Washington</answer>
+			<itemUse>NONE</itemUse>
+			<examine>This puzzle must be solved correctly for the possibility to win a prize.</examine>
+			<hint>person is on the one dollar bill</hint>
+		</wordPuzzle>
 
-	<puzzle>
-		<id>P11</id>
-		<type>IP</type>
-		<prize>NONE</prize>
-		<solve>Get the grizzly bear to the third floor with the honey bun.</solve>
-		<answer></answer>
-		<itemUse>CI01</itemUse>
-		<examine>This puzzle is the last step to win the game.</examine>
-		<hint>Honey bun is in vending machine.</hint>
-	</puzzle>
+		<wordPuzzle id = "P8">
+			<type>WP</type>
+			<prize>NONE</prize>
+			<solve>What does a caterpillar change into?</solve>
+			<answer>butterfly</answer>
+			<itemUse>NONE</itemUse>
+			<examine>This puzzle must be solved correctly for the possibility to win a prize.</examine>
+			<hint>answer is one word</hint>
+		</wordPuzzle>
+
+		<wordPuzzle id = "P9">
+			<type>WP</type>
+			<prize>KI01</prize>
+			<solve>Who is the current president of GGC?</solve>
+			<answer>Dr. Joseph</answer>
+			<itemUse>NONE</itemUse>
+			<examine>This puzzle must be solved correctly for the possibility to win a prize.</examine>
+			<hint>answer contains Dr. before last name</hint>
+		</wordPuzzle>
 	
-	<puzzle>
-		<id>P14</id>
-		<type>IP</type>
-		<prize>NONE</prize>
-		<solve>Unlock the office to get in.</solve>
-		<answer></answer>
-		<itemUse>KI01</itemUse>
-		<examine>This puzzle must be solved correctly to gain access.</examine>
-		<hint>Must find key to unlock door.</hint>
-	</puzzle>
+		<wordPuzzle id = "P10">
+			<type>WP</type>
+			<prize>NONE</prize>
+			<solve>What does the abbreviation GGC stand for?</solve>
+			<answer>Georgia Gwinnett College</answer>
+			<itemUse>NONE</itemUse>
+			<examine>This puzzle must be solved correctly for the possibility to win a prize.</examine>
+			<hint>name of the college you attend</hint>
+		</wordPuzzle>
+	</wordPuzzles>
+
+	<itemPuzzles>
+		<itemPuzzle id = "P11">
+			<type>IP</type>
+			<prize>NONE</prize>
+			<solve>Get the grizzly bear to the third floor with the honey bun.</solve>
+			<answer></answer>
+			<itemUse>CI01</itemUse>
+			<examine>This puzzle is the last step to win the game.</examine>
+			<hint>Honey bun is in vending machine.</hint>
+		</itemPuzzle>
+
+		<itemPuzzle id = "P14">
+			<type>IP</type>
+			<prize>NONE</prize>
+			<solve>Unlock the office to get in.</solve>
+			<answer></answer>
+			<itemUse>KI01</itemUse>
+			<examine>This puzzle must be solved correctly to gain access.</examine>
+			<hint>Must find key to unlock door.</hint>
+		</itemPuzzle>
 	
-	<puzzle>
-		<id>P15</id>
-		<type>IP</type>
-		<prize>KI04</prize>
-		<solve>Capture the scribble. How many sides does a octagon have?</solve>
-		<answer>8</answer>
-		<itemUse>KI00</itemUse>
-		<examine>This puzzle must be solved correctly for the possibility to win a prize.</examine>
-		<hint>Item is used on whiteboards.</hint>
-	</puzzle>
-	
-	<puzzle>
-		<id>P16</id>
-		<type>IP</type>
-		<prize>KI05</prize>
-		<solve>Capture the scribble. How many sides does a heptagon have?</solve>
-		<answer>7</answer>
-		<itemUse>KI00</itemUse>
-		<examine>This puzzle must be solved correctly for the possibility to win a prize.</examine>
-		<hint>Item is used on whiteboards.</hint>
-	</puzzle>
-	
-	<puzzle>
-		<id>P17</id>
-		<type>IP</type>
-		<prize>NONE</prize>
-		<solve>Fix the server room.</solve>
-		<answer></answer>
-		<itemUse>KI08</itemUse>
-		<examine>This is the second to the last puzzle in order to win the game.</examine>
-		<hint>Need to have the ethernet cable item.</hint>
-	</puzzle>
-</Puzzles>
+		<itemPuzzle id = "P15">
+			<type>IP</type>
+			<prize>KI04</prize>
+			<solve>A docile scribble! You should capture it!</solve>
+			<answer></answer>
+			<itemUse>KI00</itemUse>
+			<examine>If only there was a way to make a barrier around the "whiteboard" scribble...</examine>
+			<hint>Item is used on whiteboards.</hint>
+		</itemPuzzle>
+
+		<itemPuzzle id = "P16">
+			<type>IP</type>
+			<prize>KI05</prize>
+			<solve>A docile scribble! You should capture it!</solve>
+			<answer></answer>
+			<itemUse>KI00</itemUse>
+			<examine>If only there was a way to make a barrier around the "whiteboard" scribble....</examine>
+			<hint>Item is used on whiteboards.</hint>
+		</itemPuzzle>
+
+		<itemPuzzle id = "P17">
+			<type>IP</type>
+			<prize>NONE</prize>
+			<solve>Fix the server room.</solve>
+			<answer></answer>
+			<itemUse>KI08</itemUse>
+			<examine>Looks like you finally have what you need to fix the internet.</examine>
+			<hint>Need to have the ethernet cable item.</hint>
+		</itemPuzzle>
+	</itemPuzzles>
+</xml>

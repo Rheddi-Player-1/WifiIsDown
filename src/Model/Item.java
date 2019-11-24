@@ -64,7 +64,6 @@ public class Item
 			NodeList consumableItemNodes = doc.getElementsByTagName("consumableItem");
 			for (int j = 0; j < consumableItemNodes.getLength(); j++)
 			{
-
 				Node cNode = consumableItemNodes.item(j);
 
 				if (cNode.getNodeType() == Node.ELEMENT_NODE)
@@ -167,8 +166,6 @@ public class Item
 					allItems.put(vItem.getItemID(), vItem);
 				}
 			}
-
-
 		}
 		catch (Exception e)
 		{

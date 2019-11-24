@@ -89,15 +89,17 @@ public class Puzzle
 	//Method Reads Puzzle XML file
 	public static void readPuzzleXML()
 	{
-		File xml = new File("src/Xmls/Puzzles.xml");
-		DocumentBuilderFactory f = DocumentBuilderFactory.newInstance();
-		DocumentBuilder b;
-		try {
-			b = f.newDocumentBuilder();
-			Document d = b.parse(xml);
-			d.getDocumentElement();
-			
-			NodeList puzzleNodes = d.getElementsByTagName("wordPuzzles");
+		File puzzleInfo = new File("src/XMLs/Puzzles.xml");
+		DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
+		DocumentBuilder dBuilder;
+		try
+		{
+			//Creating object for word puzzles
+			dBuilder = dbFactory.newDocumentBuilder();
+			Document doc = dBuilder.parse(puzzleInfo);
+			doc.getDocumentElement().normalize();
+
+			NodeList puzzleNodes = doc.getElementsByTagName("wordPuzzle");
 			for(int i = 0; i < puzzleNodes.getLength(); i++)
 			{
 				Node node = puzzleNodes.item(i);
@@ -106,8 +108,8 @@ public class Puzzle
 				if(node.getNodeType() == Node.ELEMENT_NODE)
 				{
 					Element e = (Element) node;
-					
-					String id = e.getElementsByTagName("id").item(0).getTextContent();
+
+					String id = e.getAttribute("id");
 					String type = e.getElementsByTagName("type").item(0).getTextContent();
 					String temp1 = e.getElementsByTagName("prize").item(0).getTextContent();
 					String solve = e.getElementsByTagName("solve").item(0).getTextContent();
@@ -124,10 +126,10 @@ public class Puzzle
 				}
 			}
 
-			NodeList puzzleNodesToo = d.getElementsByTagName("itemPuzzles");
-			for(int i = 0; i < puzzleNodesToo.getLength(); i++)
+			NodeList puzzleNodesToo = doc.getElementsByTagName("itemPuzzle");
+			for(int j = 0; j < puzzleNodesToo.getLength(); j++)
 			{
-				Node node = puzzleNodes.item(i);
+				Node node = puzzleNodesToo.item(j);
 
 				Item prize = null;
 				Item itemUse = null;
@@ -135,7 +137,7 @@ public class Puzzle
 				{
 					Element e = (Element) node;
 
-					String id = e.getElementsByTagName("id").item(0).getTextContent();
+					String id = e.getAttribute("id");
 					String type = e.getElementsByTagName("type").item(0).getTextContent();
 					String temp1 = e.getElementsByTagName("prize").item(0).getTextContent();
 					String solve = e.getElementsByTagName("solve").item(0).getTextContent();
